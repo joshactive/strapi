@@ -42,7 +42,19 @@ module.exports = ({ env }) => {
         },
       },
     },
-    'strapi::cors',
+    {
+      name: 'strapi::cors',
+      config: {
+        origin: [
+          'http://localhost:4321',
+          'https://active-away-astro.pages.dev',
+          'https://*.active-away-astro.pages.dev', // Preview deployments
+        ],
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+        headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+        keepHeaderOnError: true,
+      },
+    },
     'strapi::poweredBy',
     'strapi::query',
     'strapi::body',
