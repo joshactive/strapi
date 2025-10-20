@@ -44,9 +44,31 @@ module.exports = ({ env }) => {
     'Set this to keep transfer tokens consistent.'
   );
 
+  const url = env('URL', '');
+  const defaultCookieSecure = typeof url === 'string' && url.startsWith('https://');
+  const adminCookieSecureRaw = env('ADMIN_COOKIE_SECURE');
+  const adminCookieSecure =
+    adminCookieSecureRaw !== undefined
+      ? env.bool('ADMIN_COOKIE_SECURE')
+      : defaultCookieSecure;
+
+  if (
+    process.env.NODE_ENV === 'production' &&
+    !adminCookieSecure &&
+    defaultCookieSecure &&
+    adminCookieSecureRaw === undefined
+  ) {
+    console.warn(
+      '⚠️  Admin refresh cookies are not marked secure. Set ADMIN_COOKIE_SECURE=true if your app runs strictly over HTTPS.'
+    );
+  }
+
   return {
     auth: {
       secret: adminJwtSecret,
+      cookie: {
+        secure: adminCookieSecure,
+      },
     },
     apiToken: {
       salt: apiTokenSalt,
