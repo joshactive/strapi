@@ -8,12 +8,16 @@ This example deploys self-hosted version of [Strapi](https://strapi.io/). Intern
 
 - Strapi
 - Postgres
+- Cloudflare Images for image optimization and delivery
+- Cloudflare R2 for PDFs and other media storage
 
 ## 💁‍♀️ How to use
 
 - Click the Railway button 👆
 - Add the environment variables
-- Media will automatically be persisted between deploys!
+- Configure Cloudflare Images + R2 for media storage (see [HYBRID_SETUP.md](HYBRID_SETUP.md))
+- Images will automatically be optimized via Cloudflare Images
+- Other files (PDFs, docs) will be stored in Cloudflare R2
 
 ## 💻 Developing locally
 
@@ -35,3 +39,7 @@ When developing locally this Strapi template will connect to the Postgres server
 
 - After your app is deployed, visit the `/admin` endpoint to create your admin user.
 - If you want to use npm with this project make sure you delete the `yarn.lock` file after you have ran `npm install`
+- **Media Storage**: This project uses a hybrid approach:
+  - **Images**: Cloudflare Images (automatic optimization, CDN delivery)
+  - **Other files**: Cloudflare R2 (PDFs, documents, etc.)
+  - See [HYBRID_SETUP.md](HYBRID_SETUP.md) for setup instructions
