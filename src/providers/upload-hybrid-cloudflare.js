@@ -4,15 +4,31 @@ const fetch = require("node-fetch");
 
 module.exports = {
   init(config) {
-    // S3 client for R2
-    const s3Client = new S3Client({
-      credentials: {
-        accessKeyId: config.r2AccessKeyId,
-        secretAccessKey: config.r2SecretAccessKey,
-      },
-      endpoint: config.r2Endpoint,
-      region: "auto",
-    });
+    // Check if configuration is complete
+    const hasCloudflareImages = config.cfAccountId && config.cfImagesToken;
+    const hasR2Config = config.r2AccessKeyId && config.r2SecretAccessKey && config.r2Endpoint && config.r2Bucket;
+
+    if (!hasCloudflareImages && !hasR2Config) {
+      console.warn("⚠️  Cloudflare upload provider: No credentials configured. Upload functionality will be limited.");
+      console.warn("⚠️  Please set CF_ACCOUNT_ID, CF_IMAGES_TOKEN, R2_* environment variables in Railway.");
+    }
+
+    // S3 client for R2 (only if configured)
+    let s3Client = null;
+    if (hasR2Config) {
+      try {
+        s3Client = new S3Client({
+          credentials: {
+            accessKeyId: config.r2AccessKeyId,
+            secretAccessKey: config.r2SecretAccessKey,
+          },
+          endpoint: config.r2Endpoint,
+          region: "auto",
+        });
+      } catch (error) {
+        console.error("Failed to initialize R2 client:", error.message);
+      }
+    }
 
     const isImage = (file) => {
       const imageMimeTypes = [
@@ -30,7 +46,7 @@ module.exports = {
 
     return {
       async upload(file) {
-        if (isImage(file)) {
+        if (isImage(file) && hasCloudflareImages) {
           // Upload to Cloudflare Images
           try {
             const formData = new FormData();
@@ -67,9 +83,9 @@ module.exports = {
             };
           } catch (error) {
             console.error("Cloudflare Images upload error:", error);
-            throw error;
+            throw new Error(`Failed to upload image to Cloudflare Images: ${error.message}`);
           }
-        } else {
+        } else if (!isImage(file) && hasR2Config && s3Client) {
           // Upload to R2 for non-image files
           try {
             const key = `${config.r2RootPath ? config.r2RootPath + "/" : ""}${file.hash}${file.ext}`;
@@ -92,13 +108,20 @@ module.exports = {
             };
           } catch (error) {
             console.error("R2 upload error:", error);
-            throw error;
+            throw new Error(`Failed to upload file to R2: ${error.message}`);
           }
+        } else {
+          // No valid configuration available
+          throw new Error(
+            `Upload failed: Cloudflare credentials not configured. ` +
+            `Please set CF_ACCOUNT_ID, CF_IMAGES_TOKEN, and R2_* environment variables in Railway. ` +
+            `See HYBRID_SETUP.md for instructions.`
+          );
         }
       },
 
       async delete(file) {
-        if (file.provider === "cloudflare-images" && file.cfImageId) {
+        if (file.provider === "cloudflare-images" && file.cfImageId && hasCloudflareImages) {
           // Delete from Cloudflare Images
           try {
             const response = await fetch(
@@ -119,7 +142,7 @@ module.exports = {
           } catch (error) {
             console.error("Cloudflare Images delete error:", error);
           }
-        } else if (file.provider === "cloudflare-r2" && file.provider_metadata?.key) {
+        } else if (file.provider === "cloudflare-r2" && file.provider_metadata?.key && hasR2Config && s3Client) {
           // Delete from R2
           try {
             await s3Client.send(
