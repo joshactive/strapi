@@ -44,6 +44,70 @@ module.exports = {
       return imageMimeTypes.includes(file.mime);
     };
 
+    const normalizeBaseUrl = (rawUrl) => {
+      if (!rawUrl) {
+        return null;
+      }
+
+      try {
+        const url = new URL(rawUrl);
+        return `${url.origin}${url.pathname.replace(/\/$/, "")}`;
+      } catch (error) {
+        console.warn(
+          `⚠️  Cloudflare upload provider: Invalid CF_IMAGES_BASE_URL "${rawUrl}". Falling back to default variants.`
+        );
+        return null;
+      }
+    };
+
+    const buildImageVariantUrls = (result, baseUrl) => {
+      if (!baseUrl) {
+        return {
+          defaultUrl: result.variants[0],
+          variants: result.variants,
+          metadataVariants: result.variants.map((url) => ({ name: null, url, originalUrl: url })),
+        };
+      }
+
+      const sanitizedBase = normalizeBaseUrl(baseUrl);
+
+      if (!sanitizedBase) {
+        return {
+          defaultUrl: result.variants[0],
+          variants: result.variants,
+          metadataVariants: result.variants.map((url) => ({ name: null, url, originalUrl: url })),
+        };
+      }
+
+      const rewrittenVariants = result.variants.map((variantUrl) => {
+        try {
+          const url = new URL(variantUrl);
+          const segments = url.pathname.split("/").filter(Boolean);
+          const variantName = segments.pop() || "public";
+          const customUrl = `${sanitizedBase}/${result.id}/${variantName}`;
+
+          return {
+            name: variantName,
+            url: customUrl,
+            originalUrl: variantUrl,
+          };
+        } catch (error) {
+          console.warn("⚠️  Cloudflare upload provider: unable to parse variant URL:", variantUrl);
+          return {
+            name: null,
+            url: variantUrl,
+            originalUrl: variantUrl,
+          };
+        }
+      });
+
+      return {
+        defaultUrl: rewrittenVariants[0]?.url || result.variants[0],
+        variants: rewrittenVariants.map((item) => item.url),
+        metadataVariants: rewrittenVariants,
+      };
+    };
+
     return {
       async upload(file) {
         if (isImage(file) && hasCloudflareImages) {
@@ -73,13 +137,20 @@ module.exports = {
             }
 
             // Store the image ID and variants
-            file.url = data.result.variants[0]; // Default variant
+            const { defaultUrl, variants, metadataVariants } = buildImageVariantUrls(
+              data.result,
+              config.cfImagesBaseUrl
+            );
+
+            file.url = defaultUrl;
             file.cfImageId = data.result.id;
-            file.cfVariants = data.result.variants;
+            file.cfVariants = variants;
             file.provider = "cloudflare-images";
             file.provider_metadata = {
               imageId: data.result.id,
-              variants: data.result.variants,
+              variants,
+              originalVariants: data.result.variants,
+              variantMetadata: metadataVariants,
             };
           } catch (error) {
             console.error("Cloudflare Images upload error:", error);
@@ -173,4 +244,3 @@ module.exports = {
     };
   },
 };
-

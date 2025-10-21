@@ -21,6 +21,7 @@ module.exports = {
     const hybridConfig = {
       cfAccountId: env('CF_ACCOUNT_ID'),
       cfImagesToken: env('CF_IMAGES_TOKEN'),
+      cfImagesBaseUrl: env('CF_IMAGES_BASE_URL'),
       r2AccessKeyId: env('R2_ACCESS_KEY_ID'),
       r2SecretAccessKey: env('R2_SECRET_ACCESS_KEY'),
       r2Endpoint: env('R2_ENDPOINT'),

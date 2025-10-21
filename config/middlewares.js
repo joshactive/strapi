@@ -12,6 +12,7 @@ const toOrigin = (value) => {
 
 module.exports = ({ env }) => {
   const r2PublicOrigin = toOrigin(env('R2_PUBLIC_URL'));
+  const cloudflareImagesBaseOrigin = toOrigin(env('CF_IMAGES_BASE_URL'));
   const imageDeliveryOrigin = 'https://imagedelivery.net';
 
   const imgSrc = ["'self'", 'data:', 'blob:', imageDeliveryOrigin];
@@ -22,6 +23,11 @@ module.exports = ({ env }) => {
     imgSrc.push(r2PublicOrigin);
     mediaSrc.push(r2PublicOrigin);
     connectSrc.push(r2PublicOrigin);
+  }
+
+  if (cloudflareImagesBaseOrigin) {
+    imgSrc.push(cloudflareImagesBaseOrigin);
+    connectSrc.push(cloudflareImagesBaseOrigin);
   }
 
   return [
