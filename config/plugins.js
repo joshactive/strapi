@@ -23,6 +23,16 @@ module.exports = ({ env }) => {
   const jwtSecret = ensureJwtSecret(env);
 
   return {
+    'strapi-5-sitemap-plugin': {
+      enabled: true,
+      config: {
+        autoGenerate: true,
+        hostname: env('PUBLIC_URL', 'https://your-site.pages.dev'),
+      }
+    },
+    seo: {
+      enabled: true,
+    },
     "users-permissions": {
       config: {
         jwtSecret,

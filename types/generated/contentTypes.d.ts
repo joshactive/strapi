@@ -430,173 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGroupOrganiserGroupOrganiser
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'group_organisers';
-  info: {
-    description: 'Tennis holiday group organisers and events';
-    displayName: 'Group Organiser';
-    pluralName: 'group-organisers';
-    singularName: 'group-organiser';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    airportMaster: Schema.Attribute.String;
-    airportTransferMaster: Schema.Attribute.String;
-    barsMasterV2: Schema.Attribute.RichText;
-    belowHeadingTextMaster: Schema.Attribute.RichText;
-    boardBasisLg: Schema.Attribute.String;
-    boardBasisMasterv2: Schema.Attribute.RichText;
-    bookCardioImage: Schema.Attribute.Media<'images'>;
-    bookCardioInfo: Schema.Attribute.Text;
-    bookCardioLink: Schema.Attribute.String;
-    bookCourtsImage: Schema.Attribute.Media<'images'>;
-    bookCourtsInfo: Schema.Attribute.Text;
-    bookCourtsLink: Schema.Attribute.String;
-    bookLessonsImage: Schema.Attribute.Media<'images'>;
-    bookLessonsInfo: Schema.Attribute.Text;
-    bookLessonsLink: Schema.Attribute.String;
-    bookRacketsImage: Schema.Attribute.Media<'images'>;
-    bookRacketsInfo: Schema.Attribute.Text;
-    bookRacketsLink: Schema.Attribute.String;
-    cafeInformationClinicsMaster: Schema.Attribute.Text;
-    carParkingInformationMaster: Schema.Attribute.Text;
-    countryLg: Schema.Attribute.String;
-    countryMaster: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    diningExperience110Master: Schema.Attribute.Decimal &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 0;
-        },
-        number
-      >;
-    displayOnFrontEnd: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>;
-    emailAddressForAcademy: Schema.Attribute.Email;
-    excerpt: Schema.Attribute.Text;
-    facilitiesExtraInformationMaster: Schema.Attribute.Text;
-    facilitiesMasterV2: Schema.Attribute.JSON;
-    faqMaster: Schema.Attribute.JSON;
-    fullScreenVideoToShow: Schema.Attribute.String;
-    gettingThere: Schema.Attribute.Text;
-    googleMapsSearchTerm: Schema.Attribute.String;
-    groupOrganiserImageMaster: Schema.Attribute.Media<'images'>;
-    groupOrganiserNameMaster: Schema.Attribute.String;
-    groupOrganiserNameMaster2: Schema.Attribute.String;
-    groupOrganiserOtherUrl: Schema.Attribute.String;
-    groupOrganiserProductMaster: Schema.Attribute.String;
-    groupOrganiserWhatsappUrlMaster: Schema.Attribute.String;
-    guestRating110Master: Schema.Attribute.Decimal &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 0;
-        },
-        number
-      >;
-    headingTextMaster: Schema.Attribute.String;
-    holidaysHolidays1Link: Schema.Attribute.String;
-    holidaysHolidays2Link: Schema.Attribute.String;
-    holidaysHolidays2LinkCopy: Schema.Attribute.String;
-    hostedHolidaysInfo1Image: Schema.Attribute.Media<'images'>;
-    hostedHolidaysInfo1Info: Schema.Attribute.Text;
-    hostedHolidaysInfo1Title: Schema.Attribute.String;
-    hostedHolidaysInfo2Image: Schema.Attribute.Media<'images'>;
-    hostedHolidaysInfo2ImageCopy: Schema.Attribute.Media<'images'>;
-    hostedHolidaysInfo2Info: Schema.Attribute.Text;
-    hostedHolidaysInfo2Title: Schema.Attribute.String;
-    howDoWeGetAroundPlayWatch: Schema.Attribute.RichText;
-    internalFeedbackRating10: Schema.Attribute.Decimal &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 0;
-        },
-        number
-      >;
-    itineraryDownloadUrl: Schema.Attribute.String;
-    itineraryDownloadUrl2: Schema.Attribute.String;
-    itineraryMaster: Schema.Attribute.JSON;
-    lengthOfTrip: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::group-organiser.group-organiser'
-    > &
-      Schema.Attribute.Private;
-    lunchJuniorTennisCamps: Schema.Attribute.Text;
-    mainGalleryMaster: Schema.Attribute.Media<'images', true>;
-    mainHeaderImageMaster: Schema.Attribute.Media<'images'>;
-    mainHeaderMaster: Schema.Attribute.String;
-    maximumGroupSizeMasterClinic: Schema.Attribute.Integer;
-    otherFaqsUrlMaster: Schema.Attribute.String;
-    ourRatingMaster: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 5;
-          min: 1;
-        },
-        number
-      >;
-    padelCourtsInfo: Schema.Attribute.Text;
-    permalink: Schema.Attribute.String;
-    postType: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'group-organiser'>;
-    priceFromLg: Schema.Attribute.Decimal;
-    productTypeLg: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    residentialOrNonResidentialCamp: Schema.Attribute.Enumeration<
-      ['Residential', 'Non-Residential', 'Both']
-    >;
-    restaurantsV2Master: Schema.Attribute.RichText;
-    schoolToursAvailableMonths: Schema.Attribute.String;
-    schoolToursLengthOfTrip: Schema.Attribute.String;
-    settingMasterV2: Schema.Attribute.RichText;
-    shortLocationNameMaster: Schema.Attribute.String;
-    singleOccupancyFromLg: Schema.Attribute.Decimal;
-    singleOccupancyRangeMaster: Schema.Attribute.String;
-    slug: Schema.Attribute.UID<'title'>;
-    tennisCoachImage: Schema.Attribute.Media<'images'>;
-    tennisCoachInfo: Schema.Attribute.RichText;
-    tennisCoachName1: Schema.Attribute.String;
-    tennisCoachWhatsappUrl: Schema.Attribute.String;
-    tennisCourts110Master: Schema.Attribute.Decimal &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 0;
-        },
-        number
-      >;
-    tennisCourtsMasterV2: Schema.Attribute.RichText;
-    tennisCourtSurfaceMaster: Schema.Attribute.String;
-    theEventInformationPlayWatch: Schema.Attribute.RichText;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    topTipsMasterV2: Schema.Attribute.RichText;
-    typicalGroupSizeMaster: Schema.Attribute.Integer;
-    uniqueValueMaster: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    venueMaster: Schema.Attribute.String;
-    whatsIncludedMaster: Schema.Attribute.JSON;
-    whatsNotIncludedMaster: Schema.Attribute.JSON;
-    whereDoWeStayPlayWatch: Schema.Attribute.RichText;
-    whyWeLoveThisVenue1: Schema.Attribute.String;
-    whyWeLoveThisVenue2: Schema.Attribute.String;
-    whyWeLoveThisVenue3: Schema.Attribute.String;
-    whyWeLoveThisVenue4: Schema.Attribute.String;
-    wordpressId: Schema.Attribute.Integer & Schema.Attribute.Unique;
-    wpOldSlug: Schema.Attribute.String;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -831,6 +664,128 @@ export interface PluginReviewWorkflowsWorkflowStage
       'manyToOne',
       'plugin::review-workflows.workflow'
     >;
+  };
+}
+
+export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginContentType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'strapi_5_sitemap_plugin_content_types';
+  info: {
+    displayName: 'strapi-5-sitemap-plugin-content-type';
+    pluralName: 'strapi-5-sitemap-plugin-content-types';
+    singularName: 'strapi-5-sitemap-plugin-content-type';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    frequency: Schema.Attribute.String;
+    langcode: Schema.Attribute.String;
+    lastModified: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type'
+    > &
+      Schema.Attribute.Private;
+    pattern: Schema.Attribute.String;
+    priority: Schema.Attribute.Float;
+    publishedAt: Schema.Attribute.DateTime;
+    thumbnail: Schema.Attribute.String;
+    type: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginContentTypeSingleUrl
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'strapi_5_sitemap_plugin_content_type_single_urls';
+  info: {
+    displayName: 'strapi-5-sitemap-plugin-content-type-single-url';
+    pluralName: 'strapi-5-sitemap-plugin-content-type-single-urls';
+    singularName: 'strapi-5-sitemap-plugin-content-type-single-url';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    frequency: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type-single-url'
+    > &
+      Schema.Attribute.Private;
+    priority: Schema.Attribute.Float;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginOption
+  extends Struct.SingleTypeSchema {
+  collectionName: 'strapi_5_sitemap_plugin_options';
+  info: {
+    displayName: 'strapi-5-sitemap-plugin-options';
+    pluralName: 'strapi-5-sitemap-plugin-options';
+    singularName: 'strapi-5-sitemap-plugin-option';
+  };
+  options: {
+    comment: '';
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    baseUrl: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-option'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1107,12 +1062,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::review-workflows.workflow': PluginReviewWorkflowsWorkflow;
       'plugin::review-workflows.workflow-stage': PluginReviewWorkflowsWorkflowStage;
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type': PluginStrapi5SitemapPluginStrapi5SitemapPluginContentType;
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type-single-url': PluginStrapi5SitemapPluginStrapi5SitemapPluginContentTypeSingleUrl;
+      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-option': PluginStrapi5SitemapPluginStrapi5SitemapPluginOption;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
