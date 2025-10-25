@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_key_information",
+  "info": {
+    "displayName": "Key Information",
+    "icon": "info-circle",
+    "description": "Key information item with title, info, image and link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
+
+

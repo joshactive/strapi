@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "videos",
+  "info": {
+    "singularName": "video",
+    "pluralName": "videos",
+    "displayName": "Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wpId": {
+      "type": "integer",
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "videoTitle": {
+      "type": "string"
+    },
+    "videoDescription": {
+      "type": "text"
+    },
+    "youtubeUrl": {
+      "type": "string"
+    },
+    "videoCategory": {
+      "type": "string"
+    },
+    "ordering": {
+      "type": "integer",
+      "default": 50
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

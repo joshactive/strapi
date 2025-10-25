@@ -3,7 +3,7 @@ const csv = require('csv-parser');
 const fetch = require('node-fetch');
 const phpUnserialize = require('php-unserialize');
 
-const CSV_PATH = '/Users/joshuathompson/Desktop/content-types/group-organiser-export.csv';
+const CSV_PATH = '/Users/joshuathompson/strapi/strapi/csv/tennis-holidays-export.csv';
 const STRAPI_URL = 'http://localhost:1337';
 
 // Helper to parse PHP serialized data
@@ -45,13 +45,10 @@ function parseItinerary(phpArray) {
   const items = [];
   for (const [, item] of Object.entries(phpArray)) {
     if (item && typeof item === 'object' && item.itinerary_heading_master_v2) {
-      // Skip empty itinerary items
-      if (item.itinerary_heading_master_v2 || item.itinerary_content_master_v2) {
-        items.push({
-          day: item.itinerary_heading_master_v2 || '',
-          content: item.itinerary_content_master_v2 || ''
-        });
-      }
+      items.push({
+        day: item.itinerary_heading_master_v2 || '',
+        content: item.itinerary_content_master_v2 || ''
+      });
     }
   }
   return items;
@@ -73,8 +70,28 @@ function parseFaqs(phpArray) {
   return items;
 }
 
-async function importGroupOrganisers() {
-  const organisers = [];
+// Helper to parse key information
+function parseKeyInformation(phpArray) {
+  if (!phpArray) return [];
+  
+  const items = [];
+  for (const [, item] of Object.entries(phpArray)) {
+    if (item && typeof item === 'object') {
+      const keyInfo = {
+        title: item.hosted_holidays_info_1_title || item.hosted_holidays_info_2_title || '',
+        info: item.hosted_holidays_info_1_info || item.hosted_holidays_info_2_info || '',
+        link: item.holidays_holidays_1_link || item.holidays_holidays_2_link || ''
+      };
+      if (keyInfo.title) {
+        items.push(keyInfo);
+      }
+    }
+  }
+  return items;
+}
+
+async function importTennisHolidays() {
+  const holidays = [];
   
   console.log('📖 Reading CSV file...');
   
@@ -95,9 +112,10 @@ async function importGroupOrganisers() {
         const itinerary = parsePhpSerialized(row.itinerary_master);
         const faqs = parsePhpSerialized(row.faq_master);
         const facilities = parsePhpSerialized(row.facilities_master_v2);
+        const keyInfo = parsePhpSerialized(row.key_information_repeater);
         
         // Map CSV columns to Strapi fields
-        const organiser = {
+        const holiday = {
           wpId: parseInt(row[idKey]),
           title: row.Title,
           slug: row.Title
@@ -105,6 +123,14 @@ async function importGroupOrganisers() {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-+|-+$/g, ''),
           excerpt: row.Excerpt || '',
+          
+          // SEO data
+          seo: {
+            metaTitle: row._aioseo_title || row.Title,
+            metaDescription: row._aioseo_description || '',
+            keywords: row._aioseo_keywords || '',
+            canonicalURL: row.Permalink || ''
+          },
           
           // Venue information
           venue: row.venue_master || '',
@@ -152,6 +178,7 @@ async function importGroupOrganisers() {
           facilities: parseInclusionItems(facilities),
           itinerary: parseItinerary(itinerary),
           faqs: parseFaqs(faqs),
+          keyInformation: parseKeyInformation(keyInfo),
           
           // Additional information
           facilitiesExtraInfo: row.facilities_extra_information_master || '',
@@ -197,30 +224,32 @@ async function importGroupOrganisers() {
           boardBasisLg: row['board-basis-lg'] || '',
           priceFrom: row['price-from-lg'] ? parseFloat(row['price-from-lg']) : null,
           displayOnFrontEnd: row['display-on-front-end'] === 'Yes',
+          ordering: row['ordering---1--first--99--last'] ? parseInt(row['ordering---1--first--99--last']) : 99,
+          uniqueValueForGrid: row.unique_value_for_listing_grid || '',
           productType: row.product_type_lg || '',
           singleOccupancyFrom: row.single_occupancy_from_lg ? parseFloat(row.single_occupancy_from_lg) : null,
           
           publishedAt: new Date() // Auto-publish
         };
         
-        organisers.push(organiser);
+        holidays.push(holiday);
       })
       .on('end', resolve)
       .on('error', reject);
   });
   
-  console.log(`✅ Parsed ${organisers.length} group organisers from CSV\n`);
+  console.log(`✅ Parsed ${holidays.length} tennis holidays from CSV\n`);
   
   // Check if API is accessible
   console.log('🔍 Checking Strapi API access...');
-  const testResponse = await fetch(`${STRAPI_URL}/api/group-organisers`);
+  const testResponse = await fetch(`${STRAPI_URL}/api/tennis-holidays`);
   
   if (testResponse.status === 403) {
     console.error('\n❌ API Access Denied!');
     console.error('\n📋 Please enable API permissions:');
     console.error('   1. Go to Strapi Admin: http://localhost:1337/admin');
     console.error('   2. Go to Settings → Roles → Public');
-    console.error('   3. Scroll to "Group Organiser" permissions');
+    console.error('   3. Scroll to "Tennis Holiday" permissions');
     console.error('   4. Check: find, findOne, and create');
     console.error('   5. Click Save');
     console.error('   6. Run this script again\n');
@@ -232,38 +261,38 @@ async function importGroupOrganisers() {
   }
   
   console.log('✅ API access confirmed\n');
-  console.log('📤 Importing group organisers into Strapi...\n');
+  console.log('📤 Importing tennis holidays into Strapi...\n');
   
   let imported = 0;
   let skipped = 0;
   let errors = 0;
   
-  for (const organiser of organisers) {
+  for (const holiday of holidays) {
     try {
-      // Check if organiser already exists
-      const checkUrl = `${STRAPI_URL}/api/group-organisers?filters[wpId][$eq]=${organiser.wpId}`;
+      // Check if holiday already exists
+      const checkUrl = `${STRAPI_URL}/api/tennis-holidays?filters[wpId][$eq]=${holiday.wpId}`;
       const checkResponse = await fetch(checkUrl);
       
       if (!checkResponse.ok) {
-        throw new Error(`Failed to check existing organiser: ${checkResponse.statusText}`);
+        throw new Error(`Failed to check existing holiday: ${checkResponse.statusText}`);
       }
       
       const checkData = await checkResponse.json();
       
       if (checkData.data && checkData.data.length > 0) {
-        console.log(`⏭️  Skipping organiser ${organiser.wpId} - ${organiser.title.substring(0, 50)}... (already exists)`);
+        console.log(`⏭️  Skipping holiday ${holiday.wpId} - ${holiday.title.substring(0, 50)}... (already exists)`);
         skipped++;
         continue;
       }
       
-      // Create the organiser
-      const createUrl = `${STRAPI_URL}/api/group-organisers`;
+      // Create the holiday
+      const createUrl = `${STRAPI_URL}/api/tennis-holidays`;
       const createResponse = await fetch(createUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ data: organiser })
+        body: JSON.stringify({ data: holiday })
       });
       
       if (!createResponse.ok) {
@@ -272,21 +301,21 @@ async function importGroupOrganisers() {
       }
       
       imported++;
-      console.log(`✅ Imported organiser ${organiser.wpId} - ${organiser.title.substring(0, 50)}...`);
+      console.log(`✅ Imported holiday ${holiday.wpId} - ${holiday.title.substring(0, 50)}...`);
       
       // Small delay to avoid overwhelming the API
-      await new Promise(resolve => setTimeout(resolve, 50));
+      await new Promise(resolve => setTimeout(resolve, 100));
       
     } catch (error) {
       errors++;
-      console.error(`❌ Error importing organiser ${organiser.wpId}: ${error.message}`);
+      console.error(`❌ Error importing holiday ${holiday.wpId}: ${error.message}`);
     }
   }
   
   console.log('\n' + '='.repeat(60));
   console.log('📊 IMPORT SUMMARY');
   console.log('='.repeat(60));
-  console.log(`Total organisers in CSV: ${organisers.length}`);
+  console.log(`Total holidays in CSV: ${holidays.length}`);
   console.log(`Successfully imported: ${imported}`);
   console.log(`Skipped (already exist): ${skipped}`);
   console.log(`Errors: ${errors}`);
@@ -294,15 +323,15 @@ async function importGroupOrganisers() {
   
   if (imported > 0) {
     console.log('\n💡 TIP: You can now disable the "create" permission for Public role');
-    console.log('   Settings → Roles → Public → Group Organiser → Uncheck "create"');
+    console.log('   Settings → Roles → Public → Tennis Holiday → Uncheck "create"');
   }
 }
 
 // Run the import
-console.log('🚀 Starting Group Organisers Import...');
+console.log('🚀 Starting Tennis Holidays Import...');
 console.log('');
 
-importGroupOrganisers()
+importTennisHolidays()
   .then(() => {
     console.log('');
     console.log('🎉 Import complete!');
@@ -313,3 +342,4 @@ importGroupOrganisers()
     console.error(error.stack);
     process.exit(1);
   });
+

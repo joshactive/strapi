@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "icon": "question-circle",
+    "description": "Frequently Asked Question item"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": false
+    },
+    "answer": {
+      "type": "richtext",
+      "required": false
+    }
+  }
+}
+
+

@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wpId": {
+      "type": "integer",
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "reviewName": {
+      "type": "string"
+    },
+    "reviewerText": {
+      "type": "richtext"
+    },
+    "reviewDate": {
+      "type": "date"
+    },
+    "reviewApplyTo": {
+      "type": "text"
+    },
+    "reviewUrl": {
+      "type": "string"
+    },
+    "reviewUniqueId": {
+      "type": "string"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true
+    },
+    "ordering": {
+      "type": "integer",
+      "default": 50
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

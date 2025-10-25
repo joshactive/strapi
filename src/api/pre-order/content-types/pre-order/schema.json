@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pre_orders",
+  "info": {
+    "singularName": "pre-order",
+    "pluralName": "pre-orders",
+    "displayName": "Pre-Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "kind": "collectionType",
+  "collectionName": "play_and_watches",
+  "info": {
+    "singularName": "play-and-watch",
+    "pluralName": "play-and-watches",
+    "displayName": "Play & Watch"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wpId": {
+      "type": "integer",
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "venueName": {
+      "type": "string"
+    },
+    "shortLocationName": {
+      "type": "string"
+    },
+    "destinationAirport": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "lengthOfTrip": {
+      "type": "string"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "headerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "mainHeader": {
+      "type": "string"
+    },
+    "headingText": {
+      "type": "text"
+    },
+    "belowHeadingText": {
+      "type": "richtext"
+    },
+    "mainInformation": {
+      "type": "richtext"
+    },
+    "tennisEvent": {
+      "type": "string"
+    },
+    "tennisStandard": {
+      "type": "string"
+    },
+    "perfectFor": {
+      "type": "string"
+    },
+    "singleOccupancy": {
+      "type": "text"
+    },
+    "singleOccupancyShort": {
+      "type": "text"
+    },
+    "priceFrom": {
+      "type": "decimal"
+    },
+    "tickets": {
+      "type": "text"
+    },
+    "boardBasis": {
+      "type": "string"
+    },
+    "starRating": {
+      "type": "string"
+    },
+    "arrivalDepartureDay": {
+      "type": "string"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true
+    },
+    "ordering": {
+      "type": "integer",
+      "default": 50
+    },
+    "productType": {
+      "type": "string"
+    },
+    "uniqueValue": {
+      "type": "text"
+    },
+    "whyWeLoveVenue1": {
+      "type": "string"
+    },
+    "whyWeLoveVenue2": {
+      "type": "string"
+    },
+    "whyWeLoveVenue3": {
+      "type": "string"
+    },
+    "whyWeLoveVenue4": {
+      "type": "string"
+    },
+    "ourRating": {
+      "type": "decimal"
+    },
+    "tennisCourts": {
+      "type": "string"
+    },
+    "theEvent": {
+      "type": "richtext"
+    },
+    "whereWeStay": {
+      "type": "richtext"
+    },
+    "howWeGetAround": {
+      "type": "richtext"
+    },
+    "settingDescription": {
+      "type": "richtext"
+    },
+    "boardBasisIncluded": {
+      "type": "richtext"
+    },
+    "roomsInformation": {
+      "type": "richtext"
+    },
+    "topTips": {
+      "type": "richtext"
+    },
+    "moreInformation": {
+      "type": "richtext"
+    },
+    "nonPlayerInformation": {
+      "type": "richtext"
+    },
+    "importantInfoAboutFlights": {
+      "type": "richtext"
+    },
+    "flightSearching": {
+      "type": "richtext"
+    },
+    "gettingThere": {
+      "type": "richtext"
+    },
+    "googleMapsUrl": {
+      "type": "text"
+    },
+    "mapsAddress": {
+      "type": "text"
+    },
+    "itineraryDownloadUrl": {
+      "type": "text"
+    },
+    "otherFaqsUrl": {
+      "type": "text"
+    },
+    "typicalGroupSize": {
+      "type": "string"
+    },
+    "emailAddress": {
+      "type": "email",
+      "required": false
+    },
+    "itinerary": {
+      "type": "component",
+      "component": "shared.itinerary-item",
+      "repeatable": true
+    },
+    "faqs": {
+      "type": "component",
+      "component": "shared.faq",
+      "repeatable": true
+    },
+    "inclusions": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    },
+    "facilities": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_inclusion_items",
+  "info": {
+    "displayName": "Inclusion Item",
+    "icon": "check-circle",
+    "description": "What's included or not included item"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "string",
+      "required": true
+    },
+    "included": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
+
+
