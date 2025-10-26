@@ -477,6 +477,74 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFeaturedLocationFeaturedLocation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'featured_locations';
+  info: {
+    description: 'Manage featured locations for homepage carousel';
+    displayName: 'Featured Location';
+    pluralName: 'featured-locations';
+    singularName: 'featured-location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    holiday_type: Schema.Attribute.Enumeration<
+      [
+        'tennis-holiday',
+        'pickleball-holiday',
+        'junior-tennis-camp',
+        'padel-tennis-holiday',
+        'play-and-watch',
+        'ski-holiday',
+      ]
+    > &
+      Schema.Attribute.Required;
+    junior_tennis_camp: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::junior-tennis-camp.junior-tennis-camp'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::featured-location.featured-location'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    padel_tennis_holiday: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::padel-tennis-holiday.padel-tennis-holiday'
+    >;
+    pickleball_holiday: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::pickleball-holiday.pickleball-holiday'
+    >;
+    play_and_watch: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::play-and-watch.play-and-watch'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    ski_holiday: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::ski-holiday.ski-holiday'
+    >;
+    tennis_holiday: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::tennis-holiday.tennis-holiday'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGroupOrganiserGroupOrganiser
   extends Struct.CollectionTypeSchema {
   collectionName: 'group_organisers';
@@ -2298,6 +2366,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::events.event': ApiEventsEvent;
+      'api::featured-location.featured-location': ApiFeaturedLocationFeaturedLocation;
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;

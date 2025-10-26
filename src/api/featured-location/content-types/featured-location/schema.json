@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_locations",
+  "info": {
+    "singularName": "featured-location",
+    "pluralName": "featured-locations",
+    "displayName": "Featured Location",
+    "description": "Manage featured locations for homepage carousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "holiday_type": {
+      "type": "enumeration",
+      "enum": [
+        "tennis-holiday",
+        "pickleball-holiday",
+        "junior-tennis-camp",
+        "padel-tennis-holiday",
+        "play-and-watch",
+        "ski-holiday"
+      ],
+      "required": true
+    },
+    "tennis_holiday": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tennis-holiday.tennis-holiday"
+    },
+    "pickleball_holiday": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pickleball-holiday.pickleball-holiday"
+    },
+    "junior_tennis_camp": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::junior-tennis-camp.junior-tennis-camp"
+    },
+    "padel_tennis_holiday": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::padel-tennis-holiday.padel-tennis-holiday"
+    },
+    "play_and_watch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::play-and-watch.play-and-watch"
+    },
+    "ski_holiday": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ski-holiday.ski-holiday"
+    }
+  }
+}
+
