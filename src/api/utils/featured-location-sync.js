@@ -1,4 +1,7 @@
 /**
+ * @deprecated This utility uses Strapi v4 API (entityService) which is deprecated.
+ * Use sync-featured-location.js instead (uses Strapi v5 Document Service API)
+ * 
  * Shared utility for syncing Featured Locations
  * Used by lifecycle hooks across all holiday types
  */

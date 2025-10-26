@@ -1,49 +1,31 @@
-/**
- * Ski Holiday Lifecycle Hooks
- * Auto-syncs Featured Locations when displayOnFrontEnd is toggled
- */
-
-const featuredLocationSync = require('../../../utils/featured-location-sync');
+const { syncFeaturedLocation } = require('../../../utils/sync-featured-location');
 
 module.exports = {
   async afterCreate(event) {
-    const { result } = event;
-    
-    if (result.displayOnFrontEnd === true) {
-      await featuredLocationSync.createFeaturedLocation({
-        holidayId: result.id,
-        holidayType: 'ski-holiday',
-        relation: 'ski_holiday',
-        ordering: result.ordering
-      });
-    }
+    const { result, params } = event;
+    if (params?.data?.publishedAt === null) return;
+    await syncFeaturedLocation({
+      holidayType: 'ski-holiday',
+      relationField: 'ski_holiday',
+      documentId: result.documentId,
+      displayOnFrontEnd: result.displayOnFrontEnd,
+      ordering: result.ordering,
+      title: result.title
+    });
   },
 
   async afterUpdate(event) {
     const { result } = event;
-    
-    if (result.displayOnFrontEnd === true) {
-      await featuredLocationSync.createFeaturedLocation({
-        holidayId: result.id,
-        holidayType: 'ski-holiday',
-        relation: 'ski_holiday',
-        ordering: result.ordering
-      });
-    } else if (result.displayOnFrontEnd === false) {
-      await featuredLocationSync.removeFeaturedLocation({
-        holidayId: result.id,
-        relation: 'ski_holiday'
-      });
-    }
+    if (result.displayOnFrontEnd === undefined && result.ordering === undefined) return;
+    await syncFeaturedLocation({
+      holidayType: 'ski-holiday',
+      relationField: 'ski_holiday',
+      documentId: result.documentId,
+      displayOnFrontEnd: result.displayOnFrontEnd,
+      ordering: result.ordering,
+      title: result.title
+    });
   },
 
-  async afterDelete(event) {
-    const { result } = event;
-    
-    await featuredLocationSync.removeFeaturedLocation({
-      holidayId: result.id,
-      relation: 'ski_holiday'
-    });
-  }
+  // afterDelete intentionally not implemented
 };
-

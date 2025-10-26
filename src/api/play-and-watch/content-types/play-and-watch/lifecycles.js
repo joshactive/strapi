@@ -1,49 +1,31 @@
-/**
- * Play and Watch Lifecycle Hooks
- * Auto-syncs Featured Locations when displayOnFrontEnd is toggled
- */
-
-const featuredLocationSync = require('../../../utils/featured-location-sync');
+const { syncFeaturedLocation } = require('../../../utils/sync-featured-location');
 
 module.exports = {
   async afterCreate(event) {
-    const { result } = event;
-    
-    if (result.displayOnFrontEnd === true) {
-      await featuredLocationSync.createFeaturedLocation({
-        holidayId: result.id,
-        holidayType: 'play-and-watch',
-        relation: 'play_and_watch',
-        ordering: result.ordering
-      });
-    }
+    const { result, params } = event;
+    if (params?.data?.publishedAt === null) return;
+    await syncFeaturedLocation({
+      holidayType: 'play-and-watch',
+      relationField: 'play_and_watch',
+      documentId: result.documentId,
+      displayOnFrontEnd: result.displayOnFrontEnd,
+      ordering: result.ordering,
+      title: result.title
+    });
   },
 
   async afterUpdate(event) {
     const { result } = event;
-    
-    if (result.displayOnFrontEnd === true) {
-      await featuredLocationSync.createFeaturedLocation({
-        holidayId: result.id,
-        holidayType: 'play-and-watch',
-        relation: 'play_and_watch',
-        ordering: result.ordering
-      });
-    } else if (result.displayOnFrontEnd === false) {
-      await featuredLocationSync.removeFeaturedLocation({
-        holidayId: result.id,
-        relation: 'play_and_watch'
-      });
-    }
+    if (result.displayOnFrontEnd === undefined && result.ordering === undefined) return;
+    await syncFeaturedLocation({
+      holidayType: 'play-and-watch',
+      relationField: 'play_and_watch',
+      documentId: result.documentId,
+      displayOnFrontEnd: result.displayOnFrontEnd,
+      ordering: result.ordering,
+      title: result.title
+    });
   },
 
-  async afterDelete(event) {
-    const { result } = event;
-    
-    await featuredLocationSync.removeFeaturedLocation({
-      holidayId: result.id,
-      relation: 'play_and_watch'
-    });
-  }
+  // afterDelete intentionally not implemented
 };
-
