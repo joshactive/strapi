@@ -29,7 +29,8 @@
         "junior-tennis-camp",
         "padel-tennis-holiday",
         "play-and-watch",
-        "ski-holiday"
+        "ski-holiday",
+        "tennis-clinic"
       ],
       "required": true
     },
@@ -62,6 +63,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::ski-holiday.ski-holiday"
+    },
+    "tennis_clinic": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tennis-clinic.tennis-clinic"
     }
   }
 }

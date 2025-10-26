@@ -502,6 +502,7 @@ export interface ApiFeaturedLocationFeaturedLocation
         'padel-tennis-holiday',
         'play-and-watch',
         'ski-holiday',
+        'tennis-clinic',
       ]
     > &
       Schema.Attribute.Required;
@@ -534,6 +535,10 @@ export interface ApiFeaturedLocationFeaturedLocation
     ski_holiday: Schema.Attribute.Relation<
       'oneToOne',
       'api::ski-holiday.ski-holiday'
+    >;
+    tennis_clinic: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::tennis-clinic.tennis-clinic'
     >;
     tennis_holiday: Schema.Attribute.Relation<
       'oneToOne',
