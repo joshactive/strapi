@@ -14,8 +14,8 @@
   "attributes": {
     "wpId": {
       "type": "integer",
-      "unique": true,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "title": {
       "type": "string",
@@ -59,15 +59,19 @@
     "mainHeader": {
       "type": "string"
     },
-    "mainHeaderImage": {
+    "headerImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "mainGallery": {
       "type": "media",
       "multiple": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "headingText": {
       "type": "string"
@@ -210,7 +214,9 @@
     "groupOrganiserImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "groupOrganiserName2": {
       "type": "string"
@@ -249,7 +255,9 @@
     "bookCourtsImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "bookLessonsInfo": {
       "type": "richtext"
@@ -260,7 +268,9 @@
     "bookLessonsImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "bookRacketsInfo": {
       "type": "richtext"
@@ -271,7 +281,9 @@
     "bookRacketsImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "bookCardioInfo": {
       "type": "richtext"
@@ -282,7 +294,9 @@
     "bookCardioImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "tennisCoachName": {
       "type": "string"
@@ -293,7 +307,9 @@
     "tennisCoachImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "tennisCoachInfo": {
       "type": "richtext"
@@ -315,7 +331,9 @@
     "featuredImageLg": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "displayOnFrontEnd": {
       "type": "boolean",

@@ -22,7 +22,7 @@
       "component": "shared.seo",
       "repeatable": false
     },
-    "header_image": {
+    "headerImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

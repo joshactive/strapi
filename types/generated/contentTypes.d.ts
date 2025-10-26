@@ -622,6 +622,7 @@ export interface ApiGroupOrganiserGroupOrganiser
         },
         number
       >;
+    headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.String;
     howWeGetAround: Schema.Attribute.RichText;
     internalRating: Schema.Attribute.Decimal;
@@ -638,7 +639,6 @@ export interface ApiGroupOrganiserGroupOrganiser
     lunchInfo: Schema.Attribute.RichText;
     mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
-    mainHeaderImage: Schema.Attribute.Media<'images'>;
     maximumGroupSize: Schema.Attribute.Integer;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Integer &
@@ -1622,6 +1622,7 @@ export interface ApiTennisHolidayTennisHoliday
         },
         number
       >;
+    headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.String;
     howWeGetAround: Schema.Attribute.RichText;
     internalRating: Schema.Attribute.Decimal;
@@ -1639,7 +1640,6 @@ export interface ApiTennisHolidayTennisHoliday
     lunchInfo: Schema.Attribute.RichText;
     mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
-    mainHeaderImage: Schema.Attribute.Media<'images'>;
     maximumGroupSize: Schema.Attribute.Integer;
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<99>;
     otherFaqsUrl: Schema.Attribute.String;

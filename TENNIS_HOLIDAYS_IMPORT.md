@@ -40,7 +40,7 @@ Updated `/src/api/tennis-holiday/content-types/tennis-holiday/schema.json` with 
 - **keyInformation** - Info blocks with images
 
 #### Media Fields
-- mainHeaderImage
+- headerImage
 - mainGallery
 - featuredImageLg
 - Various booking images (courts, lessons, rackets, cardio)

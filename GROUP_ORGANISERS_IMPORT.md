@@ -30,7 +30,7 @@ Updated `/src/api/group-organiser/content-types/group-organiser/schema.json` wit
 - **faqs** - Frequently asked questions
 
 #### Media Fields
-- mainHeaderImage
+- headerImage
 - mainGallery
 - Various booking images (courts, lessons, rackets, cardio)
 - Group organiser images
