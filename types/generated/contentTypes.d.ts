@@ -468,6 +468,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     WPID: Schema.Attribute.String;
+    WPURL: Schema.Attribute.String;
     youtubeVideoUrl: Schema.Attribute.String;
   };
 }
