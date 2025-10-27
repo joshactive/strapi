@@ -171,17 +171,13 @@
     "racketSpecialistButtonText": {
       "type": "string"
     },
+    "racketSpecialistQuote": {
+      "type": "text"
+    },
+    "racketSpecialistQuoteAuthor": {
+      "type": "string"
+    },
     "racketSpecialistBgImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"]
-    },
-    "racketSpecialistOverlayImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"]
-    },
-    "racketSpecialistMaskImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
