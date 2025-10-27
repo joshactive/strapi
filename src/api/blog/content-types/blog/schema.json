@@ -16,6 +16,16 @@
       "type": "string",
       "required": true
     },
+    "headerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "CreationDate": {
       "type": "datetime"
     },
