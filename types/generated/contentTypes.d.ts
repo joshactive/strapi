@@ -450,6 +450,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     CreationDate: Schema.Attribute.DateTime;
+    headerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     image1600x400: Schema.Attribute.Media<'images'>;
     image2600x400: Schema.Attribute.Media<'images'>;
     imageForSocials1000x1000: Schema.Attribute.Media<'images'>;
