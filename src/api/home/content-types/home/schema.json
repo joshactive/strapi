@@ -25,12 +25,440 @@
     "headerImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
+    },
+    "testimonialImage1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "testimonialImage2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "testimonialImage3": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "testimonialImage4": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "aboutKicker": {
+      "type": "string"
+    },
+    "aboutTitle": {
+      "type": "string"
+    },
+    "aboutDescription": {
+      "type": "text"
+    },
+    "aboutContent": {
+      "type": "text"
+    },
+    "aboutStat1": {
+      "type": "string"
+    },
+    "aboutStat2": {
+      "type": "string"
+    },
+    "aboutStat3": {
+      "type": "string"
+    },
+    "aboutStat4": {
+      "type": "string"
+    },
+    "aboutImage1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "aboutImage2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "jamieMurrayImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "jamieMurrayTitle": {
+      "type": "string"
+    },
+    "jamieMurrayDescription": {
+      "type": "text"
+    },
+    "jamieMurrayButtonText": {
+      "type": "string"
+    },
+    "jamieMurrayVideoUrl": {
+      "type": "string"
+    },
+    "partner1Name": {
+      "type": "string"
+    },
+    "partner1Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "partner2Name": {
+      "type": "string"
+    },
+    "partner2Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "partner3Name": {
+      "type": "string"
+    },
+    "partner3Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "partner4Name": {
+      "type": "string"
+    },
+    "partner4Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "partner5Name": {
+      "type": "string"
+    },
+    "partner5Logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "racketSpecialistTitle": {
+      "type": "string"
+    },
+    "racketSpecialistDescription": {
+      "type": "text"
+    },
+    "racketSpecialistBullet1": {
+      "type": "string"
+    },
+    "racketSpecialistBullet2": {
+      "type": "string"
+    },
+    "racketSpecialistBullet3": {
+      "type": "string"
+    },
+    "racketSpecialistBullet4": {
+      "type": "string"
+    },
+    "racketSpecialistBullet5": {
+      "type": "string"
+    },
+    "racketSpecialistBullet6": {
+      "type": "string"
+    },
+    "racketSpecialistBullet7": {
+      "type": "string"
+    },
+    "racketSpecialistBullet8": {
+      "type": "string"
+    },
+    "racketSpecialistButtonText": {
+      "type": "string"
+    },
+    "racketSpecialistBgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "racketSpecialistOverlayImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "racketSpecialistMaskImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "thrivingCommunityTitle": {
+      "type": "string"
+    },
+    "thrivingCommunityDescription": {
+      "type": "text"
+    },
+    "thrivingCommunityBullet1": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet2": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet3": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet4": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet5": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet6": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet7": {
+      "type": "string"
+    },
+    "thrivingCommunityBullet8": {
+      "type": "string"
+    },
+    "thrivingCommunityButtonText": {
+      "type": "string"
+    },
+    "thrivingCommunityBgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "thrivingCommunityImage1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "thrivingCommunityImage2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "storiesTitle": {
+      "type": "string"
+    },
+    "storiesSubtitle": {
+      "type": "string"
+    },
+    "story1Name": {
+      "type": "string"
+    },
+    "story1Date": {
+      "type": "string"
+    },
+    "story1Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story1Text": {
+      "type": "text"
+    },
+    "story1Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story2Name": {
+      "type": "string"
+    },
+    "story2Date": {
+      "type": "string"
+    },
+    "story2Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story2Text": {
+      "type": "text"
+    },
+    "story2Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story3Name": {
+      "type": "string"
+    },
+    "story3Date": {
+      "type": "string"
+    },
+    "story3Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story3Text": {
+      "type": "text"
+    },
+    "story3Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story4Name": {
+      "type": "string"
+    },
+    "story4Date": {
+      "type": "string"
+    },
+    "story4Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story4Text": {
+      "type": "text"
+    },
+    "story4Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story5Name": {
+      "type": "string"
+    },
+    "story5Date": {
+      "type": "string"
+    },
+    "story5Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story5Text": {
+      "type": "text"
+    },
+    "story5Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story6Name": {
+      "type": "string"
+    },
+    "story6Date": {
+      "type": "string"
+    },
+    "story6Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story6Text": {
+      "type": "text"
+    },
+    "story6Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "story7Name": {
+      "type": "string"
+    },
+    "story7Date": {
+      "type": "string"
+    },
+    "story7Rating": {
+      "type": "integer",
+      "default": 5,
+      "min": 1,
+      "max": 5
+    },
+    "story7Text": {
+      "type": "text"
+    },
+    "story7Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "storiesGoogleIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "accordionTitle": {
+      "type": "string"
+    },
+    "accordion1Title": {
+      "type": "string"
+    },
+    "accordion1Content": {
+      "type": "text"
+    },
+    "accordion2Title": {
+      "type": "string"
+    },
+    "accordion2Content": {
+      "type": "text"
+    },
+    "accordion3Title": {
+      "type": "string"
+    },
+    "accordion3Content": {
+      "type": "text"
+    },
+    "accordion4Title": {
+      "type": "string"
+    },
+    "accordion4Content": {
+      "type": "text"
+    },
+    "accordion5Title": {
+      "type": "string"
+    },
+    "accordion5Content": {
+      "type": "text"
+    },
+    "accordion6Title": {
+      "type": "string"
+    },
+    "accordion6Content": {
+      "type": "text"
+    },
+    "accordion7Title": {
+      "type": "string"
+    },
+    "accordion7Content": {
+      "type": "text"
+    },
+    "accordion8Title": {
+      "type": "string"
+    },
+    "accordion8Content": {
+      "type": "text"
+    },
+    "accordion9Title": {
+      "type": "string"
+    },
+    "accordion9Content": {
+      "type": "text"
+    },
+    "accordion10Title": {
+      "type": "string"
+    },
+    "accordion10Content": {
+      "type": "text"
+    },
+    "accordion11Title": {
+      "type": "string"
+    },
+    "accordion11Content": {
+      "type": "text"
+    },
+    "accordion12Title": {
+      "type": "string"
+    },
+    "accordion12Content": {
+      "type": "text"
     }
   }
 }
