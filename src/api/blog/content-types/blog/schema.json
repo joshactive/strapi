@@ -16,6 +16,9 @@
       "type": "string",
       "required": true
     },
+    "WPURL": {
+      "type": "string"
+    },
     "headerImage": {
       "type": "media",
       "multiple": false,
