@@ -16,6 +16,19 @@
       "type": "string",
       "required": true
     },
+    "CreationDate": {
+      "type": "datetime"
+    },
+    "WPID": {
+      "type": "string"
+    },
+    "authorFullName": {
+      "type": "string",
+      "required": true
+    },
+    "CategoryImport": {
+      "type": "string"
+    },
     "slug": {
       "type": "uid",
       "targetField": "title"
@@ -32,12 +45,16 @@
     "image1600x400": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "image2600x400": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "youtubeVideoUrl": {
       "type": "string"
@@ -45,7 +62,9 @@
     "imageForSocials1000x1000": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "seo": {
       "type": "component",
@@ -54,4 +73,3 @@
     }
   }
 }
-
