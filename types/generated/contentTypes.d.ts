@@ -430,6 +430,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
+  collectionName: 'blogs';
+  info: {
+    description: 'Blog posts with SEO optimization';
+    displayName: 'Blog';
+    pluralName: 'blogs';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blogExcerpt: Schema.Attribute.Text;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image1600x400: Schema.Attribute.Media<'images'>;
+    image2600x400: Schema.Attribute.Media<'images'>;
+    imageForSocials1000x1000: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    seoMetaDescription: Schema.Attribute.Text;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    youtubeVideoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -709,22 +744,200 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutContent: Schema.Attribute.Text;
+    aboutDescription: Schema.Attribute.Text;
+    aboutImage1: Schema.Attribute.Media<'images'>;
+    aboutImage2: Schema.Attribute.Media<'images'>;
+    aboutKicker: Schema.Attribute.String;
+    aboutStat1: Schema.Attribute.String;
+    aboutStat2: Schema.Attribute.String;
+    aboutStat3: Schema.Attribute.String;
+    aboutStat4: Schema.Attribute.String;
+    aboutTitle: Schema.Attribute.String;
+    accordion10Content: Schema.Attribute.Text;
+    accordion10Title: Schema.Attribute.String;
+    accordion11Content: Schema.Attribute.Text;
+    accordion11Title: Schema.Attribute.String;
+    accordion12Content: Schema.Attribute.Text;
+    accordion12Title: Schema.Attribute.String;
+    accordion1Content: Schema.Attribute.Text;
+    accordion1Title: Schema.Attribute.String;
+    accordion2Content: Schema.Attribute.Text;
+    accordion2Title: Schema.Attribute.String;
+    accordion3Content: Schema.Attribute.Text;
+    accordion3Title: Schema.Attribute.String;
+    accordion4Content: Schema.Attribute.Text;
+    accordion4Title: Schema.Attribute.String;
+    accordion5Content: Schema.Attribute.Text;
+    accordion5Title: Schema.Attribute.String;
+    accordion6Content: Schema.Attribute.Text;
+    accordion6Title: Schema.Attribute.String;
+    accordion7Content: Schema.Attribute.Text;
+    accordion7Title: Schema.Attribute.String;
+    accordion8Content: Schema.Attribute.Text;
+    accordion8Title: Schema.Attribute.String;
+    accordion9Content: Schema.Attribute.Text;
+    accordion9Title: Schema.Attribute.String;
+    accordionTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     headerImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    jamieMurrayButtonText: Schema.Attribute.String;
+    jamieMurrayDescription: Schema.Attribute.Text;
+    jamieMurrayImage: Schema.Attribute.Media<'images'>;
+    jamieMurrayTitle: Schema.Attribute.String;
+    jamieMurrayVideoUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     main_heading: Schema.Attribute.String;
     main_sub_heading: Schema.Attribute.String;
+    partner1Logo: Schema.Attribute.Media<'images'>;
+    partner1Name: Schema.Attribute.String;
+    partner2Logo: Schema.Attribute.Media<'images'>;
+    partner2Name: Schema.Attribute.String;
+    partner3Logo: Schema.Attribute.Media<'images'>;
+    partner3Name: Schema.Attribute.String;
+    partner4Logo: Schema.Attribute.Media<'images'>;
+    partner4Name: Schema.Attribute.String;
+    partner5Logo: Schema.Attribute.Media<'images'>;
+    partner5Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    racketSpecialistBgImage: Schema.Attribute.Media<'images'>;
+    racketSpecialistBullet1: Schema.Attribute.String;
+    racketSpecialistBullet2: Schema.Attribute.String;
+    racketSpecialistBullet3: Schema.Attribute.String;
+    racketSpecialistBullet4: Schema.Attribute.String;
+    racketSpecialistBullet5: Schema.Attribute.String;
+    racketSpecialistBullet6: Schema.Attribute.String;
+    racketSpecialistBullet7: Schema.Attribute.String;
+    racketSpecialistBullet8: Schema.Attribute.String;
+    racketSpecialistButtonText: Schema.Attribute.String;
+    racketSpecialistDescription: Schema.Attribute.Text;
+    racketSpecialistQuote: Schema.Attribute.Text;
+    racketSpecialistQuoteAuthor: Schema.Attribute.String;
+    racketSpecialistTitle: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    storiesGoogleIcon: Schema.Attribute.Media<'images'>;
+    storiesSubtitle: Schema.Attribute.String;
+    storiesTitle: Schema.Attribute.String;
+    story1Avatar: Schema.Attribute.Media<'images'>;
+    story1Date: Schema.Attribute.String;
+    story1Name: Schema.Attribute.String;
+    story1Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story1Text: Schema.Attribute.Text;
+    story2Avatar: Schema.Attribute.Media<'images'>;
+    story2Date: Schema.Attribute.String;
+    story2Name: Schema.Attribute.String;
+    story2Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story2Text: Schema.Attribute.Text;
+    story3Avatar: Schema.Attribute.Media<'images'>;
+    story3Date: Schema.Attribute.String;
+    story3Name: Schema.Attribute.String;
+    story3Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story3Text: Schema.Attribute.Text;
+    story4Avatar: Schema.Attribute.Media<'images'>;
+    story4Date: Schema.Attribute.String;
+    story4Name: Schema.Attribute.String;
+    story4Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story4Text: Schema.Attribute.Text;
+    story5Avatar: Schema.Attribute.Media<'images'>;
+    story5Date: Schema.Attribute.String;
+    story5Name: Schema.Attribute.String;
+    story5Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story5Text: Schema.Attribute.Text;
+    story6Avatar: Schema.Attribute.Media<'images'>;
+    story6Date: Schema.Attribute.String;
+    story6Name: Schema.Attribute.String;
+    story6Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story6Text: Schema.Attribute.Text;
+    story7Avatar: Schema.Attribute.Media<'images'>;
+    story7Date: Schema.Attribute.String;
+    story7Name: Schema.Attribute.String;
+    story7Rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
+    story7Text: Schema.Attribute.Text;
+    testimonialImage1: Schema.Attribute.Media<'images'>;
+    testimonialImage2: Schema.Attribute.Media<'images'>;
+    testimonialImage3: Schema.Attribute.Media<'images'>;
+    testimonialImage4: Schema.Attribute.Media<'images'>;
+    thrivingCommunityBgImage: Schema.Attribute.Media<'images'>;
+    thrivingCommunityBullet1: Schema.Attribute.String;
+    thrivingCommunityBullet2: Schema.Attribute.String;
+    thrivingCommunityBullet3: Schema.Attribute.String;
+    thrivingCommunityBullet4: Schema.Attribute.String;
+    thrivingCommunityBullet5: Schema.Attribute.String;
+    thrivingCommunityBullet6: Schema.Attribute.String;
+    thrivingCommunityBullet7: Schema.Attribute.String;
+    thrivingCommunityBullet8: Schema.Attribute.String;
+    thrivingCommunityButtonText: Schema.Attribute.String;
+    thrivingCommunityDescription: Schema.Attribute.Text;
+    thrivingCommunityImage1: Schema.Attribute.Media<'images'>;
+    thrivingCommunityImage2: Schema.Attribute.Media<'images'>;
+    thrivingCommunityTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    whatDoWeOfferDescription: Schema.Attribute.Text;
+    whatDoWeOfferTitle: Schema.Attribute.String;
   };
 }
 
@@ -2370,6 +2583,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::blog.blog': ApiBlogBlog;
       'api::events.event': ApiEventsEvent;
       'api::featured-location.featured-location': ApiFeaturedLocationFeaturedLocation;
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
