@@ -16,6 +16,27 @@
       "type": "string",
       "required": true
     },
+    "WPURL": {
+      "type": "string"
+    },
+    "headerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "CreationDate": {
+      "type": "datetime"
+    },
+    "WPID": {
+      "type": "string"
+    },
+    "authorFullName": {
+      "type": "string",
+      "required": true
+    },
+    "CategoryImport": {
+      "type": "string"
+    },
     "slug": {
       "type": "uid",
       "targetField": "title"
