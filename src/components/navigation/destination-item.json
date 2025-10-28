@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_navigation_destination_items",
+  "info": {
+    "displayName": "Destination Item",
+    "description": "Individual destination link"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

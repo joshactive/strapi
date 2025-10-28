@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_navigation_text_links",
+  "info": {
+    "displayName": "Text Link",
+    "description": "Simple text link for navigation menus"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
+

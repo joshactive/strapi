@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_navigation_mega_menu_items",
+  "info": {
+    "displayName": "Mega Menu Item",
+    "description": "Mega menu dropdown item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gradient": {
+      "type": "string",
+      "default": "from-purple-500 to-purple-600"
+    }
+  }
+}
+

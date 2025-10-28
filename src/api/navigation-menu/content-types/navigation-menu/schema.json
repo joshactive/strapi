@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigation_menus",
+  "info": {
+    "singularName": "navigation-menu",
+    "pluralName": "navigation-menus",
+    "displayName": "Navigation Menu",
+    "description": "Website navigation menu configuration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "menuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu-item"
+    },
+    "datesFindYourNext": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.text-link"
+    },
+    "datesUsefulLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.text-link"
+    },
+    "racketsMegaMenuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.mega-menu-item"
+    },
+    "aboutMegaMenuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.mega-menu-item"
+    },
+    "aboutMegaMenuTitle": {
+      "type": "string",
+      "default": "Learn more about Active Away"
+    },
+    "aboutMegaMenuCTA": {
+      "type": "string",
+      "default": "Get in Touch"
+    },
+    "aboutMegaMenuCTAUrl": {
+      "type": "string",
+      "default": "#contact"
+    },
+    "destinationsCategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.destination-category"
+    },
+    "destinationsMegaMenuTitle": {
+      "type": "string",
+      "default": "Find your perfect destination"
+    },
+    "destinationsMegaMenuCTA": {
+      "type": "string",
+      "default": "View All Destinations"
+    },
+    "destinationsMegaMenuCTAUrl": {
+      "type": "string",
+      "default": "#all-destinations"
+    }
+  }
+}
+

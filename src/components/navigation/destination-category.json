@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_navigation_destination_categories",
+  "info": {
+    "displayName": "Destination Category",
+    "description": "Category grouping for destinations in mega menu"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "destinations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.destination-item"
+    }
+  }
+}

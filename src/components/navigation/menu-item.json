@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_navigation_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "description": "Navigation menu item"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasMegaMenu": {
+      "type": "boolean",
+      "default": false
+    },
+    "megaMenuId": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+
