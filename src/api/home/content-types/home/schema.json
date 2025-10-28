@@ -394,73 +394,73 @@
       "type": "string"
     },
     "accordion1Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion2Title": {
       "type": "string"
     },
     "accordion2Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion3Title": {
       "type": "string"
     },
     "accordion3Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion4Title": {
       "type": "string"
     },
     "accordion4Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion5Title": {
       "type": "string"
     },
     "accordion5Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion6Title": {
       "type": "string"
     },
     "accordion6Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion7Title": {
       "type": "string"
     },
     "accordion7Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion8Title": {
       "type": "string"
     },
     "accordion8Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion9Title": {
       "type": "string"
     },
     "accordion9Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion10Title": {
       "type": "string"
     },
     "accordion10Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion11Title": {
       "type": "string"
     },
     "accordion11Content": {
-      "type": "text"
+      "type": "richtext"
     },
     "accordion12Title": {
       "type": "string"
     },
     "accordion12Content": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }
