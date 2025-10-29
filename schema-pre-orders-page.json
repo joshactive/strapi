@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "pre_orders_pages",
+  "info": {
+    "singularName": "pre-orders-page",
+    "pluralName": "pre-orders-pages",
+    "displayName": "Pre-Orders Page",
+    "description": "Content for the /pre-orders page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Pre-Orders"
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true,
+      "default": "Be the first to secure your spot for our upcoming events, tours, and special experiences. Limited availability."
+    },
+    "heroKicker": {
+      "type": "string",
+      "required": false,
+      "default": "EXCLUSIVE OPPORTUNITIES"
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Pre-Orders - Active Away"
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": true,
+      "maxLength": 160,
+      "default": "Explore our exclusive pre-order opportunities. Be the first to secure your spot for upcoming events, tours, and special experiences."
+    }
+  }
+}
+
