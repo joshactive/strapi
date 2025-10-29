@@ -439,7 +439,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     singularName: 'blog';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
     authorFullName: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1030,6 +1030,62 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+  };
+}
+
+export interface ApiNavigationMenuNavigationMenu
+  extends Struct.SingleTypeSchema {
+  collectionName: 'navigation_menus';
+  info: {
+    description: 'Website navigation menu configuration';
+    displayName: 'Navigation Menu';
+    pluralName: 'navigation-menus';
+    singularName: 'navigation-menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutMegaMenuCTA: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Get in Touch'>;
+    aboutMegaMenuCTAUrl: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#contact'>;
+    aboutMegaMenuItems: Schema.Attribute.Component<
+      'navigation.mega-menu-item',
+      true
+    >;
+    aboutMegaMenuTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Learn more about Active Away'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    datesFindYourNext: Schema.Attribute.Component<'navigation.text-link', true>;
+    datesUsefulLinks: Schema.Attribute.Component<'navigation.text-link', true>;
+    destinationsCategories: Schema.Attribute.Component<
+      'navigation.destination-category',
+      true
+    >;
+    destinationsMegaMenuCTA: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'View All Destinations'>;
+    destinationsMegaMenuCTAUrl: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#all-destinations'>;
+    destinationsMegaMenuTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Find your perfect destination'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navigation-menu.navigation-menu'
+    > &
+      Schema.Attribute.Private;
+    menuItems: Schema.Attribute.Component<'navigation.menu-item', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    racketsMegaMenuItems: Schema.Attribute.Component<
+      'navigation.mega-menu-item',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2595,6 +2651,7 @@ declare module '@strapi/strapi' {
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;
+      'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
       'api::padel-tennis-holiday.padel-tennis-holiday': ApiPadelTennisHolidayPadelTennisHoliday;
       'api::pickleball-holiday.pickleball-holiday': ApiPickleballHolidayPickleballHoliday;
       'api::play-and-watch.play-and-watch': ApiPlayAndWatchPlayAndWatch;
