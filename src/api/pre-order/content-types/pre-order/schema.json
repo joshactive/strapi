@@ -11,6 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "Excerpt": {
+      "type": "text",
+      "required": true
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
