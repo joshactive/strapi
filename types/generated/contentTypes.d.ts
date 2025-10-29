@@ -1976,6 +1976,50 @@ export interface ApiTennisHolidayTennisHoliday
   };
 }
 
+export interface ApiVenuesPageVenuesPage extends Struct.SingleTypeSchema {
+  collectionName: 'venues_pages';
+  info: {
+    description: 'Content for the /venues page including hero section and SEO metadata';
+    displayName: 'Venues Page';
+    pluralName: 'venues-pages';
+    singularName: 'venues-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featuredSectionDescription: Schema.Attribute.Text;
+    featuredSectionTitle: Schema.Attribute.String;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'ALL DESTINATIONS'>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover our complete collection of tennis, padel, pickleball, and ski holidays across the world. Filter by type, location, and price to find your perfect getaway.'>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Explore All Venues'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::venues-page.venues-page'
+    > &
+      Schema.Attribute.Private;
+    pageTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'All Venues - Active Away'>;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
   collectionName: 'videos';
   info: {
@@ -2663,6 +2707,7 @@ declare module '@strapi/strapi' {
       'api::tennis-academy.tennis-academy': ApiTennisAcademyTennisAcademy;
       'api::tennis-clinic.tennis-clinic': ApiTennisClinicTennisClinic;
       'api::tennis-holiday.tennis-holiday': ApiTennisHolidayTennisHoliday;
+      'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

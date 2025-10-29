@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "venues_pages",
+  "info": {
+    "singularName": "venues-page",
+    "pluralName": "venues-pages",
+    "displayName": "Venues Page",
+    "description": "Content for the /venues page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Explore All Venues",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "default": "Discover our complete collection of tennis, padel, pickleball, and ski holidays across the world. Filter by type, location, and price to find your perfect getaway.",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "ALL DESTINATIONS",
+      "required": false
+    },
+    "pageTitle": {
+      "type": "string",
+      "default": "All Venues - Active Away",
+      "required": true
+    },
+    "featuredSectionTitle": {
+      "type": "string",
+      "required": false
+    },
+    "featuredSectionDescription": {
+      "type": "text",
+      "required": false
+    },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": true
+    }
+  }
+}
