@@ -22,29 +22,23 @@
     },
     "heroTitle": {
       "type": "string",
-      "required": true,
-      "default": "Pre-Orders"
+      "default": "Pre-Orders",
+      "required": true
     },
     "heroSubtitle": {
       "type": "text",
-      "required": true,
-      "default": "Be the first to secure your spot for our upcoming events, tours, and special experiences. Limited availability."
+      "default": "Be the first to secure your spot for our upcoming events, tours, and special experiences. Limited availability.",
+      "required": true
     },
     "heroKicker": {
       "type": "string",
-      "required": false,
-      "default": "EXCLUSIVE OPPORTUNITIES"
+      "default": "EXCLUSIVE OPPORTUNITIES",
+      "required": false
     },
-    "metaTitle": {
-      "type": "string",
-      "required": true,
-      "default": "Pre-Orders - Active Away"
-    },
-    "metaDescription": {
-      "type": "text",
-      "required": true,
-      "maxLength": 160,
-      "default": "Explore our exclusive pre-order opportunities. Be the first to secure your spot for upcoming events, tours, and special experiences."
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
