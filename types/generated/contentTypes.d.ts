@@ -1384,6 +1384,53 @@ export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPreOrdersPagePreOrdersPage extends Struct.SingleTypeSchema {
+  collectionName: 'pre_orders_pages';
+  info: {
+    description: 'Content for the /pre-orders page including hero section and SEO metadata';
+    displayName: 'Pre-Orders Page';
+    pluralName: 'pre-orders-pages';
+    singularName: 'pre-orders-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'EXCLUSIVE OPPORTUNITIES'>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Be the first to secure your spot for our upcoming events, tours, and special experiences. Limited availability.'>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Pre-Orders'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pre-orders-page.pre-orders-page'
+    > &
+      Schema.Attribute.Private;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }> &
+      Schema.Attribute.DefaultTo<'Explore our exclusive pre-order opportunities. Be the first to secure your spot for upcoming events, tours, and special experiences.'>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Pre-Orders - Active Away'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -2704,6 +2751,7 @@ declare module '@strapi/strapi' {
       'api::pickleball-holiday.pickleball-holiday': ApiPickleballHolidayPickleballHoliday;
       'api::play-and-watch.play-and-watch': ApiPlayAndWatchPlayAndWatch;
       'api::pre-order.pre-order': ApiPreOrderPreOrder;
+      'api::pre-orders-page.pre-orders-page': ApiPreOrdersPagePreOrdersPage;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
