@@ -1355,6 +1355,7 @@ export interface ApiPlayAndWatchPlayAndWatch
 export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
   collectionName: 'pre_orders';
   info: {
+    description: 'Pre-order entries with hero section, menu files, and dynamic forms';
     displayName: 'Pre-Order';
     pluralName: 'pre-orders';
     singularName: 'pre-order';
@@ -1366,15 +1367,24 @@ export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    formFields: Schema.Attribute.JSON;
+    formWebhookUrl: Schema.Attribute.Text;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    heroKicker: Schema.Attribute.String;
+    heroSubtitle: Schema.Attribute.Text;
+    heroTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pre-order.pre-order'
     > &
       Schema.Attribute.Private;
+    menuFiles: Schema.Attribute.Media<'files', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

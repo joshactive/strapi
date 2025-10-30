@@ -1,0 +1,108 @@
+{
+  "title": "IKOS ARIA PRE-ORDER",
+  "slug": "ikos-aria-pre-order",
+  "excerpt": "Secure your spot for an exclusive dining experience at Ikos Aria",
+  "description": "Be the first to experience our exceptional dining venues at Ikos Aria. Choose from 7 world-class restaurants and reserve your preferences in advance. This exclusive pre-order service ensures you get your preferred dining times and menu selections.",
+  "heroTitle": "IKOS ARIA PRE-ORDER",
+  "heroSubtitle": "Secure your spot for an exclusive dining experience at Ikos Aria",
+  "heroKicker": "EXCLUSIVE OPPORTUNITY",
+  "heroBackgroundImage": "Upload a beautiful resort/beach image here",
+  "menuFiles": [
+    "Upload: Anaya Menu.pdf",
+    "Upload: Fresco Menu.pdf",
+    "Upload: Kos Menu.pdf",
+    "Upload: Oliva Menu.pdf",
+    "Upload: Ouzo Menu.pdf",
+    "Upload: Provence Menu.pdf",
+    "Upload: Seasons Menu.pdf"
+  ],
+  "formWebhookUrl": "https://hooks.zapier.com/hooks/catch/xxxxx/yyyyy (Get this from Zapier or Make)",
+  "formFields": {
+    "fields": [
+      {
+        "name": "firstName",
+        "label": "First Name",
+        "type": "text",
+        "required": true,
+        "placeholder": "e.g Michael"
+      },
+      {
+        "name": "surname",
+        "label": "Surname",
+        "type": "text",
+        "required": true,
+        "placeholder": "e.g Cole"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "placeholder": "e.g michaelcole@gmail.com"
+      },
+      {
+        "name": "dateOfAttendance",
+        "label": "Date of Attendance",
+        "type": "date",
+        "required": true
+      },
+      {
+        "name": "restaurant",
+        "label": "Restaurant",
+        "type": "select",
+        "required": true,
+        "options": [
+          "Anaya Restaurant",
+          "Fresco Restaurant",
+          "Kos Restaurant",
+          "Oliva Restaurant",
+          "Ouzo Restaurant",
+          "Provence Restaurant",
+          "Seasons Restaurant"
+        ]
+      },
+      {
+        "name": "starter",
+        "label": "Starter",
+        "type": "text",
+        "required": false,
+        "placeholder": "e.g Spicy Garlic & Paprika Shrimp"
+      },
+      {
+        "name": "mainCourse",
+        "label": "Main Course",
+        "type": "text",
+        "required": false,
+        "placeholder": "e.g Medium Rare Steak"
+      },
+      {
+        "name": "dessert",
+        "label": "Dessert",
+        "type": "text",
+        "required": false,
+        "placeholder": "e.g Chocolate Brownie"
+      },
+      {
+        "name": "dietaryRequirements",
+        "label": "Dietary Requirements",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "e.g None"
+      },
+      {
+        "name": "otherInformation",
+        "label": "Other Information",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Any special requests"
+      }
+    ]
+  },
+  "seo": {
+    "metaTitle": "IKOS ARIA Pre-Order - Active Away",
+    "metaDescription": "Secure your dining reservations for Ikos Aria. Choose from 7 world-class restaurants and pre-order your menu selections.",
+    "keywords": "ikos aria, pre-order, dining, tennis holiday, exclusive",
+    "canonicalURL": "https://activeaway.com/pre-orders/ikos-aria-pre-order"
+  }
+}
+

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pre-order",
     "pluralName": "pre-orders",
-    "displayName": "Pre-Order"
+    "displayName": "Pre-Order",
+    "description": "Pre-order entries with hero section, menu files, and dynamic forms"
   },
   "options": {
     "draftAndPublish": true
@@ -15,9 +16,48 @@
       "type": "string",
       "required": true
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
     "excerpt": {
       "type": "text",
       "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "heroTitle": {
+      "type": "string"
+    },
+    "heroSubtitle": {
+      "type": "text"
+    },
+    "heroKicker": {
+      "type": "string"
+    },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "menuFiles": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "formWebhookUrl": {
+      "type": "text"
+    },
+    "formFields": {
+      "type": "json"
     },
     "seo": {
       "type": "component",
