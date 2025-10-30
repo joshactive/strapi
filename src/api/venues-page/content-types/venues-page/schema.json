@@ -48,7 +48,7 @@
       "type": "text",
       "required": false
     },
-    "SEO": {
+    "seo": {
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
