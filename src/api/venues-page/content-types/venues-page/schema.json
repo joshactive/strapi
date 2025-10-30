@@ -51,7 +51,7 @@
     "SEO": {
       "type": "component",
       "component": "shared.seo",
-      "repeatable": true
+      "repeatable": false
     }
   }
 }
