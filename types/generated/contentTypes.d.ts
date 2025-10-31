@@ -696,6 +696,8 @@ export interface ApiGroupOrganiserGroupOrganiser
     publishedAt: Schema.Attribute.DateTime;
     residentialType: Schema.Attribute.String;
     restaurants: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
+    roomsSubheading: Schema.Attribute.Text;
     schoolToursAvailableMonths: Schema.Attribute.String;
     schoolToursLengthOfTrip: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -1592,7 +1594,9 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     publishedAt: Schema.Attribute.DateTime;
     residentialOrNonResidential: Schema.Attribute.String;
     restaurantInformation: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
@@ -1679,7 +1683,9 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
