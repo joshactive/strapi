@@ -1154,7 +1154,9 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
@@ -1242,7 +1244,9 @@ export interface ApiPickleballHolidayPickleballHoliday
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
@@ -1326,7 +1330,9 @@ export interface ApiPlayAndWatchPlayAndWatch
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
@@ -1995,6 +2001,8 @@ export interface ApiTennisHolidayTennisHoliday
     residentialType: Schema.Attribute.String;
     restaurants: Schema.Attribute.RichText;
     roomOptions: Schema.Attribute.Component<'shared.room-option', true>;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
+    roomsSubheading: Schema.Attribute.Text;
     schoolToursAvailableMonths: Schema.Attribute.String;
     schoolToursLengthOfTrip: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;

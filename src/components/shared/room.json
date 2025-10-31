@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_rooms",
+  "info": {
+    "displayName": "Room",
+    "description": "Individual room/accommodation option"
+  },
+  "options": {},
+  "attributes": {
+    "roomGallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "roomTitle": {
+      "type": "string",
+      "required": true
+    },
+    "roomSize": {
+      "type": "string"
+    },
+    "roomBedConfig": {
+      "type": "string"
+    },
+    "roomText": {
+      "type": "text"
+    }
+  }
+}
+

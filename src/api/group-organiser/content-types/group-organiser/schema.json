@@ -344,6 +344,14 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "roomsSubheading": {
+      "type": "text"
+    },
+    "rooms": {
+      "type": "component",
+      "component": "shared.room",
+      "repeatable": true
     }
   }
 }

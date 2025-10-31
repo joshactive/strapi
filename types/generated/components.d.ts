@@ -148,6 +148,21 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedRoom extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rooms';
+  info: {
+    description: 'Individual room/accommodation option';
+    displayName: 'Room';
+  };
+  attributes: {
+    roomBedConfig: Schema.Attribute.String;
+    roomGallery: Schema.Attribute.Media<'images', true>;
+    roomSize: Schema.Attribute.String;
+    roomText: Schema.Attribute.Text;
+    roomTitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedRoomOption extends Struct.ComponentSchema {
   collectionName: 'components_shared_room_options';
   info: {
@@ -203,6 +218,7 @@ declare module '@strapi/strapi' {
       'shared.itinerary-item': SharedItineraryItem;
       'shared.key-information': SharedKeyInformation;
       'shared.open-graph': SharedOpenGraph;
+      'shared.room': SharedRoom;
       'shared.room-option': SharedRoomOption;
       'shared.seo': SharedSeo;
     }
