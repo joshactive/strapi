@@ -355,6 +355,19 @@
     "featured": {
       "type": "boolean",
       "default": false
+    },
+    "roomOptions": {
+      "type": "component",
+      "component": "shared.room-option",
+      "repeatable": true
+    },
+    "tripImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

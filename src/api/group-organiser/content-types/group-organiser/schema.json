@@ -336,6 +336,14 @@
     "featured": {
       "type": "boolean",
       "default": false
+    },
+    "tripImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

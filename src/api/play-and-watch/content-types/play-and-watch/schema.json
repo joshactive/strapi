@@ -212,6 +212,14 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "tripImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

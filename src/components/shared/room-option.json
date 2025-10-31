@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_room_options",
+  "info": {
+    "displayName": "Room Option",
+    "description": "Hotel room configuration with pricing"
+  },
+  "options": {},
+  "attributes": {
+    "roomType": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "priceFrom": {
+      "type": "decimal"
+    },
+    "maxOccupancy": {
+      "type": "integer"
+    },
+    "roomImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "amenities": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    }
+  }
+}
+

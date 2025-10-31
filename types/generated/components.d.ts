@@ -148,6 +148,22 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedRoomOption extends Struct.ComponentSchema {
+  collectionName: 'components_shared_room_options';
+  info: {
+    description: 'Hotel room configuration with pricing';
+    displayName: 'Room Option';
+  };
+  attributes: {
+    amenities: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    description: Schema.Attribute.RichText;
+    maxOccupancy: Schema.Attribute.Integer;
+    priceFrom: Schema.Attribute.Decimal;
+    roomImage: Schema.Attribute.Media<'images'>;
+    roomType: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
@@ -187,6 +203,7 @@ declare module '@strapi/strapi' {
       'shared.itinerary-item': SharedItineraryItem;
       'shared.key-information': SharedKeyInformation;
       'shared.open-graph': SharedOpenGraph;
+      'shared.room-option': SharedRoomOption;
       'shared.seo': SharedSeo;
     }
   }

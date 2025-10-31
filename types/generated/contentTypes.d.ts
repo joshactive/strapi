@@ -720,6 +720,7 @@ export interface ApiGroupOrganiserGroupOrganiser
     tennisCourtSurface: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.Integer;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1019,6 +1020,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1162,6 +1164,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     starRating: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1249,6 +1252,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     starRating: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1337,6 +1341,7 @@ export interface ApiPlayAndWatchPlayAndWatch
     tickets: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1985,6 +1990,7 @@ export interface ApiTennisHolidayTennisHoliday
     publishedAt: Schema.Attribute.DateTime;
     residentialType: Schema.Attribute.String;
     restaurants: Schema.Attribute.RichText;
+    roomOptions: Schema.Attribute.Component<'shared.room-option', true>;
     schoolToursAvailableMonths: Schema.Attribute.String;
     schoolToursLengthOfTrip: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -2009,6 +2015,7 @@ export interface ApiTennisHolidayTennisHoliday
     tennisCourtSurface: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.Integer;
     uniqueValue: Schema.Attribute.String;
     uniqueValueForGrid: Schema.Attribute.String;
