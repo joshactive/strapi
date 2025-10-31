@@ -1597,6 +1597,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1683,6 +1684,7 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     starRating: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1785,6 +1787,7 @@ export interface ApiTennisAcademyTennisAcademy
     theTennis: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -1867,6 +1870,7 @@ export interface ApiTennisClinicTennisClinic
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
