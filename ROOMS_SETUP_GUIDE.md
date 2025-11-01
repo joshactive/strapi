@@ -138,3 +138,4 @@ For each room, upload multiple images to roomGallery:
 **Status:** ✅ Ready to use
 **Created:** October 30, 2025
 
+
