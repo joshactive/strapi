@@ -509,6 +509,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     singleOccupancyPriceEvent: Schema.Attribute.Decimal;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    uniquevalue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
