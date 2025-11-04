@@ -95,7 +95,9 @@
     },
     "wpOldUrl": {
       "type": "string"
+    },
+    "uniquevalue": {
+      "type": "string"
     }
   }
 }
-
