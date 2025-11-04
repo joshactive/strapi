@@ -2147,6 +2147,7 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     videoDescription: Schema.Attribute.Text;
     videoTitle: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
     youtubeUrl: Schema.Attribute.String;
   };
 }
