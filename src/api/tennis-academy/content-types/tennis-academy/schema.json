@@ -259,6 +259,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "wpOldUrl": {
+      "type": "string"
     }
   }
 }

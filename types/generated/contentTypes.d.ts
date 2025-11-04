@@ -466,6 +466,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     WPID: Schema.Attribute.String;
+    wpOldUrl: Schema.Attribute.String;
     WPURL: Schema.Attribute.String;
     youtubeVideoUrl: Schema.Attribute.String;
   };
@@ -515,6 +516,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     wpId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -588,6 +590,7 @@ export interface ApiFeaturedLocationFeaturedLocation
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -739,6 +742,7 @@ export interface ApiGroupOrganiserGroupOrganiser
     wpId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1034,6 +1038,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1180,6 +1185,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1270,6 +1276,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1362,6 +1369,7 @@ export interface ApiPlayAndWatchPlayAndWatch
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1403,6 +1411,7 @@ export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     wpid: Schema.Attribute.String;
+    wpOldUrl: Schema.Attribute.String;
     wpurl: Schema.Attribute.String;
   };
 }
@@ -1484,6 +1493,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1526,6 +1536,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1619,6 +1630,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1708,6 +1720,7 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1811,6 +1824,7 @@ export interface ApiTennisAcademyTennisAcademy
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -1895,6 +1909,7 @@ export interface ApiTennisClinicTennisClinic
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -2051,6 +2066,7 @@ export interface ApiTennisHolidayTennisHoliday
     wpId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 

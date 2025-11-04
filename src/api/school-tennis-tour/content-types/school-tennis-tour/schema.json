@@ -231,6 +231,9 @@
       "type": "component",
       "component": "shared.room",
       "repeatable": true
+    },
+    "wpOldUrl": {
+      "type": "string"
     }
   }
 }

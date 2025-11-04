@@ -53,6 +53,9 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "wpOldUrl": {
+      "type": "string"
     }
   }
 }

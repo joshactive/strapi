@@ -68,6 +68,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tennis-clinic.tennis-clinic"
+    },
+    "wpOldUrl": {
+      "type": "string"
     }
   }
 }
