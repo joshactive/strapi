@@ -509,7 +509,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     singleOccupancyPriceEvent: Schema.Attribute.Decimal;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    uniquevalue: Schema.Attribute.String;
+    uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1253,9 +1253,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
-    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
-    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
@@ -1265,7 +1263,6 @@ export interface ApiPickleballHolidayPickleballHoliday
     starRating: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
-    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1277,7 +1274,6 @@ export interface ApiPickleballHolidayPickleballHoliday
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
-    wpOldUrl: Schema.Attribute.String;
   };
 }
 
