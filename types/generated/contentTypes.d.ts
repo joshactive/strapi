@@ -1264,6 +1264,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     barInformation: Schema.Attribute.RichText;
     bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
+    boardBasis: Schema.Attribute.RichText;
     boardBasisIncluded: Schema.Attribute.RichText;
     content: Schema.Attribute.RichText;
     country: Schema.Attribute.String;

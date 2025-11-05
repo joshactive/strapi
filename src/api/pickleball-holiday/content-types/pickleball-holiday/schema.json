@@ -275,6 +275,9 @@
     },
     "boardBasis": {
       "type": "richtext"
+    },
+    "boardBasisLg": {
+      "type": "string"
     }
   }
 }
