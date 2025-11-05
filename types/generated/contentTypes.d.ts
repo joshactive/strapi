@@ -1145,7 +1145,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     barInformation: Schema.Attribute.RichText;
     bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
-    boardBasis: Schema.Attribute.String;
+    boardBasis: Schema.Attribute.RichText;
     boardBasisIncluded: Schema.Attribute.RichText;
     content: Schema.Attribute.RichText;
     country: Schema.Attribute.String;
@@ -2012,7 +2012,9 @@ export interface ApiTennisClinicTennisClinic
   attributes: {
     address: Schema.Attribute.Text;
     availableMonths: Schema.Attribute.String;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
+    boardBasis: Schema.Attribute.RichText;
     cafeInformation: Schema.Attribute.RichText;
     carParkingInformation: Schema.Attribute.RichText;
     clinicMonth: Schema.Attribute.String;
@@ -2075,8 +2077,10 @@ export interface ApiTennisClinicTennisClinic
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    restaurants: Schema.Attribute.RichText;
     saturdayItineraryUrl: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     sundayItineraryUrl: Schema.Attribute.String;
@@ -2088,9 +2092,11 @@ export interface ApiTennisClinicTennisClinic
         },
         number
       >;
+    tennisCourts: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.String;

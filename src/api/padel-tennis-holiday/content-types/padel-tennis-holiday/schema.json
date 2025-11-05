@@ -92,7 +92,7 @@
       "type": "decimal"
     },
     "boardBasis": {
-      "type": "string"
+      "type": "richtext"
     },
     "starRating": {
       "type": "string"
