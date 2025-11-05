@@ -99,9 +99,6 @@
     "priceFrom": {
       "type": "decimal"
     },
-    "boardBasis": {
-      "type": "string"
-    },
     "starRating": {
       "type": "string"
     },
@@ -275,6 +272,9 @@
     },
     "wpOldUrl": {
       "type": "string"
+    },
+    "boardBasis": {
+      "type": "richtext"
     }
   }
 }
