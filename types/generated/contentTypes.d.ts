@@ -970,6 +970,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     ageGroups: Schema.Attribute.String;
     airport: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     cafeInformation: Schema.Attribute.RichText;
@@ -980,6 +981,14 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     diningInformation: Schema.Attribute.RichText;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     emailAddress: Schema.Attribute.Email;
@@ -991,6 +1000,14 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     gettingThere: Schema.Attribute.RichText;
     googleMapsSearchTerm: Schema.Attribute.String;
     googleMapsUrl: Schema.Attribute.String;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1005,6 +1022,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     > &
       Schema.Attribute.Private;
     lunchInformation: Schema.Attribute.RichText;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     maximumGroupSize: Schema.Attribute.Integer;
@@ -1018,10 +1036,21 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     publishedAt: Schema.Attribute.DateTime;
     residentialOrNonResidential: Schema.Attribute.String;
     restaurantInformation: Schema.Attribute.RichText;
+    restaurants: Schema.Attribute.RichText;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
+    tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
@@ -1114,6 +1143,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     airport: Schema.Attribute.String;
     arrivalDepartureDay: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1123,6 +1153,14 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     departureMonth: Schema.Attribute.String;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     distanceFromAirport: Schema.Attribute.String;
@@ -1135,6 +1173,14 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     gettingThere: Schema.Attribute.RichText;
     googleMapsSearchTerm: Schema.Attribute.Text;
     googleMapsUrl: Schema.Attribute.Text;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1147,6 +1193,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
       'api::padel-tennis-holiday.padel-tennis-holiday'
     > &
       Schema.Attribute.Private;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     moreInformation: Schema.Attribute.RichText;
@@ -1162,16 +1209,27 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
+    tennisCourts: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
@@ -1205,6 +1263,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     airport: Schema.Attribute.String;
     arrivalDepartureDay: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1214,6 +1273,14 @@ export interface ApiPickleballHolidayPickleballHoliday
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     departureMonth: Schema.Attribute.String;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     distanceFromAirport: Schema.Attribute.String;
@@ -1226,6 +1293,14 @@ export interface ApiPickleballHolidayPickleballHoliday
     gettingThere: Schema.Attribute.RichText;
     googleMapsSearchTerm: Schema.Attribute.Text;
     googleMapsUrl: Schema.Attribute.Text;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1238,6 +1313,7 @@ export interface ApiPickleballHolidayPickleballHoliday
       'api::pickleball-holiday.pickleball-holiday'
     > &
       Schema.Attribute.Private;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     moreInformation: Schema.Attribute.RichText;
@@ -1253,14 +1329,25 @@ export interface ApiPickleballHolidayPickleballHoliday
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    restaurants: Schema.Attribute.RichText;
     roomsInformation: Schema.Attribute.RichText;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
+    tennisCourts: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     typicalGroupSize: Schema.Attribute.String;
@@ -1290,6 +1377,7 @@ export interface ApiPlayAndWatchPlayAndWatch
   };
   attributes: {
     arrivalDepartureDay: Schema.Attribute.String;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1299,6 +1387,14 @@ export interface ApiPlayAndWatchPlayAndWatch
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     destinationAirport: Schema.Attribute.String;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     emailAddress: Schema.Attribute.Email;
@@ -1310,6 +1406,14 @@ export interface ApiPlayAndWatchPlayAndWatch
     gallery: Schema.Attribute.Media<'images', true>;
     gettingThere: Schema.Attribute.RichText;
     googleMapsUrl: Schema.Attribute.Text;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     howWeGetAround: Schema.Attribute.RichText;
@@ -1324,6 +1428,7 @@ export interface ApiPlayAndWatchPlayAndWatch
       'api::play-and-watch.play-and-watch'
     > &
       Schema.Attribute.Private;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     mapsAddress: Schema.Attribute.Text;
@@ -1336,16 +1441,26 @@ export interface ApiPlayAndWatchPlayAndWatch
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     tennisCourts: Schema.Attribute.String;
     tennisEvent: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
@@ -1553,6 +1668,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     airport: Schema.Attribute.String;
     availableMonths: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     cafeInformation: Schema.Attribute.RichText;
@@ -1563,6 +1679,14 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     diningInformation: Schema.Attribute.RichText;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     distanceFromAirport: Schema.Attribute.String;
@@ -1575,6 +1699,14 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     gettingThere: Schema.Attribute.RichText;
     googleMapsSearchTerm: Schema.Attribute.String;
     googleMapsUrl: Schema.Attribute.String;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1589,6 +1721,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     > &
       Schema.Attribute.Private;
     lunchInformation: Schema.Attribute.RichText;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     maximumGroupSize: Schema.Attribute.Integer;
@@ -1602,14 +1735,25 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     publishedAt: Schema.Attribute.DateTime;
     residentialOrNonResidential: Schema.Attribute.String;
     restaurantInformation: Schema.Attribute.RichText;
+    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
+    tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
@@ -1646,6 +1790,7 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     arrivalDepartureDay: Schema.Attribute.String;
     averageGroupSize: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1655,6 +1800,14 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     departureMonth: Schema.Attribute.String;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     distanceFromAirport: Schema.Attribute.String;
@@ -1666,6 +1819,14 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     gallery: Schema.Attribute.Media<'images', true>;
     gettingThere: Schema.Attribute.RichText;
     googleMapsUrl: Schema.Attribute.Text;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1680,6 +1841,7 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     locationAddress: Schema.Attribute.Text;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     moreInformation: Schema.Attribute.RichText;
@@ -1692,10 +1854,12 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
+    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
@@ -1703,6 +1867,15 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     skiHolidayType: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
+    tennisCourts: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
@@ -1851,6 +2024,14 @@ export interface ApiTennisClinicTennisClinic
       Schema.Attribute.Private;
     dateClinic: Schema.Attribute.Text;
     daysAvailable: Schema.Attribute.String;
+    diningRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     emailAddress: Schema.Attribute.Email;
@@ -1861,6 +2042,14 @@ export interface ApiTennisClinicTennisClinic
     gallery: Schema.Attribute.Media<'images', true>;
     gettingThere: Schema.Attribute.RichText;
     googleMapsUrl: Schema.Attribute.String;
+    guestRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     headerImage: Schema.Attribute.Media<'images'>;
     headingText: Schema.Attribute.Text;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
@@ -1873,6 +2062,7 @@ export interface ApiTennisClinicTennisClinic
     > &
       Schema.Attribute.Private;
     locationForPage: Schema.Attribute.String;
+    mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
     mainInformation: Schema.Attribute.RichText;
     maximumGroupSize: Schema.Attribute.Integer;
@@ -1890,6 +2080,14 @@ export interface ApiTennisClinicTennisClinic
     shortLocationName: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     sundayItineraryUrl: Schema.Attribute.String;
+    tennisCourtRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 10;
+          min: 1;
+        },
+        number
+      >;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;

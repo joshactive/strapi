@@ -57,6 +57,11 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "mainGallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
     "gallery": {
       "type": "media",
       "multiple": true,
@@ -144,6 +149,24 @@
       "type": "integer",
       "min": 1,
       "max": 10
+    },
+    "setting": {
+      "type": "richtext"
+    },
+    "boardBasis": {
+      "type": "richtext"
+    },
+    "restaurants": {
+      "type": "richtext"
+    },
+    "bars": {
+      "type": "richtext"
+    },
+    "tennisCourts": {
+      "type": "richtext"
+    },
+    "topTips": {
+      "type": "richtext"
     },
     "maximumGroupSize": {
       "type": "integer"

@@ -54,6 +54,11 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "mainGallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
     "gallery": {
       "type": "media",
       "multiple": true,
@@ -167,6 +172,15 @@
       "type": "richtext"
     },
     "topTips": {
+      "type": "richtext"
+    },
+    "setting": {
+      "type": "richtext"
+    },
+    "restaurants": {
+      "type": "richtext"
+    },
+    "bars": {
       "type": "richtext"
     },
     "moreInformation": {
