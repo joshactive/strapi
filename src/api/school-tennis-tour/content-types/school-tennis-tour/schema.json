@@ -127,6 +127,21 @@
     "ourRating": {
       "type": "decimal"
     },
+    "guestRating": {
+      "type": "integer",
+      "min": 1,
+      "max": 10
+    },
+    "tennisCourtRating": {
+      "type": "integer",
+      "min": 1,
+      "max": 10
+    },
+    "diningRating": {
+      "type": "integer",
+      "min": 1,
+      "max": 10
+    },
     "tennisCourtSurface": {
       "type": "string"
     },
