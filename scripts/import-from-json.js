@@ -87,30 +87,54 @@ function parsePhpSerialized(str) {
 }
 
 /**
- * Strip HTML tags from text
+ * Strip ALL HTML tags from text - comprehensive cleaning
  */
 function stripHTML(html) {
   if (!html) return '';
   
-  return html
-    // Remove HTML tags
-    .replace(/<[^>]+>/g, '')
-    // Decode HTML entities
+  let text = html;
+  
+  // Remove ALL HTML tags including those with attributes, newlines, etc.
+  // This regex handles tags that span multiple lines
+  text = text.replace(/<[^>]*>/g, '');
+  
+  // Also handle malformed tags that might have broken across lines
+  text = text.replace(/<[^>]*/g, ''); // Unclosed tags
+  text = text.replace(/[^<]*>/g, ''); // Tags without opening
+  
+  // Decode ALL HTML entities
+  text = text
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#039;/g, "'")
+    .replace(/&apos;/g, "'")
     .replace(/&rsquo;/g, "'")
     .replace(/&lsquo;/g, "'")
     .replace(/&rdquo;/g, '"')
     .replace(/&ldquo;/g, '"')
     .replace(/&mdash;/g, '—')
     .replace(/&ndash;/g, '–')
-    // Clean up whitespace
-    .replace(/\n\n+/g, '\n\n')
+    .replace(/&hellip;/g, '…')
+    .replace(/&euro;/g, '€')
+    .replace(/&pound;/g, '£')
+    .replace(/&copy;/g, '©')
+    .replace(/&reg;/g, '®')
+    .replace(/&trade;/g, '™')
+    // Decode numeric entities
+    .replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec))
+    .replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
+  
+  // Clean up whitespace
+  text = text
+    .replace(/\n\n\n+/g, '\n\n') // Max 2 newlines
+    .replace(/[ \t]+/g, ' ') // Multiple spaces to single
+    .replace(/^\s+|\s+$/gm, '') // Trim each line
     .trim();
+  
+  return text;
 }
 
 /**

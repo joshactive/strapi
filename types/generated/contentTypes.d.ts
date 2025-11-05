@@ -1368,6 +1368,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     whyWeLoveVenue3: Schema.Attribute.String;
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpOldUrl: Schema.Attribute.String;
   };
 }
 
