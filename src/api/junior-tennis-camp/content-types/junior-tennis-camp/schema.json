@@ -162,18 +162,6 @@
     "topTips": {
       "type": "richtext"
     },
-    "setting": {
-      "type": "richtext"
-    },
-    "restaurants": {
-      "type": "richtext"
-    },
-    "bars": {
-      "type": "richtext"
-    },
-    "tennisCourts": {
-      "type": "richtext"
-    },
     "diningInformation": {
       "type": "richtext"
     },
@@ -219,16 +207,6 @@
     "faqs": {
       "type": "component",
       "component": "shared.faq",
-      "repeatable": true
-    },
-    "whatsIncluded": {
-      "type": "component",
-      "component": "shared.inclusion-item",
-      "repeatable": true
-    },
-    "whatsNotIncluded": {
-      "type": "component",
-      "component": "shared.inclusion-item",
       "repeatable": true
     },
     "inclusions": {

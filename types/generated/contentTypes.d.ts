@@ -970,7 +970,6 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     ageGroups: Schema.Attribute.String;
     airport: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
-    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     cafeInformation: Schema.Attribute.RichText;
@@ -1036,9 +1035,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     publishedAt: Schema.Attribute.DateTime;
     residentialOrNonResidential: Schema.Attribute.String;
     restaurantInformation: Schema.Attribute.RichText;
-    restaurants: Schema.Attribute.RichText;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
@@ -1050,7 +1047,6 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
         },
         number
       >;
-    tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
@@ -1063,8 +1059,6 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
-    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
-    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -1335,7 +1329,9 @@ export interface ApiPickleballHolidayPickleballHoliday
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
     restaurants: Schema.Attribute.RichText;
+    rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
+    roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
@@ -1355,6 +1351,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     tennisCourts: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
+    tripImages: Schema.Attribute.Media<'images', true>;
     typicalGroupSize: Schema.Attribute.String;
     uniqueValue: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -1385,7 +1382,6 @@ export interface ApiPlayAndWatchPlayAndWatch
   };
   attributes: {
     arrivalDepartureDay: Schema.Attribute.String;
-    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1449,12 +1445,10 @@ export interface ApiPlayAndWatchPlayAndWatch
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
@@ -1483,8 +1477,6 @@ export interface ApiPlayAndWatchPlayAndWatch
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
-    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
-    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whereWeStay: Schema.Attribute.RichText;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;

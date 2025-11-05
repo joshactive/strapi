@@ -257,6 +257,22 @@
       "component": "shared.seo",
       "repeatable": false
     },
+    "tripImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "roomsSubheading": {
+      "type": "text"
+    },
+    "rooms": {
+      "type": "component",
+      "component": "shared.room",
+      "repeatable": true
+    },
     "wpOldUrl": {
       "type": "string"
     }
