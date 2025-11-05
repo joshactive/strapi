@@ -1063,6 +1063,8 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -1147,6 +1149,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.RichText;
     boardBasisIncluded: Schema.Attribute.RichText;
+    boardBasisLg: Schema.Attribute.String;
     content: Schema.Attribute.RichText;
     country: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -1239,6 +1242,8 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -1356,6 +1361,8 @@ export interface ApiPickleballHolidayPickleballHoliday
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -1475,6 +1482,8 @@ export interface ApiPlayAndWatchPlayAndWatch
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whereWeStay: Schema.Attribute.RichText;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
@@ -1766,6 +1775,8 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -1790,7 +1801,6 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     arrivalDepartureDay: Schema.Attribute.String;
     averageGroupSize: Schema.Attribute.String;
     barInformation: Schema.Attribute.RichText;
-    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1854,12 +1864,10 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     restaurantInformation: Schema.Attribute.RichText;
-    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
@@ -1875,7 +1883,6 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
         },
         number
       >;
-    tennisCourts: Schema.Attribute.RichText;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
@@ -1885,6 +1892,8 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
@@ -2105,6 +2114,8 @@ export interface ApiTennisClinicTennisClinic
       Schema.Attribute.Private;
     venueFacilities: Schema.Attribute.RichText;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;

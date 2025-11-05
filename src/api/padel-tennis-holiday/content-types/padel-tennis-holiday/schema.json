@@ -94,6 +94,9 @@
     "boardBasis": {
       "type": "richtext"
     },
+    "boardBasisLg": {
+      "type": "string"
+    },
     "starRating": {
       "type": "string"
     },
@@ -222,6 +225,16 @@
     "faqs": {
       "type": "component",
       "component": "shared.faq",
+      "repeatable": true
+    },
+    "whatsIncluded": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    },
+    "whatsNotIncluded": {
+      "type": "component",
+      "component": "shared.inclusion-item",
       "repeatable": true
     },
     "inclusions": {
