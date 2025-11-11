@@ -355,34 +355,6 @@
     },
     "wpOldUrl": {
       "type": "string"
-    },
-    "organiserName": {
-      "type": "string",
-      "required": true
-    },
-    "organiserDescription": {
-      "type": "richtext"
-    },
-    "organiserImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "whatsappGroup": {
-      "type": "string"
-    },
-    "masterHoliday": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tennis-holiday.tennis-holiday"
-    },
-    "events": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::event.event",
-      "inversedBy": "groupOrganisers"
     }
   }
 }
