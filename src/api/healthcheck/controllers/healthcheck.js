@@ -1,19 +1,30 @@
 module.exports = {
   async healthcheck(ctx) {
     try {
-      // Check if Strapi is ready
-      if (!strapi.isLoaded) {
+      // Check if Strapi global is available and loaded
+      if (typeof strapi === 'undefined' || !strapi) {
         ctx.body = {
           status: 'starting',
-          message: 'Strapi is still initializing'
+          message: 'Strapi is initializing'
         };
-        ctx.status = 503; // Service Unavailable
+        ctx.status = 503;
         return;
       }
 
-      // Optional: Quick database check
+      if (!strapi.isLoaded) {
+        ctx.body = {
+          status: 'starting',
+          message: 'Strapi is loading'
+        };
+        ctx.status = 503;
+        return;
+      }
+
+      // Quick database check
       try {
-        await strapi.db.connection.raw('SELECT 1');
+        if (strapi.db && strapi.db.connection) {
+          await strapi.db.connection.raw('SELECT 1');
+        }
       } catch (dbError) {
         ctx.body = {
           status: 'degraded',
@@ -33,9 +44,12 @@ module.exports = {
       };
       ctx.status = 200;
     } catch (error) {
+      // Log error for debugging
+      console.error('Healthcheck error:', error);
       ctx.body = {
         status: 'error',
-        message: error.message
+        message: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
       };
       ctx.status = 500;
     }
