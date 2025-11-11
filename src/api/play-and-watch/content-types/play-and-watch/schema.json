@@ -218,6 +218,16 @@
       "component": "shared.faq",
       "repeatable": true
     },
+    "whatsIncluded": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    },
+    "whatsNotIncluded": {
+      "type": "component",
+      "component": "shared.inclusion-item",
+      "repeatable": true
+    },
     "inclusions": {
       "type": "component",
       "component": "shared.inclusion-item",

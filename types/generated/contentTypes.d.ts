@@ -1382,6 +1382,8 @@ export interface ApiPlayAndWatchPlayAndWatch
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whereWeStay: Schema.Attribute.RichText;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
