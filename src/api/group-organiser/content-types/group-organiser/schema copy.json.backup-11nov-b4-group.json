@@ -56,6 +56,9 @@
     "uniqueValue": {
       "type": "string"
     },
+    "mainHeader": {
+      "type": "string"
+    },
     "headerImage": {
       "type": "media",
       "multiple": false,

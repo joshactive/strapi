@@ -614,7 +614,6 @@ export interface ApiGroupOrganiserGroupOrganiser
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.RichText;
     boardBasisLg: Schema.Attribute.String;
-    bookCardioImage: Schema.Attribute.Media<'images'>;
     bookCardioInfo: Schema.Attribute.RichText;
     bookCardioLink: Schema.Attribute.String;
     bookCourtsImage: Schema.Attribute.Media<'images'>;
@@ -684,6 +683,16 @@ export interface ApiGroupOrganiserGroupOrganiser
     lunchInfo: Schema.Attribute.RichText;
     mainGallery: Schema.Attribute.Media<'images', true>;
     mainHeader: Schema.Attribute.String;
+    masterPageSlug: Schema.Attribute.String;
+    masterPageType: Schema.Attribute.Enumeration<
+      [
+        'tennis-holiday',
+        'padel-holiday',
+        'padel-tennis-holiday',
+        'pickleball-holiday',
+        'tennis-clinic',
+      ]
+    >;
     maximumGroupSize: Schema.Attribute.Integer;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Integer &
