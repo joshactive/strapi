@@ -608,146 +608,39 @@ export interface ApiGroupOrganiserGroupOrganiser
     draftAndPublish: true;
   };
   attributes: {
-    airport: Schema.Attribute.String;
-    airportTransfer: Schema.Attribute.String;
-    bars: Schema.Attribute.RichText;
-    belowHeadingText: Schema.Attribute.RichText;
-    boardBasis: Schema.Attribute.RichText;
-    boardBasisLg: Schema.Attribute.String;
-    bookCardioInfo: Schema.Attribute.RichText;
-    bookCardioLink: Schema.Attribute.String;
-    bookCourtsImage: Schema.Attribute.Media<'images'>;
-    bookCourtsInfo: Schema.Attribute.RichText;
-    bookCourtsLink: Schema.Attribute.String;
-    bookLessonsImage: Schema.Attribute.Media<'images'>;
-    bookLessonsInfo: Schema.Attribute.RichText;
-    bookLessonsLink: Schema.Attribute.String;
-    bookRacketsImage: Schema.Attribute.Media<'images'>;
-    bookRacketsInfo: Schema.Attribute.RichText;
-    bookRacketsLink: Schema.Attribute.String;
-    cafeInformation: Schema.Attribute.RichText;
-    carParkingInformation: Schema.Attribute.RichText;
-    country: Schema.Attribute.String;
-    countryLg: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    diningRating: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 1;
-        },
-        number
-      >;
-    displayOnFrontEnd: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<true>;
-    emailAddress: Schema.Attribute.Email;
-    eventInformation: Schema.Attribute.RichText;
-    excerpt: Schema.Attribute.Text;
-    facilities: Schema.Attribute.Component<'shared.inclusion-item', true>;
-    facilitiesExtraInfo: Schema.Attribute.Text;
-    faqs: Schema.Attribute.Component<'shared.faq', true>;
-    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    fullScreenVideo: Schema.Attribute.String;
-    gettingThere: Schema.Attribute.RichText;
-    googleMapsSearchTerm: Schema.Attribute.String;
+    eventsquerycommaseperated: Schema.Attribute.String;
     groupOrganiserImage: Schema.Attribute.Media<'images'>;
     groupOrganiserName: Schema.Attribute.String;
     groupOrganiserName2: Schema.Attribute.String;
     groupOrganiserOtherUrl: Schema.Attribute.String;
     groupOrganiserProduct: Schema.Attribute.String;
     groupOrganiserWhatsappUrl: Schema.Attribute.String;
-    guestRating: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 1;
-        },
-        number
-      >;
-    headerImage: Schema.Attribute.Media<'images'>;
-    headingText: Schema.Attribute.String;
-    howWeGetAround: Schema.Attribute.RichText;
-    internalRating: Schema.Attribute.Decimal;
-    itinerary: Schema.Attribute.Component<'shared.itinerary-item', true>;
-    itineraryDownloadUrl: Schema.Attribute.String;
-    itineraryDownloadUrl2: Schema.Attribute.String;
-    lengthOfTrip: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::group-organiser.group-organiser'
     > &
       Schema.Attribute.Private;
-    lunchInfo: Schema.Attribute.RichText;
-    mainGallery: Schema.Attribute.Media<'images', true>;
     masterPageSlug: Schema.Attribute.String;
     masterPageType: Schema.Attribute.Enumeration<
       [
         'tennis-holiday',
-        'padel-holiday',
         'padel-tennis-holiday',
         'pickleball-holiday',
         'tennis-clinic',
       ]
     >;
-    maximumGroupSize: Schema.Attribute.Integer;
-    otherFaqsUrl: Schema.Attribute.String;
-    ourRating: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 1;
-        },
-        number
-      >;
-    padelCourtsInfo: Schema.Attribute.RichText;
-    priceFrom: Schema.Attribute.Decimal;
-    productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    residentialType: Schema.Attribute.String;
-    restaurants: Schema.Attribute.RichText;
-    rooms: Schema.Attribute.Component<'shared.room', true>;
-    roomsSubheading: Schema.Attribute.Text;
-    schoolToursAvailableMonths: Schema.Attribute.String;
-    schoolToursLengthOfTrip: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    setting: Schema.Attribute.RichText;
-    shortLocationName: Schema.Attribute.String;
-    singleOccupancyFrom: Schema.Attribute.Decimal;
-    singleOccupancyRange: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
-    tennisCoachImage: Schema.Attribute.Media<'images'>;
-    tennisCoachInfo: Schema.Attribute.RichText;
-    tennisCoachName: Schema.Attribute.String;
-    tennisCoachWhatsappUrl: Schema.Attribute.String;
-    tennisCourtRating: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 10;
-          min: 1;
-        },
-        number
-      >;
-    tennisCourts: Schema.Attribute.RichText;
-    tennisCourtSurface: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    topTips: Schema.Attribute.RichText;
-    tripImages: Schema.Attribute.Media<'images', true>;
-    typicalGroupSize: Schema.Attribute.Integer;
     uniqueValue: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    venue: Schema.Attribute.String & Schema.Attribute.Required;
-    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
-    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
-    whereWeStay: Schema.Attribute.RichText;
-    whyWeLoveVenue1: Schema.Attribute.String;
-    whyWeLoveVenue2: Schema.Attribute.String;
-    whyWeLoveVenue3: Schema.Attribute.String;
-    whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

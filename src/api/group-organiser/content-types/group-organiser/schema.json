@@ -26,181 +26,13 @@
       "targetField": "title",
       "required": true
     },
-    "excerpt": {
-      "type": "text"
-    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
     },
-    "venue": {
-      "type": "string",
-      "required": true
-    },
-    "shortLocationName": {
-      "type": "string"
-    },
-    "airport": {
-      "type": "string"
-    },
-    "country": {
-      "type": "string"
-    },
-    "lengthOfTrip": {
-      "type": "string"
-    },
-    "internalRating": {
-      "type": "decimal"
-    },
     "uniqueValue": {
       "type": "string"
-    },
-    "headerImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "mainGallery": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "headingText": {
-      "type": "string"
-    },
-    "singleOccupancyRange": {
-      "type": "string"
-    },
-    "belowHeadingText": {
-      "type": "richtext"
-    },
-    "whyWeLoveVenue1": {
-      "type": "string"
-    },
-    "whyWeLoveVenue2": {
-      "type": "string"
-    },
-    "whyWeLoveVenue3": {
-      "type": "string"
-    },
-    "whyWeLoveVenue4": {
-      "type": "string"
-    },
-    "ourRating": {
-      "type": "integer",
-      "min": 1,
-      "max": 10
-    },
-    "tennisCourtSurface": {
-      "type": "string"
-    },
-    "airportTransfer": {
-      "type": "string"
-    },
-    "guestRating": {
-      "type": "integer",
-      "min": 1,
-      "max": 10
-    },
-    "tennisCourtRating": {
-      "type": "integer",
-      "min": 1,
-      "max": 10
-    },
-    "diningRating": {
-      "type": "integer",
-      "min": 1,
-      "max": 10
-    },
-    "whatsIncluded": {
-      "type": "component",
-      "component": "shared.inclusion-item",
-      "repeatable": true
-    },
-    "whatsNotIncluded": {
-      "type": "component",
-      "component": "shared.inclusion-item",
-      "repeatable": true
-    },
-    "setting": {
-      "type": "richtext"
-    },
-    "boardBasis": {
-      "type": "richtext"
-    },
-    "restaurants": {
-      "type": "richtext"
-    },
-    "bars": {
-      "type": "richtext"
-    },
-    "tennisCourts": {
-      "type": "richtext"
-    },
-    "topTips": {
-      "type": "richtext"
-    },
-    "facilities": {
-      "type": "component",
-      "component": "shared.inclusion-item",
-      "repeatable": true
-    },
-    "facilitiesExtraInfo": {
-      "type": "text"
-    },
-    "itinerary": {
-      "type": "component",
-      "component": "shared.itinerary-item",
-      "repeatable": true
-    },
-    "faqs": {
-      "type": "component",
-      "component": "shared.faq",
-      "repeatable": true
-    },
-    "otherFaqsUrl": {
-      "type": "string"
-    },
-    "gettingThere": {
-      "type": "richtext"
-    },
-    "googleMapsSearchTerm": {
-      "type": "string"
-    },
-    "itineraryDownloadUrl": {
-      "type": "string"
-    },
-    "itineraryDownloadUrl2": {
-      "type": "string"
-    },
-    "cafeInformation": {
-      "type": "richtext"
-    },
-    "carParkingInformation": {
-      "type": "richtext"
-    },
-    "maximumGroupSize": {
-      "type": "integer"
-    },
-    "residentialType": {
-      "type": "string"
-    },
-    "padelCourtsInfo": {
-      "type": "richtext"
-    },
-    "eventInformation": {
-      "type": "richtext"
-    },
-    "whereWeStay": {
-      "type": "richtext"
-    },
-    "howWeGetAround": {
-      "type": "richtext"
     },
     "groupOrganiserName": {
       "type": "string"
@@ -224,125 +56,6 @@
     "groupOrganiserOtherUrl": {
       "type": "string"
     },
-    "schoolToursLengthOfTrip": {
-      "type": "string"
-    },
-    "schoolToursAvailableMonths": {
-      "type": "string"
-    },
-    "lunchInfo": {
-      "type": "richtext"
-    },
-    "typicalGroupSize": {
-      "type": "integer"
-    },
-    "fullScreenVideo": {
-      "type": "string"
-    },
-    "emailAddress": {
-      "type": "email",
-      "required": false
-    },
-    "bookCourtsInfo": {
-      "type": "richtext"
-    },
-    "bookCourtsLink": {
-      "type": "string"
-    },
-    "bookCourtsImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "bookLessonsInfo": {
-      "type": "richtext"
-    },
-    "bookLessonsLink": {
-      "type": "string"
-    },
-    "bookLessonsImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "bookRacketsInfo": {
-      "type": "richtext"
-    },
-    "bookRacketsLink": {
-      "type": "string"
-    },
-    "bookRacketsImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "bookCardioInfo": {
-      "type": "richtext"
-    },
-    "bookCardioLink": {
-      "type": "string"
-    },
-    "tennisCoachName": {
-      "type": "string"
-    },
-    "tennisCoachWhatsappUrl": {
-      "type": "string"
-    },
-    "tennisCoachImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "tennisCoachInfo": {
-      "type": "richtext"
-    },
-    "countryLg": {
-      "type": "string"
-    },
-    "boardBasisLg": {
-      "type": "string"
-    },
-    "priceFrom": {
-      "type": "decimal"
-    },
-    "displayOnFrontEnd": {
-      "type": "boolean",
-      "default": true
-    },
-    "productType": {
-      "type": "string"
-    },
-    "singleOccupancyFrom": {
-      "type": "decimal"
-    },
-    "featured": {
-      "type": "boolean",
-      "default": false
-    },
-    "tripImages": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "roomsSubheading": {
-      "type": "text"
-    },
-    "rooms": {
-      "type": "component",
-      "component": "shared.room",
-      "repeatable": true
-    },
     "wpOldUrl": {
       "type": "string"
     },
@@ -350,13 +63,16 @@
       "type": "enumeration",
       "enum": [
         "tennis-holiday",
-        "padel-holiday",
         "padel-tennis-holiday",
         "pickleball-holiday",
         "tennis-clinic"
       ]
     },
     "masterPageSlug": {
+      "type": "string"
+    }
+    ,
+    "eventsquerycommaseperated": {
       "type": "string"
     }
   }
