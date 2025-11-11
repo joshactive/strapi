@@ -355,6 +355,19 @@
     },
     "wpOldUrl": {
       "type": "string"
+    },
+    "masterPageType": {
+      "type": "enumeration",
+      "enum": [
+        "tennis-holiday",
+        "padel-holiday",
+        "padel-tennis-holiday",
+        "pickleball-holiday",
+        "tennis-clinic"
+      ]
+    },
+    "masterPageSlug": {
+      "type": "string"
     }
   }
 }
