@@ -948,6 +948,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
         },
         number
       >;
+    tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
@@ -960,6 +961,8 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueName: Schema.Attribute.String;
+    whatsIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
+    whatsNotIncluded: Schema.Attribute.Component<'shared.inclusion-item', true>;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
     whyWeLoveVenue3: Schema.Attribute.String;
