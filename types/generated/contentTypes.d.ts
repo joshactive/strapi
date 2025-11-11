@@ -682,7 +682,6 @@ export interface ApiGroupOrganiserGroupOrganiser
       Schema.Attribute.Private;
     lunchInfo: Schema.Attribute.RichText;
     mainGallery: Schema.Attribute.Media<'images', true>;
-    mainHeader: Schema.Attribute.String;
     masterPageSlug: Schema.Attribute.String;
     masterPageType: Schema.Attribute.Enumeration<
       [
