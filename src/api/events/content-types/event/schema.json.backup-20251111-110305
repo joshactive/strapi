@@ -98,12 +98,6 @@
     },
     "uniqueValue": {
       "type": "string"
-    },
-    "groupOrganisers": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::group-organiser.group-organiser",
-      "mappedBy": "events"
     }
   }
 }
