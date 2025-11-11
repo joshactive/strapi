@@ -168,6 +168,12 @@
     "boardBasisIncluded": {
       "type": "richtext"
     },
+    "restaurants": {
+      "type": "richtext"
+    },
+    "bars": {
+      "type": "richtext"
+    },
     "roomsInformation": {
       "type": "richtext"
     },

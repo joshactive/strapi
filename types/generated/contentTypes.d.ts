@@ -1287,6 +1287,7 @@ export interface ApiPlayAndWatchPlayAndWatch
   };
   attributes: {
     arrivalDepartureDay: Schema.Attribute.String;
+    bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
     boardBasisIncluded: Schema.Attribute.RichText;
@@ -1350,6 +1351,7 @@ export interface ApiPlayAndWatchPlayAndWatch
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    restaurants: Schema.Attribute.RichText;
     rooms: Schema.Attribute.Component<'shared.room', true>;
     roomsInformation: Schema.Attribute.RichText;
     roomsSubheading: Schema.Attribute.Text;
