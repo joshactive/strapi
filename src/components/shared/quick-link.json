@@ -2,7 +2,7 @@
   "collectionName": "components_shared_quick_links",
   "info": {
     "displayName": "Quick Link",
-    "description": "Quick link with image, title, button text and URL"
+    "description": "Quick link with image, title, description, button text and URL"
   },
   "options": {},
   "attributes": {
@@ -15,6 +15,10 @@
     "quickLinkTitle": {
       "type": "string",
       "required": true
+    },
+    "quickLinkDescription": {
+      "type": "text",
+      "required": false
     },
     "quickLinkButtonText": {
       "type": "string",

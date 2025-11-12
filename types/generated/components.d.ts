@@ -180,11 +180,12 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
 export interface SharedQuickLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_quick_links';
   info: {
-    description: 'Quick link with image, title, button text and URL';
+    description: 'Quick link with image, title, description, button text and URL';
     displayName: 'Quick Link';
   };
   attributes: {
     quickLinkButtonText: Schema.Attribute.String & Schema.Attribute.Required;
+    quickLinkDescription: Schema.Attribute.Text;
     quickLinkImage: Schema.Attribute.Media<'images'>;
     quickLinkTitle: Schema.Attribute.String & Schema.Attribute.Required;
     quickLinkURL: Schema.Attribute.String & Schema.Attribute.Required;
