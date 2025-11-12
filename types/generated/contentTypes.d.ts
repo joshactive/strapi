@@ -1827,6 +1827,7 @@ export interface ApiTennisAcademyTennisAcademy
     bookingTheTennis: Schema.Attribute.RichText;
     cafeInformation: Schema.Attribute.RichText;
     carParkingInformation: Schema.Attribute.RichText;
+    coach: Schema.Attribute.Component<'shared.coach', false>;
     content: Schema.Attribute.RichText;
     country: Schema.Attribute.String;
     courtRental: Schema.Attribute.String;
@@ -1840,6 +1841,7 @@ export interface ApiTennisAcademyTennisAcademy
     excerpt: Schema.Attribute.Text;
     facilities: Schema.Attribute.Component<'shared.inclusion-item', true>;
     faqs: Schema.Attribute.Component<'shared.faq', true>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     featuredImage: Schema.Attribute.Media<'images'>;
     gallery: Schema.Attribute.Media<'images', true>;
     gettingThere: Schema.Attribute.RichText;
@@ -1850,6 +1852,10 @@ export interface ApiTennisAcademyTennisAcademy
     hittingPartner: Schema.Attribute.String;
     hittingPartnerInfo: Schema.Attribute.RichText;
     hittingPartnerUrl: Schema.Attribute.String;
+    hostedExperiences: Schema.Attribute.Component<
+      'shared.hosted-experience',
+      true
+    >;
     inclusions: Schema.Attribute.Component<'shared.inclusion-item', true>;
     individualLessonInfo: Schema.Attribute.RichText;
     individualLessons: Schema.Attribute.String;
@@ -1876,6 +1882,7 @@ export interface ApiTennisAcademyTennisAcademy
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    quickLinks: Schema.Attribute.Component<'shared.quick-link', true>;
     racketRental: Schema.Attribute.String;
     racketRentalInfo: Schema.Attribute.RichText;
     racketRentalUrl: Schema.Attribute.String;
@@ -1899,6 +1906,8 @@ export interface ApiTennisAcademyTennisAcademy
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    usefulResources: Schema.Attribute.Component<'shared.useful-resource', true>;
+    venue: Schema.Attribute.String;
     venueName: Schema.Attribute.String;
     whyWeLoveVenue1: Schema.Attribute.String;
     whyWeLoveVenue2: Schema.Attribute.String;
