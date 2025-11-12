@@ -1582,6 +1582,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     bars: Schema.Attribute.RichText;
     belowHeadingText: Schema.Attribute.RichText;
     boardBasis: Schema.Attribute.String;
+    boardBasisInfo: Schema.Attribute.RichText;
     cafeInformation: Schema.Attribute.RichText;
     carParkingInformation: Schema.Attribute.RichText;
     content: Schema.Attribute.RichText;

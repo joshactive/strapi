@@ -97,6 +97,9 @@
     "boardBasis": {
       "type": "string"
     },
+    "boardBasisInfo": {
+      "type": "richtext"
+    },
     "starRating": {
       "type": "string"
     },

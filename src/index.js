@@ -26,7 +26,7 @@ module.exports = {
       r2SecretAccessKey: env('R2_SECRET_ACCESS_KEY'),
       r2Endpoint: env('R2_ENDPOINT'),
       r2Bucket: env('R2_BUCKET'),
-      r2PublicUrl: env('R2_PUBLIC_URL'),
+      r2PublicUrl: env('R2_CUSTOM_DOMAIN', env('R2_PUBLIC_URL', 'https://files.activeaway.com')),
       r2RootPath: env('R2_ROOT_PATH', ''),
       r2ACL: env('R2_ACL', 'private'),
     };

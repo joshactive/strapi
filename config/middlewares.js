@@ -11,6 +11,8 @@ const toOrigin = (value) => {
 };
 
 module.exports = ({ env }) => {
+  // Support both old R2 dev URL and custom domain during transition
+  const r2CustomOrigin = toOrigin(env('R2_CUSTOM_DOMAIN', 'https://files.activeaway.com'));
   const r2PublicOrigin = toOrigin(env('R2_PUBLIC_URL'));
   const cloudflareImagesBaseOrigin = toOrigin(env('CF_IMAGES_BASE_URL'));
   const imageDeliveryOrigin = 'https://imagedelivery.net';
@@ -19,7 +21,15 @@ module.exports = ({ env }) => {
   const mediaSrc = ["'self'", 'data:', 'blob:'];
   const connectSrc = ["'self'", 'https:'];
 
-  if (r2PublicOrigin) {
+  // Add custom domain
+  if (r2CustomOrigin) {
+    imgSrc.push(r2CustomOrigin);
+    mediaSrc.push(r2CustomOrigin);
+    connectSrc.push(r2CustomOrigin);
+  }
+
+  // Also add old R2 public URL for backwards compatibility with existing files
+  if (r2PublicOrigin && r2PublicOrigin !== r2CustomOrigin) {
     imgSrc.push(r2PublicOrigin);
     mediaSrc.push(r2PublicOrigin);
     connectSrc.push(r2PublicOrigin);
