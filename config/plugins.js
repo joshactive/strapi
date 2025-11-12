@@ -43,7 +43,8 @@ module.exports = ({ env }) => {
               Bucket: env("R2_BUCKET"),
             },
           },
-          baseUrl: env("R2_PUBLIC_URL"),
+          // Use custom Active Away domain for public URLs
+          baseUrl: env("R2_CUSTOM_DOMAIN", "https://files.activeaway.com"),
           rootPath: env("R2_ROOT_PATH", ""),
         },
         actionOptions: {
