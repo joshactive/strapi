@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_useful_resources",
+  "info": {
+    "displayName": "Useful Resource",
+    "description": "Resource with title, description and external link"
+  },
+  "options": {},
+  "attributes": {
+    "resourceTitle": {
+      "type": "string",
+      "required": true
+    },
+    "resourceText": {
+      "type": "richtext",
+      "required": false
+    },
+    "resourceURL": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_quick_links",
+  "info": {
+    "displayName": "Quick Link",
+    "description": "Quick link with image, title, button text and URL"
+  },
+  "options": {},
+  "attributes": {
+    "quickLinkImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "quickLinkTitle": {
+      "type": "string",
+      "required": true
+    },
+    "quickLinkButtonText": {
+      "type": "string",
+      "required": true
+    },
+    "quickLinkURL": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_hosted_experiences",
+  "info": {
+    "displayName": "Hosted Experience",
+    "description": "Holiday experience with title, description, image and URL"
+  },
+  "options": {},
+  "attributes": {
+    "holidayTitle": {
+      "type": "string",
+      "required": true
+    },
+    "holidayDescription": {
+      "type": "richtext",
+      "required": false
+    },
+    "holidayImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "holidayURL": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
+

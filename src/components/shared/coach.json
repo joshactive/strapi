@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_coaches",
+  "info": {
+    "displayName": "Coach",
+    "description": "Coach information with image, name, bio and contact"
+  },
+  "options": {},
+  "attributes": {
+    "coachImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "coachFirstName": {
+      "type": "string",
+      "required": true
+    },
+    "coachLastName": {
+      "type": "string",
+      "required": true
+    },
+    "coachDescription": {
+      "type": "richtext",
+      "required": false
+    },
+    "coachWhatsAppURL": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

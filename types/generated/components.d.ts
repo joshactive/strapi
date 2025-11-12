@@ -71,6 +71,21 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCoach extends Struct.ComponentSchema {
+  collectionName: 'components_shared_coaches';
+  info: {
+    description: 'Coach information with image, name, bio and contact';
+    displayName: 'Coach';
+  };
+  attributes: {
+    coachDescription: Schema.Attribute.RichText;
+    coachFirstName: Schema.Attribute.String & Schema.Attribute.Required;
+    coachImage: Schema.Attribute.Media<'images'>;
+    coachLastName: Schema.Attribute.String & Schema.Attribute.Required;
+    coachWhatsAppURL: Schema.Attribute.String;
+  };
+}
+
 export interface SharedFaq extends Struct.ComponentSchema {
   collectionName: 'components_shared_faqs';
   info: {
@@ -81,6 +96,20 @@ export interface SharedFaq extends Struct.ComponentSchema {
   attributes: {
     answer: Schema.Attribute.RichText;
     question: Schema.Attribute.String;
+  };
+}
+
+export interface SharedHostedExperience extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hosted_experiences';
+  info: {
+    description: 'Holiday experience with title, description, image and URL';
+    displayName: 'Hosted Experience';
+  };
+  attributes: {
+    holidayDescription: Schema.Attribute.RichText;
+    holidayImage: Schema.Attribute.Media<'images'>;
+    holidayTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    holidayURL: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -148,6 +177,20 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedQuickLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quick_links';
+  info: {
+    description: 'Quick link with image, title, button text and URL';
+    displayName: 'Quick Link';
+  };
+  attributes: {
+    quickLinkButtonText: Schema.Attribute.String & Schema.Attribute.Required;
+    quickLinkImage: Schema.Attribute.Media<'images'>;
+    quickLinkTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    quickLinkURL: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedRoom extends Struct.ComponentSchema {
   collectionName: 'components_shared_rooms';
   info: {
@@ -205,6 +248,19 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedUsefulResource extends Struct.ComponentSchema {
+  collectionName: 'components_shared_useful_resources';
+  info: {
+    description: 'Resource with title, description and external link';
+    displayName: 'Useful Resource';
+  };
+  attributes: {
+    resourceText: Schema.Attribute.RichText;
+    resourceTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    resourceURL: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -213,14 +269,18 @@ declare module '@strapi/strapi' {
       'navigation.mega-menu-item': NavigationMegaMenuItem;
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
+      'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;
+      'shared.hosted-experience': SharedHostedExperience;
       'shared.inclusion-item': SharedInclusionItem;
       'shared.itinerary-item': SharedItineraryItem;
       'shared.key-information': SharedKeyInformation;
       'shared.open-graph': SharedOpenGraph;
+      'shared.quick-link': SharedQuickLink;
       'shared.room': SharedRoom;
       'shared.room-option': SharedRoomOption;
       'shared.seo': SharedSeo;
+      'shared.useful-resource': SharedUsefulResource;
     }
   }
 }

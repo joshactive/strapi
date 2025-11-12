@@ -262,6 +262,33 @@
     },
     "wpOldUrl": {
       "type": "string"
+    },
+    "quickLinks": {
+      "type": "component",
+      "component": "shared.quick-link",
+      "repeatable": true
+    },
+    "coach": {
+      "type": "component",
+      "component": "shared.coach",
+      "repeatable": false
+    },
+    "usefulResources": {
+      "type": "component",
+      "component": "shared.useful-resource",
+      "repeatable": true
+    },
+    "hostedExperiences": {
+      "type": "component",
+      "component": "shared.hosted-experience",
+      "repeatable": true
+    },
+    "venue": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
