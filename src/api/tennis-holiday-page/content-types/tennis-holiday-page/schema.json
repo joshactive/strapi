@@ -16,7 +16,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "heroTitle": {
       "type": "string",
@@ -36,7 +38,9 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "test": {
+      "type": "json"
     }
   }
 }
-
