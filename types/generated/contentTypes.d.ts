@@ -2611,6 +2611,42 @@ export interface ApiTennisHolidayTennisHoliday
   };
 }
 
+export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
+  collectionName: 'terms_pages';
+  info: {
+    description: 'Content for the Terms and Conditions page';
+    displayName: 'Terms and Conditions Page';
+    pluralName: 'terms-pages';
+    singularName: 'terms-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    lastUpdated: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-page.terms-page'
+    > &
+      Schema.Attribute.Private;
+    pageTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Booking Terms & Conditions'>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.DefaultTo<'booking-terms-conditions'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVenuesPageVenuesPage extends Struct.SingleTypeSchema {
   collectionName: 'venues_pages';
   info: {
@@ -3355,6 +3391,7 @@ declare module '@strapi/strapi' {
       'api::tennis-clinic.tennis-clinic': ApiTennisClinicTennisClinic;
       'api::tennis-holiday-page.tennis-holiday-page': ApiTennisHolidayPageTennisHolidayPage;
       'api::tennis-holiday.tennis-holiday': ApiTennisHolidayTennisHoliday;
+      'api::terms-page.terms-page': ApiTermsPageTermsPage;
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
