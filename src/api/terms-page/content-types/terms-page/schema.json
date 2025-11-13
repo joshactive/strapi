@@ -16,14 +16,52 @@
       "type": "uid",
       "default": "booking-terms-conditions"
     },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
     "pageTitle": {
       "type": "string",
       "default": "Booking Terms & Conditions",
       "required": true
     },
-    "content": {
+    "introText": {
       "type": "richtext",
-      "required": true
+      "required": false
+    },
+    "generalTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "holidaysTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "ukClinicsTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "juniorCampsTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "schoolToursTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "creditNotesTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "touristTaxTerms": {
+      "type": "richtext",
+      "required": false
+    },
+    "academyTerms": {
+      "type": "richtext",
+      "required": false
     },
     "lastUpdated": {
       "type": "date"

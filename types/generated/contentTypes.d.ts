@@ -2623,10 +2623,16 @@ export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    academyTerms: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    creditNotesTerms: Schema.Attribute.RichText;
+    generalTerms: Schema.Attribute.RichText;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    holidaysTerms: Schema.Attribute.RichText;
+    introText: Schema.Attribute.RichText;
+    juniorCampsTerms: Schema.Attribute.RichText;
     lastUpdated: Schema.Attribute.Date;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2638,9 +2644,12 @@ export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Booking Terms & Conditions'>;
     publishedAt: Schema.Attribute.DateTime;
+    schoolToursTerms: Schema.Attribute.RichText;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID &
       Schema.Attribute.DefaultTo<'booking-terms-conditions'>;
+    touristTaxTerms: Schema.Attribute.RichText;
+    ukClinicsTerms: Schema.Attribute.RichText;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
