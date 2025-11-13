@@ -595,6 +595,44 @@ export interface ApiFeaturedLocationFeaturedLocation
   };
 }
 
+export interface ApiGroupOrganiserPageGroupOrganiserPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'group_organiser_pages';
+  info: {
+    description: 'Content for the /group-organiser page including hero section and SEO metadata';
+    displayName: 'Group Organiser Page';
+    pluralName: 'group-organiser-pages';
+    singularName: 'group-organiser-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'GROUP ORGANISERS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Group Organisers'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::group-organiser-page.group-organiser-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGroupOrganiserGroupOrganiser
   extends Struct.CollectionTypeSchema {
   collectionName: 'group_organisers';
@@ -856,6 +894,44 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiJuniorCampPageJuniorCampPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'junior_camp_pages';
+  info: {
+    description: 'Content for the /junior-tennis-camp page including hero section and SEO metadata';
+    displayName: 'Junior Camp Page';
+    pluralName: 'junior-camp-pages';
+    singularName: 'junior-camp-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'JUNIOR TENNIS CAMPS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Junior Tennis Camps'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::junior-camp-page.junior-camp-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiJuniorTennisCampJuniorTennisCamp
   extends Struct.CollectionTypeSchema {
   collectionName: 'junior_tennis_camps';
@@ -1028,6 +1104,44 @@ export interface ApiNavigationMenuNavigationMenu
   };
 }
 
+export interface ApiPadelHolidayPagePadelHolidayPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'padel_holiday_pages';
+  info: {
+    description: 'Content for the /padel-tennis-holiday page including hero section and SEO metadata';
+    displayName: 'Padel Holiday Page';
+    pluralName: 'padel-holiday-pages';
+    singularName: 'padel-holiday-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PADEL HOLIDAYS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Padel Holidays'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::padel-holiday-page.padel-holiday-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPadelTennisHolidayPadelTennisHoliday
   extends Struct.CollectionTypeSchema {
   collectionName: 'padel_tennis_holidays';
@@ -1151,6 +1265,44 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
   };
 }
 
+export interface ApiPickleballHolidayPagePickleballHolidayPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pickleball_holiday_pages';
+  info: {
+    description: 'Content for the /pickleball-holiday page including hero section and SEO metadata';
+    displayName: 'Pickleball Holiday Page';
+    pluralName: 'pickleball-holiday-pages';
+    singularName: 'pickleball-holiday-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PICKLEBALL HOLIDAYS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Pickleball Holidays'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pickleball-holiday-page.pickleball-holiday-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPickleballHolidayPickleballHoliday
   extends Struct.CollectionTypeSchema {
   collectionName: 'pickleball_holidays';
@@ -1271,6 +1423,44 @@ export interface ApiPickleballHolidayPickleballHoliday
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
     wpOldUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiPlayAndWatchPagePlayAndWatchPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'play_and_watch_pages';
+  info: {
+    description: 'Content for the /play-and-watch page including hero section and SEO metadata';
+    displayName: 'Play & Watch Page';
+    pluralName: 'play-and-watch-pages';
+    singularName: 'play-and-watch-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'PLAY & WATCH'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Play & Watch Events'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::play-and-watch-page.play-and-watch-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1689,6 +1879,82 @@ export interface ApiSchoolTennisTourSchoolTennisTour
   };
 }
 
+export interface ApiSchoolTourPageSchoolTourPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'school_tour_pages';
+  info: {
+    description: 'Content for the /school-tennis-tour page including hero section and SEO metadata';
+    displayName: 'School Tour Page';
+    pluralName: 'school-tour-pages';
+    singularName: 'school-tour-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'SCHOOL TENNIS TOURS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our School Tennis Tours'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::school-tour-page.school-tour-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSkiHolidayPageSkiHolidayPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'ski_holiday_pages';
+  info: {
+    description: 'Content for the /ski-holiday page including hero section and SEO metadata';
+    displayName: 'Ski Holiday Page';
+    pluralName: 'ski-holiday-pages';
+    singularName: 'ski-holiday-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'SKI HOLIDAYS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Ski Holidays'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ski-holiday-page.ski-holiday-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
   collectionName: 'ski_holidays';
   info: {
@@ -1806,6 +2072,44 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTennisAcademyPageTennisAcademyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tennis_academy_pages';
+  info: {
+    description: 'Content for the /tennis-academy page including hero section and SEO metadata';
+    displayName: 'Tennis Academy Page';
+    pluralName: 'tennis-academy-pages';
+    singularName: 'tennis-academy-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'TENNIS ACADEMIES'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Tennis Academies'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tennis-academy-page.tennis-academy-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTennisAcademyTennisAcademy
   extends Struct.CollectionTypeSchema {
   collectionName: 'tennis_academies';
@@ -1916,6 +2220,44 @@ export interface ApiTennisAcademyTennisAcademy
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
     wpOldUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiTennisClinicPageTennisClinicPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tennis_clinic_pages';
+  info: {
+    description: 'Content for the /tennis-clinic page including hero section and SEO metadata';
+    displayName: 'Tennis Clinic Page';
+    pluralName: 'tennis-clinic-pages';
+    singularName: 'tennis-clinic-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'TENNIS CLINICS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Tennis Clinics'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tennis-clinic-page.tennis-clinic-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2034,6 +2376,44 @@ export interface ApiTennisClinicTennisClinic
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
     wpOldUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiTennisHolidayPageTennisHolidayPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tennis_holiday_pages';
+  info: {
+    description: 'Content for the /tennis-holiday page including hero section and SEO metadata';
+    displayName: 'Tennis Holiday Page';
+    pluralName: 'tennis-holiday-pages';
+    singularName: 'tennis-holiday-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'TENNIS HOLIDAYS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Discover Our Tennis Holidays'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tennis-holiday-page.tennis-holiday-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2911,21 +3291,31 @@ declare module '@strapi/strapi' {
       'api::blog.blog': ApiBlogBlog;
       'api::events.event': ApiEventsEvent;
       'api::featured-location.featured-location': ApiFeaturedLocationFeaturedLocation;
+      'api::group-organiser-page.group-organiser-page': ApiGroupOrganiserPageGroupOrganiserPage;
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
+      'api::junior-camp-page.junior-camp-page': ApiJuniorCampPageJuniorCampPage;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;
       'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
+      'api::padel-holiday-page.padel-holiday-page': ApiPadelHolidayPagePadelHolidayPage;
       'api::padel-tennis-holiday.padel-tennis-holiday': ApiPadelTennisHolidayPadelTennisHoliday;
+      'api::pickleball-holiday-page.pickleball-holiday-page': ApiPickleballHolidayPagePickleballHolidayPage;
       'api::pickleball-holiday.pickleball-holiday': ApiPickleballHolidayPickleballHoliday;
+      'api::play-and-watch-page.play-and-watch-page': ApiPlayAndWatchPagePlayAndWatchPage;
       'api::play-and-watch.play-and-watch': ApiPlayAndWatchPlayAndWatch;
       'api::pre-order.pre-order': ApiPreOrderPreOrder;
       'api::pre-orders-page.pre-orders-page': ApiPreOrdersPagePreOrdersPage;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
+      'api::school-tour-page.school-tour-page': ApiSchoolTourPageSchoolTourPage;
+      'api::ski-holiday-page.ski-holiday-page': ApiSkiHolidayPageSkiHolidayPage;
       'api::ski-holiday.ski-holiday': ApiSkiHolidaySkiHoliday;
+      'api::tennis-academy-page.tennis-academy-page': ApiTennisAcademyPageTennisAcademyPage;
       'api::tennis-academy.tennis-academy': ApiTennisAcademyTennisAcademy;
+      'api::tennis-clinic-page.tennis-clinic-page': ApiTennisClinicPageTennisClinicPage;
       'api::tennis-clinic.tennis-clinic': ApiTennisClinicTennisClinic;
+      'api::tennis-holiday-page.tennis-holiday-page': ApiTennisHolidayPageTennisHolidayPage;
       'api::tennis-holiday.tennis-holiday': ApiTennisHolidayTennisHoliday;
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
