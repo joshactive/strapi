@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "junior_camp_pages",
+  "info": {
+    "singularName": "junior-camp-page",
+    "pluralName": "junior-camp-pages",
+    "displayName": "Junior Camp Page",
+    "description": "Content for the /junior-tennis-camp page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Junior Tennis Camps",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "JUNIOR TENNIS CAMPS",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+

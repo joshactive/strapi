@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "ski_holiday_pages",
+  "info": {
+    "singularName": "ski-holiday-page",
+    "pluralName": "ski-holiday-pages",
+    "displayName": "Ski Holiday Page",
+    "description": "Content for the /ski-holiday page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Ski Holidays",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "SKI HOLIDAYS",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+

@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "group_organiser_pages",
+  "info": {
+    "singularName": "group-organiser-page",
+    "pluralName": "group-organiser-pages",
+    "displayName": "Group Organiser Page",
+    "description": "Content for the /group-organiser page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Group Organisers",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "GROUP ORGANISERS",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+

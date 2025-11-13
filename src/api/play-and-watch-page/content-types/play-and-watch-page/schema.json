@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "play_and_watch_pages",
+  "info": {
+    "singularName": "play-and-watch-page",
+    "pluralName": "play-and-watch-pages",
+    "displayName": "Play & Watch Page",
+    "description": "Content for the /play-and-watch page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Play & Watch Events",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "PLAY & WATCH",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+

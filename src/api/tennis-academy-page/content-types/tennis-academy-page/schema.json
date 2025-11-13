@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "tennis_academy_pages",
+  "info": {
+    "singularName": "tennis-academy-page",
+    "pluralName": "tennis-academy-pages",
+    "displayName": "Tennis Academy Page",
+    "description": "Content for the /tennis-academy page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Tennis Academies",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "TENNIS ACADEMIES",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+

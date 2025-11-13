@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "padel_holiday_pages",
+  "info": {
+    "singularName": "padel-holiday-page",
+    "pluralName": "padel-holiday-pages",
+    "displayName": "Padel Holiday Page",
+    "description": "Content for the /padel-tennis-holiday page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Discover Our Padel Holidays",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "PADEL HOLIDAYS",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+
