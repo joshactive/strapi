@@ -1746,6 +1746,10 @@ export interface ApiProductPageProductPage extends Struct.CollectionTypeSchema {
       'sections.jamie-murray-programme',
       false
     >;
+    keyInformation: Schema.Attribute.Component<
+      'sections.key-information',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
