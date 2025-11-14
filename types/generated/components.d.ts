@@ -148,6 +148,35 @@ export interface SectionsFaqSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsInfoCard extends Struct.ComponentSchema {
+  collectionName: 'components_sections_info_cards';
+  info: {
+    description: 'Information card with icon, heading, and description';
+    displayName: 'Info Card';
+    icon: 'info-circle';
+  };
+  attributes: {
+    customIconSvg: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Enumeration<
+      [
+        'users',
+        'ratio',
+        'shield',
+        'plane',
+        'flight',
+        'calendar',
+        'heart',
+        'star',
+        'trophy',
+        'check',
+        'custom',
+      ]
+    >;
+  };
+}
+
 export interface SectionsJamieMurrayProgramme extends Struct.ComponentSchema {
   collectionName: 'components_sections_jamie_murray_programmes';
   info: {
@@ -163,6 +192,20 @@ export interface SectionsJamieMurrayProgramme extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
     videoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsKeyInformation extends Struct.ComponentSchema {
+  collectionName: 'components_sections_key_informations';
+  info: {
+    description: 'Key information section with icon cards (3x2 grid)';
+    displayName: 'Key Information';
+    icon: 'list';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    infoCards: Schema.Attribute.Component<'sections.info-card', true>;
   };
 }
 
@@ -452,7 +495,9 @@ declare module '@strapi/strapi' {
       'sections.destinations-config': SectionsDestinationsConfig;
       'sections.discount-cta': SectionsDiscountCta;
       'sections.faq-section': SectionsFaqSection;
+      'sections.info-card': SectionsInfoCard;
       'sections.jamie-murray-programme': SectionsJamieMurrayProgramme;
+      'sections.key-information': SectionsKeyInformation;
       'sections.product-hero': SectionsProductHero;
       'sections.quote-section': SectionsQuoteSection;
       'sections.schedule-row': SectionsScheduleRow;

@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_sections_info_cards",
+  "info": {
+    "displayName": "Info Card",
+    "icon": "info-circle",
+    "description": "Information card with icon, heading, and description"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "users",
+        "ratio",
+        "shield",
+        "plane",
+        "flight",
+        "calendar",
+        "heart",
+        "star",
+        "trophy",
+        "check",
+        "custom"
+      ],
+      "required": false
+    },
+    "customIconSvg": {
+      "type": "text",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

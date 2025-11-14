@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_key_informations",
+  "info": {
+    "displayName": "Key Information",
+    "icon": "list",
+    "description": "Key information section with icon cards (3x2 grid)"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "infoCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.info-card"
+    }
+  }
+}
+

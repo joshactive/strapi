@@ -62,6 +62,11 @@
       "repeatable": false,
       "component": "sections.two-column-content"
     },
+    "keyInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.key-information"
+    },
     "schedule": {
       "type": "component",
       "repeatable": false,
