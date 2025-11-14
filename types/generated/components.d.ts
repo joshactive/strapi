@@ -74,16 +74,28 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
 export interface SectionsAboutHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_about_heros';
   info: {
-    description: 'Hero section for About Us page with images and text';
+    description: 'Complex Meet Active Away section with multiple images and content';
     displayName: 'About Hero';
     icon: 'user';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    bottomLeftImage: Schema.Attribute.Media<'images'>;
+    bottomRightImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     eyebrow: Schema.Attribute.String;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
-    leftImage: Schema.Attribute.Media<'images'>;
-    rightImage: Schema.Attribute.Media<'images'>;
+    highlights: Schema.Attribute.Component<'sections.benefit-item', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+    introText: Schema.Attribute.RichText;
+    mainContent: Schema.Attribute.RichText;
+    topLeftImage: Schema.Attribute.Media<'images'>;
+    topRightImage: Schema.Attribute.Media<'images'>;
   };
 }
 

@@ -3,7 +3,7 @@
   "info": {
     "displayName": "About Hero",
     "icon": "user",
-    "description": "Hero section for About Us page with images and text"
+    "description": "Complex Meet Active Away section with multiple images and content"
   },
   "options": {},
   "attributes": {
@@ -15,11 +15,27 @@
       "type": "string",
       "required": true
     },
-    "description": {
+    "topLeftImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "topRightImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "introText": {
       "type": "richtext",
       "required": false
     },
-    "leftImage": {
+    "bottomLeftImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -27,13 +43,31 @@
         "images"
       ]
     },
-    "rightImage": {
+    "bottomRightImage": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"
       ]
+    },
+    "mainContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "highlights": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.benefit-item",
+      "max": 3
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
     }
   }
 }

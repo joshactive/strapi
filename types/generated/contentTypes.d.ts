@@ -461,6 +461,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
       'api::about-page.about-page'
     > &
       Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showInstagram: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
