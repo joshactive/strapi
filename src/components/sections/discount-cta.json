@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_sections_discount_ctas",
+  "info": {
+    "displayName": "Discount CTA",
+    "icon": "percent",
+    "description": "Discount call-to-action section with background image"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false,
+      "default": "Access Discount"
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
+

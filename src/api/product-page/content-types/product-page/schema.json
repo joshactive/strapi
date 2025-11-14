@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_pages",
+  "info": {
+    "singularName": "product-page",
+    "pluralName": "product-pages",
+    "displayName": "Product Page",
+    "description": "Dynamic product category pages (Adult Tennis Holidays, Padel Holidays, etc.)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "adult-tennis",
+        "padel",
+        "pickleball",
+        "junior-camp",
+        "ski",
+        "play-and-watch",
+        "school-tour",
+        "tennis-clinic",
+        "tennis-academy"
+      ],
+      "required": true
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.product-hero"
+    },
+    "quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.quote-section"
+    },
+    "jamieMurray": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.jamie-murray-programme"
+    },
+    "schedule": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.schedule-table"
+    },
+    "discount": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.discount-cta"
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.faq-section"
+    },
+    "destinations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.destinations-config"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+

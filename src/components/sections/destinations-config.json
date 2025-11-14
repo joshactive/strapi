@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_destinations_configs",
+  "info": {
+    "displayName": "Destinations Config",
+    "icon": "map-marker-alt",
+    "description": "Configuration for destinations section display"
+  },
+  "options": {},
+  "attributes": {
+    "showDestinations": {
+      "type": "boolean",
+      "required": false,
+      "default": true
+    },
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "featuredLocationSlugs": {
+      "type": "json",
+      "required": false
+    }
+  }
+}
+

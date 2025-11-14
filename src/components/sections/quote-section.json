@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_sections_quote_sections",
+  "info": {
+    "displayName": "Quote Section",
+    "icon": "quote-right",
+    "description": "Quote section with eyebrow, quote text, author name, and author images"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "quoteText": {
+      "type": "richtext",
+      "required": true
+    },
+    "authorName": {
+      "type": "string",
+      "required": false
+    },
+    "authorImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "decorativeIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
+

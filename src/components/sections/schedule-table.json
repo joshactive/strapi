@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_schedule_tables",
+  "info": {
+    "displayName": "Schedule Table",
+    "icon": "table",
+    "description": "Weekly schedule or itinerary table with daily activities"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "scheduleRows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.schedule-row"
+    }
+  }
+}
+

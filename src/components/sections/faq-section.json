@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_faq_sections",
+  "info": {
+    "displayName": "FAQ Section",
+    "icon": "question-circle",
+    "description": "FAQ section with multiple FAQ items"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq"
+    }
+  }
+}
+

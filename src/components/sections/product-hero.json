@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_sections_product_heros",
+  "info": {
+    "displayName": "Product Hero",
+    "icon": "picture",
+    "description": "Hero section for product pages with kicker, heading, subheading, and background image"
+  },
+  "options": {},
+  "attributes": {
+    "kicker": {
+      "type": "string",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "richtext",
+      "required": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
+

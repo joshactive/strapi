@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_achievement_items",
+  "info": {
+    "displayName": "Achievement Item",
+    "icon": "trophy",
+    "description": "Achievement or credential item for Jamie Murray section"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": false,
+      "default": "arrow"
+    }
+  }
+}
+

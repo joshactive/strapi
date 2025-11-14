@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_schedule_rows",
+  "info": {
+    "displayName": "Schedule Row",
+    "icon": "calendar",
+    "description": "Single day schedule row with morning, afternoon, and evening activities"
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string",
+      "required": true
+    },
+    "morning": {
+      "type": "richtext",
+      "required": false
+    },
+    "afternoon": {
+      "type": "richtext",
+      "required": false
+    },
+    "evening": {
+      "type": "richtext",
+      "required": false
+    }
+  }
+}
+
