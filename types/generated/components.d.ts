@@ -206,6 +206,7 @@ export interface SectionsKeyInformation extends Struct.ComponentSchema {
     eyebrow: Schema.Attribute.String;
     heading: Schema.Attribute.String;
     infoCards: Schema.Attribute.Component<'sections.info-card', true>;
+    subtitle: Schema.Attribute.Text;
   };
 }
 
