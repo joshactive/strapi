@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_timeline_events",
+  "info": {
+    "displayName": "Timeline Event",
+    "icon": "calendar-alt",
+    "description": "Single event in history timeline"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

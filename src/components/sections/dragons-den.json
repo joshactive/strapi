@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_sections_dragons_dens",
+  "info": {
+    "displayName": "Dragons Den Section",
+    "icon": "tv",
+    "description": "Dragons' Den featured section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "videoUrl": {
+      "type": "string",
+      "required": false
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "grey",
+        "navy"
+      ],
+      "default": "navy",
+      "required": false
+    }
+  }
+}
+

@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_sections_flexible_content_blocks",
+  "info": {
+    "displayName": "Flexible Content Block",
+    "icon": "align-left",
+    "description": "Flexible content block with heading, text, and image in various layouts"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "default": "right",
+      "required": false
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "grey"
+      ],
+      "default": "white",
+      "required": false
+    }
+  }
+}
+

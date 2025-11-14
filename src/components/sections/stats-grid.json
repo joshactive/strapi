@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_stats_grids",
+  "info": {
+    "displayName": "Stats Grid",
+    "icon": "chart-line",
+    "description": "Grid of statistics/counters"
+  },
+  "options": {},
+  "attributes": {
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.stat-item"
+    }
+  }
+}
+

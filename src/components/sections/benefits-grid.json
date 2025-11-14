@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_benefits_grids",
+  "info": {
+    "displayName": "Benefits Grid",
+    "icon": "th",
+    "description": "Grid of benefits/reasons (Why Choose section)"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.benefit-item"
+    }
+  }
+}
+

@@ -1,0 +1,71 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": "About Us page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.about-hero"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.stats-grid"
+    },
+    "contentBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.flexible-content-block"
+    },
+    "showWhatWeOffer": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.benefits-grid"
+    },
+    "dragonsDen": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.dragons-den"
+    },
+    "history": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.history-timeline"
+    },
+    "showInstagram": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+

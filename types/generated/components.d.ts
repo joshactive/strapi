@@ -71,6 +71,22 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsAboutHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_about_heros';
+  info: {
+    description: 'Hero section for About Us page with images and text';
+    displayName: 'About Hero';
+    icon: 'user';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    leftImage: Schema.Attribute.Media<'images'>;
+    rightImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface SectionsAchievementItem extends Struct.ComponentSchema {
   collectionName: 'components_sections_achievement_items';
   info: {
@@ -81,6 +97,36 @@ export interface SectionsAchievementItem extends Struct.ComponentSchema {
   attributes: {
     icon: Schema.Attribute.String & Schema.Attribute.DefaultTo<'arrow'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsBenefitItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_benefit_items';
+  info: {
+    description: 'Single benefit with icon, heading, and description';
+    displayName: 'Benefit Item';
+    icon: 'check-circle';
+  };
+  attributes: {
+    customIconSvg: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Enumeration<
+      ['clock', 'star', 'shield', 'heart', 'trophy', 'users', 'check', 'custom']
+    >;
+  };
+}
+
+export interface SectionsBenefitsGrid extends Struct.ComponentSchema {
+  collectionName: 'components_sections_benefits_grids';
+  info: {
+    description: 'Grid of benefits/reasons (Why Choose section)';
+    displayName: 'Benefits Grid';
+    icon: 'th';
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'sections.benefit-item', true>;
+    heading: Schema.Attribute.String;
   };
 }
 
@@ -134,6 +180,25 @@ export interface SectionsDiscountCta extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsDragonsDen extends Struct.ComponentSchema {
+  collectionName: 'components_sections_dragons_dens';
+  info: {
+    description: "Dragons' Den featured section";
+    displayName: 'Dragons Den Section';
+    icon: 'tv';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<['white', 'grey', 'navy']> &
+      Schema.Attribute.DefaultTo<'navy'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsFaqSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_faq_sections';
   info: {
@@ -144,6 +209,39 @@ export interface SectionsFaqSection extends Struct.ComponentSchema {
   attributes: {
     eyebrow: Schema.Attribute.String;
     faqs: Schema.Attribute.Component<'shared.faq', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsFlexibleContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_sections_flexible_content_blocks';
+  info: {
+    description: 'Flexible content block with heading, text, and image in various layouts';
+    displayName: 'Flexible Content Block';
+    icon: 'align-left';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<['white', 'grey']> &
+      Schema.Attribute.DefaultTo<'white'>;
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imagePosition: Schema.Attribute.Enumeration<
+      ['left', 'right', 'top', 'bottom']
+    > &
+      Schema.Attribute.DefaultTo<'right'>;
+  };
+}
+
+export interface SectionsHistoryTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_sections_history_timelines';
+  info: {
+    description: 'Company history timeline section';
+    displayName: 'History Timeline';
+    icon: 'history';
+  };
+  attributes: {
+    events: Schema.Attribute.Component<'sections.timeline-event', true>;
     heading: Schema.Attribute.String;
   };
 }
@@ -275,6 +373,45 @@ export interface SectionsScheduleTable extends Struct.ComponentSchema {
   attributes: {
     heading: Schema.Attribute.String;
     scheduleRows: Schema.Attribute.Component<'sections.schedule-row', true>;
+  };
+}
+
+export interface SectionsStatItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_stat_items';
+  info: {
+    description: 'Single stat with number and label';
+    displayName: 'Stat Item';
+    icon: 'chart-bar';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsStatsGrid extends Struct.ComponentSchema {
+  collectionName: 'components_sections_stats_grids';
+  info: {
+    description: 'Grid of statistics/counters';
+    displayName: 'Stats Grid';
+    icon: 'chart-line';
+  };
+  attributes: {
+    stats: Schema.Attribute.Component<'sections.stat-item', true>;
+  };
+}
+
+export interface SectionsTimelineEvent extends Struct.ComponentSchema {
+  collectionName: 'components_sections_timeline_events';
+  info: {
+    description: 'Single event in history timeline';
+    displayName: 'Timeline Event';
+    icon: 'calendar-alt';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    year: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -491,11 +628,17 @@ declare module '@strapi/strapi' {
       'navigation.mega-menu-item': NavigationMegaMenuItem;
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
+      'sections.about-hero': SectionsAboutHero;
       'sections.achievement-item': SectionsAchievementItem;
+      'sections.benefit-item': SectionsBenefitItem;
+      'sections.benefits-grid': SectionsBenefitsGrid;
       'sections.content-block': SectionsContentBlock;
       'sections.destinations-config': SectionsDestinationsConfig;
       'sections.discount-cta': SectionsDiscountCta;
+      'sections.dragons-den': SectionsDragonsDen;
       'sections.faq-section': SectionsFaqSection;
+      'sections.flexible-content-block': SectionsFlexibleContentBlock;
+      'sections.history-timeline': SectionsHistoryTimeline;
       'sections.info-card': SectionsInfoCard;
       'sections.jamie-murray-programme': SectionsJamieMurrayProgramme;
       'sections.key-information': SectionsKeyInformation;
@@ -503,6 +646,9 @@ declare module '@strapi/strapi' {
       'sections.quote-section': SectionsQuoteSection;
       'sections.schedule-row': SectionsScheduleRow;
       'sections.schedule-table': SectionsScheduleTable;
+      'sections.stat-item': SectionsStatItem;
+      'sections.stats-grid': SectionsStatsGrid;
+      'sections.timeline-event': SectionsTimelineEvent;
       'sections.two-column-content': SectionsTwoColumnContent;
       'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;

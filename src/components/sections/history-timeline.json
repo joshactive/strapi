@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_history_timelines",
+  "info": {
+    "displayName": "History Timeline",
+    "icon": "history",
+    "description": "Company history timeline section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "events": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.timeline-event"
+    }
+  }
+}
+

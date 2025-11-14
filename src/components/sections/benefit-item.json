@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_sections_benefit_items",
+  "info": {
+    "displayName": "Benefit Item",
+    "icon": "check-circle",
+    "description": "Single benefit with icon, heading, and description"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "clock",
+        "star",
+        "shield",
+        "heart",
+        "trophy",
+        "users",
+        "check",
+        "custom"
+      ],
+      "required": false
+    },
+    "customIconSvg": {
+      "type": "text",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

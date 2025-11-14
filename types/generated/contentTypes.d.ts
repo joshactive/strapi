@@ -430,6 +430,50 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
+  info: {
+    description: 'About Us page content';
+    displayName: 'About Page';
+    pluralName: 'about-pages';
+    singularName: 'about-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'sections.benefits-grid', false>;
+    contentBlocks: Schema.Attribute.Component<
+      'sections.flexible-content-block',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    dragonsDen: Schema.Attribute.Component<'sections.dragons-den', false>;
+    hero: Schema.Attribute.Component<'sections.about-hero', false>;
+    history: Schema.Attribute.Component<'sections.history-timeline', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-page.about-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showInstagram: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    showWhatWeOffer: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    stats: Schema.Attribute.Component<'sections.stats-grid', false>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
@@ -1298,6 +1342,43 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     whyWeLoveVenue4: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
     wpOldUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
+  collectionName: 'people';
+  info: {
+    description: 'Team members and people';
+    displayName: 'Person';
+    pluralName: 'people';
+    singularName: 'person';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bio: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnAboutPage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    email: Schema.Attribute.Email;
+    image: Schema.Attribute.Media<'images'>;
+    linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::person.person'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -3440,6 +3521,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::blog.blog': ApiBlogBlog;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::events.event': ApiEventsEvent;
@@ -3452,6 +3534,7 @@ declare module '@strapi/strapi' {
       'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
       'api::padel-holiday-page.padel-holiday-page': ApiPadelHolidayPagePadelHolidayPage;
       'api::padel-tennis-holiday.padel-tennis-holiday': ApiPadelTennisHolidayPadelTennisHoliday;
+      'api::person.person': ApiPersonPerson;
       'api::pickleball-holiday-page.pickleball-holiday-page': ApiPickleballHolidayPagePickleballHolidayPage;
       'api::pickleball-holiday.pickleball-holiday': ApiPickleballHolidayPickleballHoliday;
       'api::play-and-watch-page.play-and-watch-page': ApiPlayAndWatchPagePlayAndWatchPage;
