@@ -71,6 +71,153 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsAchievementItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_achievement_items';
+  info: {
+    description: 'Achievement or credential item for Jamie Murray section';
+    displayName: 'Achievement Item';
+    icon: 'trophy';
+  };
+  attributes: {
+    icon: Schema.Attribute.String & Schema.Attribute.DefaultTo<'arrow'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsDestinationsConfig extends Struct.ComponentSchema {
+  collectionName: 'components_sections_destinations_configs';
+  info: {
+    description: 'Configuration for destinations section display';
+    displayName: 'Destinations Config';
+    icon: 'map-marker-alt';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    featuredLocationSlugs: Schema.Attribute.JSON;
+    heading: Schema.Attribute.String;
+    showDestinations: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface SectionsDiscountCta extends Struct.ComponentSchema {
+  collectionName: 'components_sections_discount_ctas';
+  info: {
+    description: 'Discount call-to-action section with background image';
+    displayName: 'Discount CTA';
+    icon: 'percent';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Access Discount'>;
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsFaqSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_faq_sections';
+  info: {
+    description: 'FAQ section with multiple FAQ items';
+    displayName: 'FAQ Section';
+    icon: 'question-circle';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    faqs: Schema.Attribute.Component<'shared.faq', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsJamieMurrayProgramme extends Struct.ComponentSchema {
+  collectionName: 'components_sections_jamie_murray_programmes';
+  info: {
+    description: 'Jamie Murray tennis programme section with achievements';
+    displayName: 'Jamie Murray Programme';
+    icon: 'star';
+  };
+  attributes: {
+    achievements: Schema.Attribute.Component<'sections.achievement-item', true>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Learn More'>;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsProductHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_product_heros';
+  info: {
+    description: 'Hero section for product pages with kicker, heading, subheading, and background image or video';
+    displayName: 'Product Hero';
+    icon: 'picture';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    heroImages: Schema.Attribute.Media<'images', true>;
+    kicker: Schema.Attribute.String;
+    mediaType: Schema.Attribute.Enumeration<
+      ['fullscreen-background', 'split-screen-image', 'split-screen-video']
+    > &
+      Schema.Attribute.DefaultTo<'fullscreen-background'>;
+    rightSideImage: Schema.Attribute.Media<'images'>;
+    subheading: Schema.Attribute.RichText;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsQuoteSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_quote_sections';
+  info: {
+    description: 'Quote section with eyebrow, quote text, author name, and author images';
+    displayName: 'Quote Section';
+    icon: 'quote-right';
+  };
+  attributes: {
+    authorImages: Schema.Attribute.Media<'images', true>;
+    authorName: Schema.Attribute.String;
+    decorativeIcon: Schema.Attribute.Media<'images'>;
+    eyebrow: Schema.Attribute.String;
+    quoteText: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsScheduleRow extends Struct.ComponentSchema {
+  collectionName: 'components_sections_schedule_rows';
+  info: {
+    description: 'Single day schedule row with morning, afternoon, and evening activities';
+    displayName: 'Schedule Row';
+    icon: 'calendar';
+  };
+  attributes: {
+    afternoon: Schema.Attribute.RichText;
+    day: Schema.Attribute.String & Schema.Attribute.Required;
+    evening: Schema.Attribute.RichText;
+    morning: Schema.Attribute.RichText;
+  };
+}
+
+export interface SectionsScheduleTable extends Struct.ComponentSchema {
+  collectionName: 'components_sections_schedule_tables';
+  info: {
+    description: 'Weekly schedule or itinerary table with daily activities';
+    displayName: 'Schedule Table';
+    icon: 'table';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    scheduleRows: Schema.Attribute.Component<'sections.schedule-row', true>;
+  };
+}
+
 export interface SharedCoach extends Struct.ComponentSchema {
   collectionName: 'components_shared_coaches';
   info: {
@@ -270,6 +417,15 @@ declare module '@strapi/strapi' {
       'navigation.mega-menu-item': NavigationMegaMenuItem;
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
+      'sections.achievement-item': SectionsAchievementItem;
+      'sections.destinations-config': SectionsDestinationsConfig;
+      'sections.discount-cta': SectionsDiscountCta;
+      'sections.faq-section': SectionsFaqSection;
+      'sections.jamie-murray-programme': SectionsJamieMurrayProgramme;
+      'sections.product-hero': SectionsProductHero;
+      'sections.quote-section': SectionsQuoteSection;
+      'sections.schedule-row': SectionsScheduleRow;
+      'sections.schedule-table': SectionsScheduleTable;
       'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;
       'shared.hosted-experience': SharedHostedExperience;

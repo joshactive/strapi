@@ -3,7 +3,7 @@
   "info": {
     "displayName": "Product Hero",
     "icon": "picture",
-    "description": "Hero section for product pages with kicker, heading, subheading, and background image"
+    "description": "Hero section for product pages with kicker, heading, subheading, and background image or video"
   },
   "options": {},
   "attributes": {
@@ -30,6 +30,36 @@
     "heroImages": {
       "type": "media",
       "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
+    },
+    "mediaType": {
+      "type": "enumeration",
+      "enum": [
+        "fullscreen-background",
+        "split-screen-image",
+        "split-screen-video"
+      ],
+      "default": "fullscreen-background",
+      "required": false
+    },
+    "videoUrl": {
+      "type": "string",
+      "required": false
+    },
+    "rightSideImage": {
+      "type": "media",
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"

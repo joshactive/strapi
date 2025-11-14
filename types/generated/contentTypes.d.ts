@@ -1704,6 +1704,68 @@ export interface ApiPreOrdersPagePreOrdersPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProductPageProductPage extends Struct.CollectionTypeSchema {
+  collectionName: 'product_pages';
+  info: {
+    description: 'Dynamic product category pages (Adult Tennis Holidays, Padel Holidays, etc.)';
+    displayName: 'Product Page';
+    pluralName: 'product-pages';
+    singularName: 'product-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<
+      [
+        'adult-tennis',
+        'padel',
+        'pickleball',
+        'junior-camp',
+        'ski',
+        'play-and-watch',
+        'school-tour',
+        'tennis-clinic',
+        'tennis-academy',
+      ]
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    destinations: Schema.Attribute.Component<
+      'sections.destinations-config',
+      false
+    >;
+    discount: Schema.Attribute.Component<'sections.discount-cta', false>;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
+    hero: Schema.Attribute.Component<'sections.product-hero', false>;
+    jamieMurray: Schema.Attribute.Component<
+      'sections.jamie-murray-programme',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-page.product-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Component<'sections.quote-section', false>;
+    schedule: Schema.Attribute.Component<'sections.schedule-table', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -3388,6 +3450,7 @@ declare module '@strapi/strapi' {
       'api::play-and-watch.play-and-watch': ApiPlayAndWatchPlayAndWatch;
       'api::pre-order.pre-order': ApiPreOrderPreOrder;
       'api::pre-orders-page.pre-orders-page': ApiPreOrdersPagePreOrdersPage;
+      'api::product-page.product-page': ApiProductPageProductPage;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
