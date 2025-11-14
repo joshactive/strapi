@@ -84,6 +84,22 @@ export interface SectionsAchievementItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_sections_content_blocks';
+  info: {
+    description: 'Flexible content block with heading, text, and image';
+    displayName: 'Content Block';
+    icon: 'layer-group';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imagePosition: Schema.Attribute.Enumeration<['top', 'bottom']> &
+      Schema.Attribute.DefaultTo<'bottom'>;
+  };
+}
+
 export interface SectionsDestinationsConfig extends Struct.ComponentSchema {
   collectionName: 'components_sections_destinations_configs';
   info: {
@@ -215,6 +231,20 @@ export interface SectionsScheduleTable extends Struct.ComponentSchema {
   attributes: {
     heading: Schema.Attribute.String;
     scheduleRows: Schema.Attribute.Component<'sections.schedule-row', true>;
+  };
+}
+
+export interface SectionsTwoColumnContent extends Struct.ComponentSchema {
+  collectionName: 'components_sections_two_column_contents';
+  info: {
+    description: 'Two-column layout with content blocks (like Hosting + Tennis Standards)';
+    displayName: 'Two Column Content';
+    icon: 'columns';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    leftBlock: Schema.Attribute.Component<'sections.content-block', false>;
+    rightBlock: Schema.Attribute.Component<'sections.content-block', false>;
   };
 }
 
@@ -418,6 +448,7 @@ declare module '@strapi/strapi' {
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
       'sections.achievement-item': SectionsAchievementItem;
+      'sections.content-block': SectionsContentBlock;
       'sections.destinations-config': SectionsDestinationsConfig;
       'sections.discount-cta': SectionsDiscountCta;
       'sections.faq-section': SectionsFaqSection;
@@ -426,6 +457,7 @@ declare module '@strapi/strapi' {
       'sections.quote-section': SectionsQuoteSection;
       'sections.schedule-row': SectionsScheduleRow;
       'sections.schedule-table': SectionsScheduleTable;
+      'sections.two-column-content': SectionsTwoColumnContent;
       'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;
       'shared.hosted-experience': SharedHostedExperience;

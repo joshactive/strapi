@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_two_column_contents",
+  "info": {
+    "displayName": "Two Column Content",
+    "icon": "columns",
+    "description": "Two-column layout with content blocks (like Hosting + Tennis Standards)"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "leftBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.content-block"
+    },
+    "rightBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.content-block"
+    }
+  }
+}
+

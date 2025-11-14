@@ -57,6 +57,11 @@
       "repeatable": false,
       "component": "sections.jamie-murray-programme"
     },
+    "twoColumnContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.two-column-content"
+    },
     "schedule": {
       "type": "component",
       "repeatable": false,
