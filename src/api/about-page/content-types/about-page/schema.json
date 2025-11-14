@@ -21,6 +21,11 @@
       "default": true,
       "required": false
     },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
     "hero": {
       "type": "component",
       "repeatable": false,

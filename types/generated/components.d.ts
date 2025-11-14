@@ -308,6 +308,23 @@ export interface SectionsKeyInformation extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsPageHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_page_heros';
+  info: {
+    description: 'Standard page hero with background image, breadcrumbs, and heading';
+    displayName: 'Page Hero';
+    icon: 'image';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    kicker: Schema.Attribute.String;
+    showBreadcrumbs: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    subtitle: Schema.Attribute.Text;
+  };
+}
+
 export interface SectionsProductHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_product_heros';
   info: {
@@ -642,6 +659,7 @@ declare module '@strapi/strapi' {
       'sections.info-card': SectionsInfoCard;
       'sections.jamie-murray-programme': SectionsJamieMurrayProgramme;
       'sections.key-information': SectionsKeyInformation;
+      'sections.page-hero': SectionsPageHero;
       'sections.product-hero': SectionsProductHero;
       'sections.quote-section': SectionsQuoteSection;
       'sections.schedule-row': SectionsScheduleRow;

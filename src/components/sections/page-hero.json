@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sections_page_heros",
+  "info": {
+    "displayName": "Page Hero",
+    "icon": "image",
+    "description": "Standard page hero with background image, breadcrumbs, and heading"
+  },
+  "options": {},
+  "attributes": {
+    "kicker": {
+      "type": "string",
+      "required": false
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "showBreadcrumbs": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    }
+  }
+}
+
