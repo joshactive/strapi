@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_shared_team_members",
+  "info": {
+    "displayName": "Team Member",
+    "description": "Team member information with profile, contact details and order"
+  },
+  "options": {},
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "job_title": {
+      "type": "string",
+      "required": false
+    },
+    "short_description_people": {
+      "type": "text",
+      "required": false
+    },
+    "linkedin_url": {
+      "type": "string",
+      "required": false
+    },
+    "profile_image_people": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "email_address_people": {
+      "type": "email",
+      "required": false
+    },
+    "order_people": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "website_person": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+
