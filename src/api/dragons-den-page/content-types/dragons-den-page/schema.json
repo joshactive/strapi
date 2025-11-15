@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "dragons_den_pages",
+  "info": {
+    "singularName": "dragons-den-page",
+    "pluralName": "dragons-den-pages",
+    "displayName": "Dragons' Den Page",
+    "description": "Dragons' Den page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.quote-section"
+    },
+    "video1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.video-content-block"
+    },
+    "contentBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.flexible-content-block"
+    },
+    "video2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.video-content-block"
+    },
+    "showProductsGrid": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.faq-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+

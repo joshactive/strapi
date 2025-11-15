@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_sections_video_content_blocks",
+  "info": {
+    "displayName": "Video Content Block",
+    "icon": "video",
+    "description": "Video section with heading and text content"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "videoUrl": {
+      "type": "string",
+      "required": false
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "side-by-side",
+        "stacked"
+      ],
+      "default": "side-by-side",
+      "required": false
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "grey"
+      ],
+      "default": "white",
+      "required": false
+    }
+  }
+}
+
