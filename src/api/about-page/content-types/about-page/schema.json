@@ -61,15 +61,15 @@
       "repeatable": false,
       "component": "sections.history-timeline"
     },
-    "faq": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.faq-section"
-    },
     "showInstagram": {
       "type": "boolean",
       "default": true,
       "required": false
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.faq-section"
     },
     "seo": {
       "type": "component",

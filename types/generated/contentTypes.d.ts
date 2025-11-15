@@ -453,7 +453,6 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     dragonsDen: Schema.Attribute.Component<'sections.dragons-den', false>;
-    faq: Schema.Attribute.Component<'sections.faq-section', false>;
     hero: Schema.Attribute.Component<'sections.about-hero', false>;
     history: Schema.Attribute.Component<'sections.history-timeline', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
