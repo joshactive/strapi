@@ -636,6 +636,24 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTeamMember extends Struct.ComponentSchema {
+  collectionName: 'components_shared_team_members';
+  info: {
+    description: 'Team member information with profile, contact details and order';
+    displayName: 'Team Member';
+  };
+  attributes: {
+    email_address_people: Schema.Attribute.Email;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
+    job_title: Schema.Attribute.String;
+    linkedin_url: Schema.Attribute.String;
+    order_people: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    profile_image_people: Schema.Attribute.Media<'images'>;
+    short_description_people: Schema.Attribute.Text;
+    website_person: Schema.Attribute.String;
+  };
+}
+
 export interface SharedUsefulResource extends Struct.ComponentSchema {
   collectionName: 'components_shared_useful_resources';
   info: {
@@ -691,6 +709,7 @@ declare module '@strapi/strapi' {
       'shared.room': SharedRoom;
       'shared.room-option': SharedRoomOption;
       'shared.seo': SharedSeo;
+      'shared.team-member': SharedTeamMember;
       'shared.useful-resource': SharedUsefulResource;
     }
   }

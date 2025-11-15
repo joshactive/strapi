@@ -453,6 +453,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     dragonsDen: Schema.Attribute.Component<'sections.dragons-den', false>;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
     hero: Schema.Attribute.Component<'sections.about-hero', false>;
     history: Schema.Attribute.Component<'sections.history-timeline', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2260,6 +2261,36 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTeamTeam extends Struct.SingleTypeSchema {
+  collectionName: 'teams';
+  info: {
+    description: 'Team members page content';
+    displayName: 'Team';
+    pluralName: 'teams';
+    singularName: 'team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::team.team'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    teamMembers: Schema.Attribute.Component<'shared.team-member', true>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTennisAcademyPageTennisAcademyPage
   extends Struct.SingleTypeSchema {
   collectionName: 'tennis_academy_pages';
@@ -3549,6 +3580,7 @@ declare module '@strapi/strapi' {
       'api::school-tour-page.school-tour-page': ApiSchoolTourPageSchoolTourPage;
       'api::ski-holiday-page.ski-holiday-page': ApiSkiHolidayPageSkiHolidayPage;
       'api::ski-holiday.ski-holiday': ApiSkiHolidaySkiHoliday;
+      'api::team.team': ApiTeamTeam;
       'api::tennis-academy-page.tennis-academy-page': ApiTennisAcademyPageTennisAcademyPage;
       'api::tennis-academy.tennis-academy': ApiTennisAcademyTennisAcademy;
       'api::tennis-clinic-page.tennis-clinic-page': ApiTennisClinicPageTennisClinicPage;
