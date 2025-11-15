@@ -1,0 +1,69 @@
+{
+  "kind": "singleType",
+  "collectionName": "announcement_bars",
+  "info": {
+    "singularName": "announcement-bar",
+    "pluralName": "announcement-bars",
+    "displayName": "Announcement Bar",
+    "description": "Announcement bar displayed above header sitewide"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isActive": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "message": {
+      "type": "string",
+      "required": true
+    },
+    "ctaText": {
+      "type": "string",
+      "required": false
+    },
+    "ctaLink": {
+      "type": "string",
+      "required": false
+    },
+    "backgroundColorStart": {
+      "type": "string",
+      "required": false,
+      "default": "#0D1C4E"
+    },
+    "backgroundColorEnd": {
+      "type": "string",
+      "required": false,
+      "default": "#0a1539"
+    },
+    "textColor": {
+      "type": "string",
+      "required": false,
+      "default": "#FFFFFF"
+    },
+    "ctaTextColor": {
+      "type": "string",
+      "required": false,
+      "default": "#FFFFFF"
+    },
+    "ctaHoverColor": {
+      "type": "string",
+      "required": false,
+      "default": "#ad986c"
+    },
+    "isDismissible": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "cookieName": {
+      "type": "string",
+      "required": false,
+      "default": "announcement-dismissed"
+    }
+  }
+}
+
