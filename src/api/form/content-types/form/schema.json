@@ -45,11 +45,30 @@
         "images"
       ]
     },
+    "descriptionTitle": {
+      "type": "string"
+    },
+    "formHeading": {
+      "type": "string",
+      "default": "Submit Your Information"
+    },
+    "formSubtitle": {
+      "type": "text"
+    },
+    "formLayout": {
+      "type": "enumeration",
+      "enum": ["1-column", "2-column"],
+      "default": "1-column"
+    },
     "formWebhookUrl": {
       "type": "text"
     },
     "formFields": {
       "type": "json"
+    },
+    "showOtherOptions": {
+      "type": "boolean",
+      "default": false
     },
     "displayOnArchive": {
       "type": "boolean",
