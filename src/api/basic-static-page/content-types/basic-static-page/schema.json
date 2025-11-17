@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "basic_static_pages",
+  "info": {
+    "singularName": "basic-static-page",
+    "pluralName": "basic-static-pages",
+    "displayName": "Basic Static Page",
+    "description": "Simple content pages (legal, info, etc.)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "pageType": {
+      "type": "enumeration",
+      "enum": [
+        "product-page",
+        "static-page",
+        "landing-page",
+        "campaign-page"
+      ],
+      "default": "static-page",
+      "required": false
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "importantEyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "importantHeading": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+

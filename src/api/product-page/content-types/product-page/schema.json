@@ -42,6 +42,17 @@
       "default": true,
       "required": false
     },
+    "pageType": {
+      "type": "enumeration",
+      "enum": [
+        "product-page",
+        "static-page",
+        "landing-page",
+        "campaign-page"
+      ],
+      "default": "product-page",
+      "required": false
+    },
     "hero": {
       "type": "component",
       "repeatable": false,
