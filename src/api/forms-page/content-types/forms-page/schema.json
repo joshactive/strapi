@@ -22,17 +22,14 @@
     },
     "heroTitle": {
       "type": "string",
-      "default": "Forms",
       "required": true
     },
     "heroSubtitle": {
       "type": "text",
-      "default": "Get in touch with us using one of our contact forms below.",
       "required": true
     },
     "heroKicker": {
       "type": "string",
-      "default": "GET IN TOUCH",
       "required": false
     },
     "seo": {

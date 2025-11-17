@@ -49,16 +49,14 @@
       "type": "string"
     },
     "formHeading": {
-      "type": "string",
-      "default": "Submit Your Information"
+      "type": "string"
     },
     "formSubtitle": {
       "type": "text"
     },
     "formLayout": {
       "type": "enumeration",
-      "enum": ["1-column", "2-column"],
-      "default": "1-column"
+      "enum": ["1-column", "2-column"]
     },
     "formWebhookUrl": {
       "type": "text"
