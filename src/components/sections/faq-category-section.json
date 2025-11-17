@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_faq_category_sections",
+  "info": {
+    "displayName": "FAQ Category Section",
+    "icon": "list",
+    "description": "Grouped FAQ section (Pre-Booking, Pre-Travel, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string",
+      "required": true
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.faq-item"
+    }
+  }
+}
+

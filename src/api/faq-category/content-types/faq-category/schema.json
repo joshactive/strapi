@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_categories",
+  "info": {
+    "singularName": "faq-category",
+    "pluralName": "faq-categories",
+    "displayName": "FAQ Category",
+    "description": "FAQ categories for different topics"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "eyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "faqSections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.faq-category-section"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "order": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
