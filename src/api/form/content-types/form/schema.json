@@ -28,9 +28,6 @@
     "description": {
       "type": "text"
     },
-    "descriptionTitle": {
-      "type": "string"
-    },
     "heroTitle": {
       "type": "string"
     },
@@ -44,7 +41,12 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "descriptionTitle": {
+      "type": "string"
     },
     "formHeading": {
       "type": "string",
@@ -74,8 +76,9 @@
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
+
