@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * forms-page controller
+ * form controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::forms-page.forms-page');
+module.exports = createCoreController('api::form.form');
+

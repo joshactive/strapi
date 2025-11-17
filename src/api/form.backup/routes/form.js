@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * forms-page router
+ * form router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::forms-page.forms-page');
+module.exports = createCoreRouter('api::form.form');
+

@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * forms-page service
+ * form service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::forms-page.forms-page');
+module.exports = createCoreService('api::form.form');
+
