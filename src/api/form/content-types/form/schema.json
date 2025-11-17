@@ -57,8 +57,8 @@
     },
     "formLayout": {
       "type": "enumeration",
-      "enum": ["1-column", "2-column"],
-      "default": "1-column"
+      "enum": ["one-column", "two-column"],
+      "default": "one-column"
     },
     "formWebhookUrl": {
       "type": "text"
