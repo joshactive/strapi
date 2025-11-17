@@ -1,0 +1,81 @@
+{
+  "kind": "singleType",
+  "collectionName": "self_rating_guide_page",
+  "info": {
+    "singularName": "self-rating-guide-page",
+    "pluralName": "self-rating-guide-pages",
+    "displayName": "Self Rating Guide Page",
+    "description": "Self-rating guide for Tennis, Padel, and Pickleball"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "introTitle": {
+      "type": "string",
+      "required": false
+    },
+    "introContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "downloadGuideUrl": {
+      "type": "string",
+      "required": false
+    },
+    "tennisTitle": {
+      "type": "string",
+      "required": false
+    },
+    "tennisContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "tennisImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "padelTitle": {
+      "type": "string",
+      "required": false
+    },
+    "padelContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "padelImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "pickleballTitle": {
+      "type": "string",
+      "required": false
+    },
+    "pickleballContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "pickleballImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
