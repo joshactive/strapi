@@ -1,0 +1,79 @@
+{
+  "kind": "singleType",
+  "collectionName": "jamie_murray_pages",
+  "info": {
+    "singularName": "jamie-murray-page",
+    "pluralName": "jamie-murray-pages",
+    "displayName": "Jamie Murray Page",
+    "description": "Jamie Murray Tennis Programme page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "slug": {
+      "type": "string",
+      "required": false,
+      "unique": true,
+      "default": "jamie-murray-tennis-programme"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.quote-section"
+    },
+    "jamieMurrayProgramme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.jamie-murray-programme"
+    },
+    "twoColumnContent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.two-column-content"
+    },
+    "showLocations": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "locationsHeading": {
+      "type": "string",
+      "required": false
+    },
+    "locationsEyebrow": {
+      "type": "string",
+      "required": false
+    },
+    "featuredLocationSlugs": {
+      "type": "json",
+      "required": false
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.faq-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
