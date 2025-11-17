@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "flights_pages",
+  "info": {
+    "singularName": "flights-page",
+    "pluralName": "flights-pages",
+    "displayName": "Flights Page",
+    "description": "Flights booking page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "slug": {
+      "type": "string",
+      "required": false,
+      "unique": true,
+      "default": "flights"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "introHeading": {
+      "type": "string",
+      "required": false
+    },
+    "introText": {
+      "type": "richtext",
+      "required": false
+    },
+    "formHeading": {
+      "type": "string",
+      "required": false
+    },
+    "formDescription": {
+      "type": "richtext",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
