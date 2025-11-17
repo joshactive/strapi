@@ -1,6 +1,6 @@
 {
   "kind": "singleType",
-  "collectionName": "forms_page",
+  "collectionName": "forms_pages",
   "info": {
     "singularName": "forms-page",
     "pluralName": "forms-pages",
