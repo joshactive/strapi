@@ -57,7 +57,10 @@
     },
     "formLayout": {
       "type": "enumeration",
-      "enum": ["one-column", "two-column"],
+      "enum": [
+        "one-column",
+        "two-column"
+      ],
       "default": "one-column"
     },
     "formWebhookUrl": {
