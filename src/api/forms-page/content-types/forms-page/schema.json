@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "forms_pages",
+  "info": {
+    "singularName": "forms-page",
+    "pluralName": "forms-pages",
+    "displayName": "Forms Page",
+    "description": "Content for the /forms archive page including hero section and SEO metadata"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Forms",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "default": "Get in touch with us using one of our contact forms below.",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "GET IN TOUCH",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}
+
