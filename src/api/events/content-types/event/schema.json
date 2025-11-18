@@ -98,6 +98,18 @@
     },
     "uniqueValue": {
       "type": "string"
+    },
+    "itinerary_url": {
+      "type": "string"
+    },
+    "whatsapp_url": {
+      "type": "string"
+    },
+    "day_off_guide": {
+      "type": "string"
+    },
+    "what_to_bring": {
+      "type": "string"
     }
   }
 }

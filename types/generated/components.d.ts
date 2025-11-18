@@ -211,6 +211,32 @@ export interface SectionsDragonsDen extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsFaqCategorySection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_faq_category_sections';
+  info: {
+    description: 'Grouped FAQ section (Pre-Booking, Pre-Travel, etc.)';
+    displayName: 'FAQ Category Section';
+    icon: 'list';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Component<'sections.faq-item', true>;
+    sectionName: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_faq_items';
+  info: {
+    description: 'Single FAQ question and answer';
+    displayName: 'FAQ Item';
+    icon: 'question-circle';
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsFaqSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_faq_sections';
   info: {
@@ -458,6 +484,24 @@ export interface SectionsTwoColumnContent extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsVideoContentBlock extends Struct.ComponentSchema {
+  collectionName: 'components_sections_video_content_blocks';
+  info: {
+    description: 'Video section with heading and text content';
+    displayName: 'Video Content Block';
+    icon: 'video';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.Enumeration<['white', 'grey']> &
+      Schema.Attribute.DefaultTo<'white'>;
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
+    layout: Schema.Attribute.Enumeration<['side-by-side', 'stacked']> &
+      Schema.Attribute.DefaultTo<'side-by-side'>;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface SharedCoach extends Struct.ComponentSchema {
   collectionName: 'components_shared_coaches';
   info: {
@@ -683,6 +727,8 @@ declare module '@strapi/strapi' {
       'sections.destinations-config': SectionsDestinationsConfig;
       'sections.discount-cta': SectionsDiscountCta;
       'sections.dragons-den': SectionsDragonsDen;
+      'sections.faq-category-section': SectionsFaqCategorySection;
+      'sections.faq-item': SectionsFaqItem;
       'sections.faq-section': SectionsFaqSection;
       'sections.flexible-content-block': SectionsFlexibleContentBlock;
       'sections.history-timeline': SectionsHistoryTimeline;
@@ -698,6 +744,7 @@ declare module '@strapi/strapi' {
       'sections.stats-grid': SectionsStatsGrid;
       'sections.timeline-event': SectionsTimelineEvent;
       'sections.two-column-content': SectionsTwoColumnContent;
+      'sections.video-content-block': SectionsVideoContentBlock;
       'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;
       'shared.hosted-experience': SharedHostedExperience;

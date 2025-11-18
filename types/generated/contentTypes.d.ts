@@ -453,6 +453,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
     dragonsDen: Schema.Attribute.Component<'sections.dragons-den', false>;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
     hero: Schema.Attribute.Component<'sections.about-hero', false>;
     history: Schema.Attribute.Component<'sections.history-timeline', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -469,6 +470,96 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
       Schema.Attribute.DefaultTo<true>;
     stats: Schema.Attribute.Component<'sections.stats-grid', false>;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAnnouncementBarAnnouncementBar
+  extends Struct.SingleTypeSchema {
+  collectionName: 'announcement_bars';
+  info: {
+    description: 'Announcement bar displayed above header sitewide';
+    displayName: 'Announcement Bar';
+    pluralName: 'announcement-bars';
+    singularName: 'announcement-bar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backgroundColorEnd: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#0a1539'>;
+    backgroundColorStart: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#0D1C4E'>;
+    cookieName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'announcement-dismissed'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaHoverColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#ad986c'>;
+    ctaLink: Schema.Attribute.String;
+    ctaText: Schema.Attribute.String;
+    ctaTextColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#FFFFFF'>;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isDismissible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::announcement-bar.announcement-bar'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#FFFFFF'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBasicStaticPageBasicStaticPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'basic_static_pages';
+  info: {
+    description: 'Simple content pages (legal, info, etc.)';
+    displayName: 'Basic Static Page';
+    pluralName: 'basic-static-pages';
+    singularName: 'basic-static-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    importantContent: Schema.Attribute.RichText;
+    importantEyebrow: Schema.Attribute.String;
+    importantHeading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::basic-static-page.basic-static-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    pageType: Schema.Attribute.Enumeration<
+      ['product-page', 'static-page', 'landing-page', 'campaign-page']
+    > &
+      Schema.Attribute.DefaultTo<'static-page'>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -514,6 +605,50 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     wpOldUrl: Schema.Attribute.String;
     WPURL: Schema.Attribute.String;
     youtubeVideoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiDragonsDenPageDragonsDenPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'dragons_den_pages';
+  info: {
+    description: "Dragons' Den page content";
+    displayName: "Dragons' Den Page";
+    pluralName: 'dragons-den-pages';
+    singularName: 'dragons-den-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contentBlock: Schema.Attribute.Component<
+      'sections.flexible-content-block',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dragons-den-page.dragons-den-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Component<'sections.quote-section', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showProductsGrid: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video1: Schema.Attribute.Component<'sections.video-content-block', false>;
+    video2: Schema.Attribute.Component<'sections.video-content-block', false>;
   };
 }
 
@@ -602,6 +737,80 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
+  collectionName: 'faq_categories';
+  info: {
+    description: 'FAQ categories for different topics';
+    displayName: 'FAQ Category';
+    pluralName: 'faq-categories';
+    singularName: 'faq-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    eyebrow: Schema.Attribute.String;
+    faqSections: Schema.Attribute.Component<
+      'sections.faq-category-section',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-category.faq-category'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqsIndexPageFaqsIndexPage extends Struct.SingleTypeSchema {
+  collectionName: 'faqs_index_pages';
+  info: {
+    description: 'Main FAQs index page content';
+    displayName: 'FAQs Index Page';
+    pluralName: 'faqs-index-pages';
+    singularName: 'faqs-index-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    gridHeading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faqs-index-page.faqs-index-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFeaturedLocationFeaturedLocation
   extends Struct.CollectionTypeSchema {
   collectionName: 'featured_locations';
@@ -673,6 +882,133 @@ export interface ApiFeaturedLocationFeaturedLocation
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     wpOldUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiFlightsPageFlightsPage extends Struct.SingleTypeSchema {
+  collectionName: 'flights_pages';
+  info: {
+    description: 'Flights booking page content';
+    displayName: 'Flights Page';
+    pluralName: 'flights-pages';
+    singularName: 'flights-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    formDescription: Schema.Attribute.RichText;
+    formHeading: Schema.Attribute.String;
+    introHeading: Schema.Attribute.String;
+    introText: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::flights-page.flights-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.DefaultTo<'flights'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFormForm extends Struct.CollectionTypeSchema {
+  collectionName: 'forms';
+  info: {
+    description: 'Dynamic forms with webhook integration';
+    displayName: 'Form';
+    pluralName: 'forms';
+    singularName: 'form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    descriptionTitle: Schema.Attribute.String;
+    displayOnArchive: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    formFields: Schema.Attribute.JSON;
+    formHeading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Submit Your Information'>;
+    formLayout: Schema.Attribute.Enumeration<['one-column', 'two-column']> &
+      Schema.Attribute.DefaultTo<'one-column'>;
+    formSubtitle: Schema.Attribute.Text;
+    formWebhookUrl: Schema.Attribute.Text;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    heroKicker: Schema.Attribute.String;
+    heroSubtitle: Schema.Attribute.Text;
+    heroTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showOtherOptions: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    webhookFormat: Schema.Attribute.Enumeration<['labels', 'names']> &
+      Schema.Attribute.DefaultTo<'labels'>;
+  };
+}
+
+export interface ApiFormsPageFormsPage extends Struct.SingleTypeSchema {
+  collectionName: 'forms_pages';
+  info: {
+    description: 'Content for the /forms archive page including hero section and SEO metadata';
+    displayName: 'Forms Page';
+    pluralName: 'forms-pages';
+    singularName: 'forms-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'GET IN TOUCH'>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Get in touch with us using one of our contact forms below.'>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Forms'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::forms-page.forms-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -972,6 +1308,57 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     whatDoWeOfferDescription: Schema.Attribute.Text;
     whatDoWeOfferTitle: Schema.Attribute.String;
+  };
+}
+
+export interface ApiJamieMurrayPageJamieMurrayPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'jamie_murray_pages';
+  info: {
+    description: 'Jamie Murray Tennis Programme page content';
+    displayName: 'Jamie Murray Page';
+    pluralName: 'jamie-murray-pages';
+    singularName: 'jamie-murray-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
+    featuredLocationSlugs: Schema.Attribute.JSON;
+    jamieMurrayProgramme: Schema.Attribute.Component<
+      'sections.jamie-murray-programme',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jamie-murray-page.jamie-murray-page'
+    > &
+      Schema.Attribute.Private;
+    locationsEyebrow: Schema.Attribute.String;
+    locationsHeading: Schema.Attribute.String;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Component<'sections.quote-section', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showLocations: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Unique &
+      Schema.Attribute.DefaultTo<'jamie-murray-tennis-programme'>;
+    title: Schema.Attribute.String;
+    twoColumnContent: Schema.Attribute.Component<
+      'sections.two-column-content',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1838,6 +2225,10 @@ export interface ApiProductPageProductPage extends Struct.CollectionTypeSchema {
       'api::product-page.product-page'
     > &
       Schema.Attribute.Private;
+    pageType: Schema.Attribute.Enumeration<
+      ['product-page', 'static-page', 'landing-page', 'campaign-page']
+    > &
+      Schema.Attribute.DefaultTo<'product-page'>;
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.Component<'sections.quote-section', false>;
     schedule: Schema.Attribute.Component<'sections.schedule-table', false>;
@@ -2099,6 +2490,49 @@ export interface ApiSchoolTourPageSchoolTourPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSelfRatingGuidePageSelfRatingGuidePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'self_rating_guide_page';
+  info: {
+    description: 'Self-rating guide for Tennis, Padel, and Pickleball';
+    displayName: 'Self Rating Guide Page';
+    pluralName: 'self-rating-guide-pages';
+    singularName: 'self-rating-guide-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    downloadGuideUrl: Schema.Attribute.String;
+    introContent: Schema.Attribute.RichText;
+    introTitle: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::self-rating-guide-page.self-rating-guide-page'
+    > &
+      Schema.Attribute.Private;
+    padelContent: Schema.Attribute.RichText;
+    padelImage: Schema.Attribute.Media<'images'>;
+    padelTitle: Schema.Attribute.String;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    pickleballContent: Schema.Attribute.RichText;
+    pickleballImage: Schema.Attribute.Media<'images'>;
+    pickleballTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    tennisContent: Schema.Attribute.RichText;
+    tennisImage: Schema.Attribute.Media<'images'>;
+    tennisTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3553,13 +3987,22 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
+      'api::basic-static-page.basic-static-page': ApiBasicStaticPageBasicStaticPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::dragons-den-page.dragons-den-page': ApiDragonsDenPageDragonsDenPage;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::events.event': ApiEventsEvent;
+      'api::faq-category.faq-category': ApiFaqCategoryFaqCategory;
+      'api::faqs-index-page.faqs-index-page': ApiFaqsIndexPageFaqsIndexPage;
       'api::featured-location.featured-location': ApiFeaturedLocationFeaturedLocation;
+      'api::flights-page.flights-page': ApiFlightsPageFlightsPage;
+      'api::form.form': ApiFormForm;
+      'api::forms-page.forms-page': ApiFormsPageFormsPage;
       'api::group-organiser-page.group-organiser-page': ApiGroupOrganiserPageGroupOrganiserPage;
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
+      'api::jamie-murray-page.jamie-murray-page': ApiJamieMurrayPageJamieMurrayPage;
       'api::junior-camp-page.junior-camp-page': ApiJuniorCampPageJuniorCampPage;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;
       'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
@@ -3577,6 +4020,7 @@ declare module '@strapi/strapi' {
       'api::review.review': ApiReviewReview;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
       'api::school-tour-page.school-tour-page': ApiSchoolTourPageSchoolTourPage;
+      'api::self-rating-guide-page.self-rating-guide-page': ApiSelfRatingGuidePageSelfRatingGuidePage;
       'api::ski-holiday-page.ski-holiday-page': ApiSkiHolidayPageSkiHolidayPage;
       'api::ski-holiday.ski-holiday': ApiSkiHolidaySkiHoliday;
       'api::team.team': ApiTeamTeam;
