@@ -66,6 +66,14 @@
     "formWebhookUrl": {
       "type": "text"
     },
+    "webhookFormat": {
+      "type": "enumeration",
+      "enum": [
+        "labels",
+        "names"
+      ],
+      "default": "labels"
+    },
     "formFields": {
       "type": "json"
     },
