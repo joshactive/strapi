@@ -27,7 +27,7 @@
     "php-unserialize": "^0.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
+    "react-router-dom": "^6.30.2",
     "strapi-5-sitemap-plugin": "^1.0.7",
     "styled-components": "^6.0.0"
   },
