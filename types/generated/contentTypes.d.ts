@@ -710,10 +710,12 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     dateFrom: Schema.Attribute.Date & Schema.Attribute.Required;
     dateText: Schema.Attribute.String;
     dateUntil: Schema.Attribute.Date & Schema.Attribute.Required;
+    day_off_guide: Schema.Attribute.String;
     featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     featuredImage: Schema.Attribute.Media<'images'>;
     gallery: Schema.Attribute.Media<'images', true>;
     isSoldOut: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    itinerary_url: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::events.event'> &
       Schema.Attribute.Private;
@@ -730,6 +732,8 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     venueLink: Schema.Attribute.String;
+    what_to_bring: Schema.Attribute.String;
+    whatsapp_url: Schema.Attribute.String;
     wpId: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
