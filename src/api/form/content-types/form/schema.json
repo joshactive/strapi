@@ -85,6 +85,29 @@
       "type": "boolean",
       "default": true
     },
+    "submitButtonConditional": {
+      "type": "boolean",
+      "default": false
+    },
+    "submitButtonConditionalField": {
+      "type": "string"
+    },
+    "submitButtonConditionalOperator": {
+      "type": "enumeration",
+      "enum": [
+        "equals",
+        "not_equals",
+        "contain",
+        "not_contain",
+        "not_empty",
+        "empty",
+        "greater",
+        "less"
+      ]
+    },
+    "submitButtonConditionalValue": {
+      "type": "string"
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
