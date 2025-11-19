@@ -1,5 +1,58 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ContentAccordionItem extends Struct.ComponentSchema {
+  collectionName: 'components_content_accordion_items';
+  info: {
+    description: 'Accordion item with title and markdown content';
+    displayName: 'Accordion Item';
+    icon: 'align-justify';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ContentContentItem extends Struct.ComponentSchema {
+  collectionName: 'components_content_content_items';
+  info: {
+    description: 'Table of contents item with label and anchor';
+    displayName: 'Content Item';
+    icon: 'list';
+  };
+  attributes: {
+    anchor: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ContentNoticeItem extends Struct.ComponentSchema {
+  collectionName: 'components_content_notice_items';
+  info: {
+    description: 'Travel notice/guide item with title and markdown content';
+    displayName: 'Notice Item';
+    icon: 'exclamation-triangle';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ContentPricingRow extends Struct.ComponentSchema {
+  collectionName: 'components_content_pricing_rows';
+  info: {
+    description: 'Pricing table row with route, price, and notes';
+    displayName: 'Pricing Row';
+    icon: 'dollar-sign';
+  };
+  attributes: {
+    notes: Schema.Attribute.Text;
+    price: Schema.Attribute.String & Schema.Attribute.Required;
+    route: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface NavigationDestinationCategory extends Struct.ComponentSchema {
   collectionName: 'components_navigation_destination_categories';
   info: {
@@ -68,6 +121,249 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
   attributes: {
     href: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SalesLandingBullet extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_bullets';
+  info: {
+    description: 'Single bullet item for intro section';
+    displayName: 'Bullet';
+    icon: 'dot-circle';
+  };
+  attributes: {
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SalesLandingFeaturesSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_features_sections';
+  info: {
+    description: 'Logos or partner section';
+    displayName: 'Features Section';
+    icon: 'th-large';
+  };
+  attributes: {
+    logos: Schema.Attribute.Component<'sales-landing.logo', true>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingFormSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_form_sections';
+  info: {
+    description: 'Intro copy plus embedded form relation';
+    displayName: 'Form Section';
+    icon: 'form';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    heading: Schema.Attribute.String;
+    privacyNote: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingGallerySection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_gallery_sections';
+  info: {
+    description: 'Media grid with CTA';
+    displayName: 'Gallery Section';
+    icon: 'images';
+  };
+  attributes: {
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    tiles: Schema.Attribute.Component<'sales-landing.gallery-tile', true>;
+  };
+}
+
+export interface SalesLandingGalleryTile extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_gallery_tiles';
+  info: {
+    description: 'Image with label/sub-label';
+    displayName: 'Gallery Tile';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    subLabel: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingHero extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_heroes';
+  info: {
+    description: 'Hero area for sales landing pages';
+    displayName: 'Hero';
+    icon: 'image';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    kicker: Schema.Attribute.String;
+    primaryButtonLabel: Schema.Attribute.String;
+    primaryButtonUrl: Schema.Attribute.String;
+    secondaryButtonLabel: Schema.Attribute.String;
+    secondaryButtonUrl: Schema.Attribute.String;
+    subheading: Schema.Attribute.RichText;
+  };
+}
+
+export interface SalesLandingHighlightCard extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_highlight_cards';
+  info: {
+    description: 'Eyebrow, copy and CTA card';
+    displayName: 'Highlight Card';
+    icon: 'star';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    label: Schema.Attribute.String;
+    linkLabel: Schema.Attribute.String;
+    linkUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingIntroSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_intro_sections';
+  info: {
+    description: 'Split content intro with optional bullets and image';
+    displayName: 'Intro Section';
+    icon: 'align-left';
+  };
+  attributes: {
+    bulletPoints: Schema.Attribute.Component<'sales-landing.bullet', true>;
+    buttonLabel: Schema.Attribute.String;
+    buttonUrl: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface SalesLandingLogo extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_logos';
+  info: {
+    description: 'Partner logo entry';
+    displayName: 'Logo';
+    icon: 'smile';
+  };
+  attributes: {
+    logoImage: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    logoLabel: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingRatingHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_rating_highlights';
+  info: {
+    description: 'Score + label for footer strip';
+    displayName: 'Rating Highlight';
+    icon: 'star';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    score: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SalesLandingReviewCard extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_review_cards';
+  info: {
+    description: 'Customer review snippet';
+    displayName: 'Review Card';
+    icon: 'quote-right';
+  };
+  attributes: {
+    authorMeta: Schema.Attribute.String;
+    authorName: Schema.Attribute.String;
+    photo: Schema.Attribute.Media<'images'>;
+    quote: Schema.Attribute.RichText;
+  };
+}
+
+export interface SalesLandingReviewsSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_reviews_sections';
+  info: {
+    description: 'Heading, summary and review cards';
+    displayName: 'Reviews Section';
+    icon: 'comments';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    ctaLabel: Schema.Attribute.String;
+    ctaUrl: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    reviews: Schema.Attribute.Component<'sales-landing.review-card', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
+        },
+        number
+      >;
+    subtitle: Schema.Attribute.String;
+  };
+}
+
+export interface SalesLandingStatItem extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_stat_items';
+  info: {
+    description: 'Single stat/metric';
+    displayName: 'Stat Item';
+    icon: 'numbered-list';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SalesLandingStatsSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_stats_sections';
+  info: {
+    description: 'Repeating counter stats';
+    displayName: 'Stats Section';
+    icon: 'chart-bar';
+  };
+  attributes: {
+    stats: Schema.Attribute.Component<'sales-landing.stat-item', true>;
+  };
+}
+
+export interface SalesLandingTermItem extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_term_items';
+  info: {
+    description: 'Single term or note';
+    displayName: 'Term Item';
+    icon: 'file-alt';
+  };
+  attributes: {
+    text: Schema.Attribute.Text;
+  };
+}
+
+export interface SalesLandingTermsSection extends Struct.ComponentSchema {
+  collectionName: 'components_sales_landing_terms_sections';
+  info: {
+    description: 'Terms list with optional footer note';
+    displayName: 'Terms Section';
+    icon: 'list';
+  };
+  attributes: {
+    footerNote: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    terms: Schema.Attribute.Component<'sales-landing.term-item', true>;
   };
 }
 
@@ -714,11 +1010,31 @@ export interface SharedUsefulResource extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'content.accordion-item': ContentAccordionItem;
+      'content.content-item': ContentContentItem;
+      'content.notice-item': ContentNoticeItem;
+      'content.pricing-row': ContentPricingRow;
       'navigation.destination-category': NavigationDestinationCategory;
       'navigation.destination-item': NavigationDestinationItem;
       'navigation.mega-menu-item': NavigationMegaMenuItem;
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
+      'sales-landing.bullet': SalesLandingBullet;
+      'sales-landing.features-section': SalesLandingFeaturesSection;
+      'sales-landing.form-section': SalesLandingFormSection;
+      'sales-landing.gallery-section': SalesLandingGallerySection;
+      'sales-landing.gallery-tile': SalesLandingGalleryTile;
+      'sales-landing.hero': SalesLandingHero;
+      'sales-landing.highlight-card': SalesLandingHighlightCard;
+      'sales-landing.intro-section': SalesLandingIntroSection;
+      'sales-landing.logo': SalesLandingLogo;
+      'sales-landing.rating-highlight': SalesLandingRatingHighlight;
+      'sales-landing.review-card': SalesLandingReviewCard;
+      'sales-landing.reviews-section': SalesLandingReviewsSection;
+      'sales-landing.stat-item': SalesLandingStatItem;
+      'sales-landing.stats-section': SalesLandingStatsSection;
+      'sales-landing.term-item': SalesLandingTermItem;
+      'sales-landing.terms-section': SalesLandingTermsSection;
       'sections.about-hero': SectionsAboutHero;
       'sections.achievement-item': SectionsAchievementItem;
       'sections.benefit-item': SectionsBenefitItem;

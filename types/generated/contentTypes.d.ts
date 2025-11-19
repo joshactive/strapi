@@ -476,6 +476,53 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAirportTransfersPageAirportTransfersPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'airport_transfers_page';
+  info: {
+    description: 'Single page for airport transfers information';
+    displayName: 'Airport Transfers Page';
+    pluralName: 'airport-transfers-pages';
+    singularName: 'airport-transfers-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contentsItems: Schema.Attribute.Component<'content.content-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    importantContent: Schema.Attribute.RichText;
+    importantEyebrow: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'IMPORTANT'>;
+    keyInfoAccordions: Schema.Attribute.Component<
+      'content.accordion-item',
+      true
+    >;
+    keyInfoSubtitle: Schema.Attribute.Text;
+    keyInfoTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Key Information'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::airport-transfers-page.airport-transfers-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    pricingSubtitle: Schema.Attribute.Text;
+    pricingTable: Schema.Attribute.Component<'content.pricing-row', true>;
+    pricingTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Pricing'>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showContents: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAnnouncementBarAnnouncementBar
   extends Struct.SingleTypeSchema {
   collectionName: 'announcement_bars';
@@ -605,6 +652,55 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     wpOldUrl: Schema.Attribute.String;
     WPURL: Schema.Attribute.String;
     youtubeVideoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ApiBookingProcessPageBookingProcessPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'booking_process_page';
+  info: {
+    description: 'Single page for booking process information with tabs';
+    displayName: 'Booking Process Page';
+    pluralName: 'booking-process-pages';
+    singularName: 'booking-process-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accommodationExcludedContent: Schema.Attribute.RichText;
+    accommodationExcludedTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Accommodation Excluded'>;
+    accommodationIncludedContent: Schema.Attribute.RichText;
+    accommodationIncludedTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Accommodation Included'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    generalInfoContent: Schema.Attribute.RichText;
+    generalInfoTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'General Info'>;
+    introSubtitle: Schema.Attribute.Text;
+    introTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'How to Book'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::booking-process-page.booking-process-page'
+    > &
+      Schema.Attribute.Private;
+    makingChangesContent: Schema.Attribute.RichText;
+    makingChangesTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Making Changes'>;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoGuideTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Video Guide'>;
+    videoGuideUrl: Schema.Attribute.String;
   };
 }
 
@@ -968,6 +1064,22 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     showOtherOptions: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    submitButtonConditional: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    submitButtonConditionalField: Schema.Attribute.String;
+    submitButtonConditionalOperator: Schema.Attribute.Enumeration<
+      [
+        'equals',
+        'not_equals',
+        'contain',
+        'not_contain',
+        'not_empty',
+        'empty',
+        'greater',
+        'less',
+      ]
+    >;
+    submitButtonConditionalValue: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2336,6 +2448,83 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSalesLandingPageSalesLandingPage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sales_landing_pages';
+  info: {
+    description: 'Campaign style landing pages managed in Strapi';
+    displayName: 'Sales Landing Page';
+    pluralName: 'sales-landing-pages';
+    singularName: 'sales-landing-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    featuresSection: Schema.Attribute.Component<
+      'sales-landing.features-section',
+      false
+    >;
+    formSection: Schema.Attribute.Component<
+      'sales-landing.form-section',
+      false
+    >;
+    gallerySection: Schema.Attribute.Component<
+      'sales-landing.gallery-section',
+      false
+    >;
+    hero: Schema.Attribute.Component<'sales-landing.hero', false>;
+    highlightCards: Schema.Attribute.Component<
+      'sales-landing.highlight-card',
+      true
+    >;
+    introSection: Schema.Attribute.Component<
+      'sales-landing.intro-section',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sales-landing-page.sales-landing-page'
+    > &
+      Schema.Attribute.Private;
+    pageType: Schema.Attribute.Enumeration<
+      ['product-page', 'static-page', 'landing-page', 'campaign-page']
+    > &
+      Schema.Attribute.DefaultTo<'landing-page'>;
+    publishedAt: Schema.Attribute.DateTime;
+    ratingHighlights: Schema.Attribute.Component<
+      'sales-landing.rating-highlight',
+      true
+    >;
+    reviewsSection: Schema.Attribute.Component<
+      'sales-landing.reviews-section',
+      false
+    >;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    statsSection: Schema.Attribute.Component<
+      'sales-landing.stats-section',
+      false
+    >;
+    termsSection: Schema.Attribute.Component<
+      'sales-landing.terms-section',
+      false
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSchoolTennisTourSchoolTennisTour
   extends Struct.CollectionTypeSchema {
   collectionName: 'school_tennis_tours';
@@ -3276,6 +3465,46 @@ export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTravelGuidesPageTravelGuidesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'travel_guides_page';
+  info: {
+    description: 'Single page for travel notices and guides';
+    displayName: 'Travel Guides Page';
+    pluralName: 'travel-guides-pages';
+    singularName: 'travel-guides-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contentsTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Contents'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    importantContent: Schema.Attribute.RichText;
+    importantEyebrow: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'IMPORTANT'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::travel-guides-page.travel-guides-page'
+    > &
+      Schema.Attribute.Private;
+    notices: Schema.Attribute.Component<'content.notice-item', true>;
+    noticesTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Travel Notices'>;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    showContents: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVenuesPageVenuesPage extends Struct.SingleTypeSchema {
   collectionName: 'venues_pages';
   info: {
@@ -3991,9 +4220,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::airport-transfers-page.airport-transfers-page': ApiAirportTransfersPageAirportTransfersPage;
       'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
       'api::basic-static-page.basic-static-page': ApiBasicStaticPageBasicStaticPage;
       'api::blog.blog': ApiBlogBlog;
+      'api::booking-process-page.booking-process-page': ApiBookingProcessPageBookingProcessPage;
       'api::dragons-den-page.dragons-den-page': ApiDragonsDenPageDragonsDenPage;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::events.event': ApiEventsEvent;
@@ -4022,6 +4253,7 @@ declare module '@strapi/strapi' {
       'api::product-page.product-page': ApiProductPageProductPage;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
+      'api::sales-landing-page.sales-landing-page': ApiSalesLandingPageSalesLandingPage;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
       'api::school-tour-page.school-tour-page': ApiSchoolTourPageSchoolTourPage;
       'api::self-rating-guide-page.self-rating-guide-page': ApiSelfRatingGuidePageSelfRatingGuidePage;
@@ -4035,6 +4267,7 @@ declare module '@strapi/strapi' {
       'api::tennis-holiday-page.tennis-holiday-page': ApiTennisHolidayPageTennisHolidayPage;
       'api::tennis-holiday.tennis-holiday': ApiTennisHolidayTennisHoliday;
       'api::terms-page.terms-page': ApiTermsPageTermsPage;
+      'api::travel-guides-page.travel-guides-page': ApiTravelGuidesPageTravelGuidesPage;
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;

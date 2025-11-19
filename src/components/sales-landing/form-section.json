@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sales_landing_form_sections",
+  "info": {
+    "displayName": "Form Section",
+    "icon": "form",
+    "description": "Intro copy plus embedded form relation"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "privacyNote": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  }
+}
