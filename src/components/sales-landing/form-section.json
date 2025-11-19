@@ -3,7 +3,7 @@
   "info": {
     "displayName": "Form Section",
     "icon": "form",
-    "description": "Intro copy plus embedded form relation"
+    "description": "Intro copy plus embedded form JSON"
   },
   "options": {},
   "attributes": {
@@ -19,10 +19,11 @@
     "privacyNote": {
       "type": "string"
     },
-    "form": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::form.form"
+    "formJson": {
+      "type": "json",
+      "required": false
     }
   }
 }
+
+
