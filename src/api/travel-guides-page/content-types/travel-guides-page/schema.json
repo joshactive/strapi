@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "travel_guides_page",
+  "info": {
+    "singularName": "travel-guides-page",
+    "pluralName": "travel-guides-pages",
+    "displayName": "Travel Guides Page",
+    "description": "Single page for travel notices and guides"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "importantEyebrow": {
+      "type": "string",
+      "required": false,
+      "default": "IMPORTANT"
+    },
+    "importantContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "showContents": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "contentsTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Contents"
+    },
+    "noticesTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Travel Notices"
+    },
+    "notices": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.notice-item"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
