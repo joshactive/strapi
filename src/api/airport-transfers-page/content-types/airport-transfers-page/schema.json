@@ -1,0 +1,74 @@
+{
+  "kind": "singleType",
+  "collectionName": "airport_transfers_page",
+  "info": {
+    "singularName": "airport-transfers-page",
+    "pluralName": "airport-transfers-pages",
+    "displayName": "Airport Transfers Page",
+    "description": "Single page for airport transfers information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "importantEyebrow": {
+      "type": "string",
+      "required": false,
+      "default": "IMPORTANT"
+    },
+    "importantContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "showContents": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "contentsItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.content-item"
+    },
+    "keyInfoTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Key Information"
+    },
+    "keyInfoSubtitle": {
+      "type": "text",
+      "required": false
+    },
+    "keyInfoAccordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.accordion-item"
+    },
+    "pricingTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Pricing"
+    },
+    "pricingSubtitle": {
+      "type": "text",
+      "required": false
+    },
+    "pricingTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "content.pricing-row"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+

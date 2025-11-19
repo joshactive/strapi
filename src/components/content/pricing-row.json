@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_content_pricing_rows",
+  "info": {
+    "displayName": "Pricing Row",
+    "icon": "dollar-sign",
+    "description": "Pricing table row with route, price, and notes"
+  },
+  "options": {},
+  "attributes": {
+    "route": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "notes": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+
