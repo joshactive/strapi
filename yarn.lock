@@ -10917,6 +10917,11 @@ strapi-5-sitemap-plugin@^1.0.7:
     "@strapi/icons" "^2.0.0-rc.14"
     react-intl "^7.1.0"
 
+strapi-v5-plugin-populate-deep@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.npmjs.org/strapi-v5-plugin-populate-deep/-/strapi-v5-plugin-populate-deep-4.0.5.tgz"
+  integrity sha512-se5WE8rWxVx+BX904tESoZsRJYJg7VtGWZNeNGhirJGhuUJV5UgAP38Jiq5kPdyT3rASiwfCJxvXgMAfTh3Y5A==
+
 stream-browserify@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/stream-browserify/-/stream-browserify-3.0.0.tgz"
