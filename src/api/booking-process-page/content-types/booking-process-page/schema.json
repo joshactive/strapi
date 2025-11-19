@@ -1,0 +1,81 @@
+{
+  "kind": "singleType",
+  "collectionName": "booking_process_page",
+  "info": {
+    "singularName": "booking-process-page",
+    "pluralName": "booking-process-pages",
+    "displayName": "Booking Process Page",
+    "description": "Single page for booking process information with tabs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "introTitle": {
+      "type": "string",
+      "required": false,
+      "default": "How to Book"
+    },
+    "introSubtitle": {
+      "type": "text",
+      "required": false
+    },
+    "videoGuideTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Video Guide"
+    },
+    "videoGuideUrl": {
+      "type": "string",
+      "required": false
+    },
+    "generalInfoTitle": {
+      "type": "string",
+      "required": false,
+      "default": "General Info"
+    },
+    "generalInfoContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "accommodationIncludedTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Accommodation Included"
+    },
+    "accommodationIncludedContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "accommodationExcludedTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Accommodation Excluded"
+    },
+    "accommodationExcludedContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "makingChangesTitle": {
+      "type": "string",
+      "required": false,
+      "default": "Making Changes"
+    },
+    "makingChangesContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
