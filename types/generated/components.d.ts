@@ -153,14 +153,14 @@ export interface SalesLandingFeaturesSection extends Struct.ComponentSchema {
 export interface SalesLandingFormSection extends Struct.ComponentSchema {
   collectionName: 'components_sales_landing_form_sections';
   info: {
-    description: 'Intro copy plus embedded form relation';
+    description: 'Intro copy plus embedded form JSON';
     displayName: 'Form Section';
     icon: 'form';
   };
   attributes: {
     description: Schema.Attribute.RichText;
     eyebrow: Schema.Attribute.String;
-    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formJson: Schema.Attribute.JSON;
     heading: Schema.Attribute.String;
     privacyNote: Schema.Attribute.String;
   };

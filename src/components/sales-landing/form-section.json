@@ -3,7 +3,7 @@
   "info": {
     "displayName": "Form Section",
     "icon": "form",
-    "description": "Intro copy plus embedded form JSON"
+    "description": "Intro copy plus embedded form JSON with webhook"
   },
   "options": {},
   "attributes": {
@@ -22,8 +22,10 @@
     "formJson": {
       "type": "json",
       "required": false
+    },
+    "webhookUrl": {
+      "type": "string",
+      "required": true
     }
   }
 }
-
-
