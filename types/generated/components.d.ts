@@ -153,7 +153,7 @@ export interface SalesLandingFeaturesSection extends Struct.ComponentSchema {
 export interface SalesLandingFormSection extends Struct.ComponentSchema {
   collectionName: 'components_sales_landing_form_sections';
   info: {
-    description: 'Intro copy plus embedded form JSON';
+    description: 'Intro copy plus embedded form JSON with webhook';
     displayName: 'Form Section';
     icon: 'form';
   };
@@ -163,6 +163,7 @@ export interface SalesLandingFormSection extends Struct.ComponentSchema {
     formJson: Schema.Attribute.JSON;
     heading: Schema.Attribute.String;
     privacyNote: Schema.Attribute.String;
+    webhookUrl: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
