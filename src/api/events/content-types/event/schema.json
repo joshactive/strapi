@@ -110,6 +110,9 @@
     },
     "what_to_bring": {
       "type": "string"
+    },
+    "venue_plain_text": {
+      "type": "string"
     }
   }
 }

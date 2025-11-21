@@ -827,6 +827,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    venue_plain_text: Schema.Attribute.String;
     venueLink: Schema.Attribute.String;
     what_to_bring: Schema.Attribute.String;
     whatsapp_url: Schema.Attribute.String;
