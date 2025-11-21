@@ -3669,6 +3669,46 @@ export interface ApiWelcomepacksPageWelcomepacksPage
   };
 }
 
+export interface ApiWhatsappGroupsPageWhatsappGroupsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'whatsapp_groups_page';
+  info: {
+    description: 'WhatsApp groups page with password protection and hero fields';
+    displayName: 'WhatsApp Groups Page';
+    pluralName: 'whatsapp-groups-pages';
+    singularName: 'whatsapp-groups-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accessPassword: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'activeaway2024'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'COMMUNITY'>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Join your event WhatsApp group to connect with fellow participants'>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'WhatsApp Groups'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::whatsapp-groups-page.whatsapp-groups-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -4354,6 +4394,7 @@ declare module '@strapi/strapi' {
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
       'api::welcomepacks-page.welcomepacks-page': ApiWelcomepacksPageWelcomepacksPage;
+      'api::whatsapp-groups-page.whatsapp-groups-page': ApiWhatsappGroupsPageWhatsappGroupsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

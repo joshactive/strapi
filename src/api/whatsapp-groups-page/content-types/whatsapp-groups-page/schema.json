@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "whatsapp_groups_page",
+  "info": {
+    "singularName": "whatsapp-groups-page",
+    "pluralName": "whatsapp-groups-pages",
+    "displayName": "WhatsApp Groups Page",
+    "description": "WhatsApp groups page with password protection and hero fields"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "WhatsApp Groups"
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "default": "Join your event WhatsApp group to connect with fellow participants"
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "COMMUNITY"
+    },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "accessPassword": {
+      "type": "string",
+      "required": true,
+      "default": "activeaway2024"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
