@@ -48,7 +48,7 @@
     "formSection": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.form-section"
+      "component": "sales-landing.form-section"
     },
     "faq": {
       "type": "component",
