@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_value_cards",
+  "info": {
+    "displayName": "Value Card",
+    "description": "A card displaying company values with title and description"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
+
