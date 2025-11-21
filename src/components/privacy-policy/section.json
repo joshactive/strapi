@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_privacy_policy_sections",
+  "info": {
+    "displayName": "Privacy Policy Section",
+    "icon": "file-contract",
+    "description": "A privacy policy section with optional embedded form"
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "sectionSlug": {
+      "type": "uid",
+      "targetField": "sectionTitle",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "showForm": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "formFields": {
+      "type": "json",
+      "required": false
+    },
+    "formWebhookUrl": {
+      "type": "string",
+      "required": false
+    },
+    "formSuccessMessage": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+
