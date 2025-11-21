@@ -2,7 +2,7 @@
   "collectionName": "components_sections_value_cards",
   "info": {
     "displayName": "Value Card",
-    "description": "A card displaying company values with title and description"
+    "description": "A value card with title and description for company values"
   },
   "options": {},
   "attributes": {
@@ -16,4 +16,3 @@
     }
   }
 }
-

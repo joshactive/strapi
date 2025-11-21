@@ -5,7 +5,7 @@
     "singularName": "join-the-team-page",
     "pluralName": "join-the-team-pages",
     "displayName": "Join The Team Page",
-    "description": "Join the team page with values, about us section, and application form"
+    "description": "Join the team page with values, about us, and application form"
   },
   "options": {
     "draftAndPublish": true
@@ -27,41 +27,28 @@
       "repeatable": false,
       "component": "sections.two-column-content"
     },
-    "ourValuesEyebrow": {
-      "type": "string",
-      "default": "OUR VALUES"
-    },
-    "ourValuesHeading": {
-      "type": "string",
-      "default": "What We Stand For"
-    },
     "ourValues": {
       "type": "component",
       "repeatable": true,
       "component": "sections.value-card"
+    },
+    "valuesHeading": {
+      "type": "string",
+      "default": "Our Values"
+    },
+    "valuesEyebrow": {
+      "type": "string",
+      "default": "WHY JOIN US"
     },
     "learnAboutUs": {
       "type": "component",
       "repeatable": false,
       "component": "sections.discount-cta"
     },
-    "formSectionEyebrow": {
-      "type": "string",
-      "default": "JOIN US"
-    },
-    "formSectionHeading": {
-      "type": "string",
-      "default": "Apply Now"
-    },
-    "formSectionDescription": {
-      "type": "richtext"
-    },
-    "formSlug": {
-      "type": "string",
-      "default": "join-the-team-form"
-    },
-    "formPrivacyNote": {
-      "type": "text"
+    "formSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.form-section"
     },
     "faq": {
       "type": "component",
@@ -75,4 +62,3 @@
     }
   }
 }
-
