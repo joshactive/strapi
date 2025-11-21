@@ -3632,6 +3632,43 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWelcomepacksPageWelcomepacksPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'welcomepacks_page';
+  info: {
+    description: 'Welcome packs archive page with hero and SEO fields';
+    displayName: 'Welcomepacks Page';
+    pluralName: 'welcomepacks-pages';
+    singularName: 'welcomepacks-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'WELCOME PACKS'>;
+    heroSubtitle: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Download your event itineraries and travel information'>;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Welcome Packs'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::welcomepacks-page.welcomepacks-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -4316,6 +4353,7 @@ declare module '@strapi/strapi' {
       'api::travel-guides-page.travel-guides-page': ApiTravelGuidesPageTravelGuidesPage;
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
       'api::video.video': ApiVideoVideo;
+      'api::welcomepacks-page.welcomepacks-page': ApiWelcomepacksPageWelcomepacksPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

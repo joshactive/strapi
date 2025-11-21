@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "welcomepacks_page",
+  "info": {
+    "singularName": "welcomepacks-page",
+    "pluralName": "welcomepacks-pages",
+    "displayName": "Welcomepacks Page",
+    "description": "Welcome packs archive page with hero and SEO fields"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Welcome Packs"
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "default": "Download your event itineraries and travel information"
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "WELCOME PACKS"
+    },
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
