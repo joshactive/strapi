@@ -44,6 +44,11 @@
     "order": {
       "type": "integer",
       "default": 0
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
