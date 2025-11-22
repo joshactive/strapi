@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "search_results_page",
+  "info": {
+    "singularName": "search-results-page",
+    "pluralName": "search-results-pages",
+    "displayName": "Search Results Page",
+    "description": "Checkfront booking search results page with hero and SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.page-hero",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
+
