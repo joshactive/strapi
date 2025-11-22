@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_blog_category_items",
+  "info": {
+    "displayName": "Category Item",
+    "description": "Blog category display item"
+  },
+  "options": {},
+  "attributes": {
+    "categorySlug": {
+      "type": "enumeration",
+      "enum": [
+        "tennis-coaching",
+        "grand-slam-tennis",
+        "padel-tennis",
+        "ski-holidays",
+        "tennis-camps",
+        "tennis-clinics",
+        "tennis-courts",
+        "tennis-fitness",
+        "tennis-holidays",
+        "tennis-injuries",
+        "tennis-rackets",
+        "travel-tips",
+        "uncategorized"
+      ],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+

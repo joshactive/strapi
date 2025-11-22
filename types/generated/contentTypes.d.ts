@@ -628,6 +628,24 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     authorFullName: Schema.Attribute.String & Schema.Attribute.Required;
     blogExcerpt: Schema.Attribute.Text;
     CategoryImport: Schema.Attribute.String;
+    categorySlug: Schema.Attribute.Enumeration<
+      [
+        'tennis-coaching',
+        'grand-slam-tennis',
+        'padel-tennis',
+        'ski-holidays',
+        'tennis-camps',
+        'tennis-clinics',
+        'tennis-courts',
+        'tennis-fitness',
+        'tennis-holidays',
+        'tennis-injuries',
+        'tennis-rackets',
+        'travel-tips',
+        'uncategorized',
+      ]
+    > &
+      Schema.Attribute.Required;
     content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
