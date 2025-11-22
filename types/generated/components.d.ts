@@ -124,6 +124,25 @@ export interface NavigationTextLink extends Struct.ComponentSchema {
   };
 }
 
+export interface PrivacyPolicySection extends Struct.ComponentSchema {
+  collectionName: 'components_privacy_policy_sections';
+  info: {
+    description: 'A privacy policy section with optional embedded form';
+    displayName: 'Privacy Policy Section';
+    icon: 'file-contract';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    formFields: Schema.Attribute.JSON;
+    formSuccessMessage: Schema.Attribute.String;
+    formWebhookUrl: Schema.Attribute.String;
+    sectionSlug: Schema.Attribute.UID<'sectionTitle'> &
+      Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    showForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SalesLandingBullet extends Struct.ComponentSchema {
   collectionName: 'components_sales_landing_bullets';
   info: {
@@ -781,6 +800,18 @@ export interface SectionsTwoColumnContent extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsValueCard extends Struct.ComponentSchema {
+  collectionName: 'components_sections_value_cards';
+  info: {
+    description: 'A value card with title and description for company values';
+    displayName: 'Value Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsVideoContentBlock extends Struct.ComponentSchema {
   collectionName: 'components_sections_video_content_blocks';
   info: {
@@ -1020,6 +1051,7 @@ declare module '@strapi/strapi' {
       'navigation.mega-menu-item': NavigationMegaMenuItem;
       'navigation.menu-item': NavigationMenuItem;
       'navigation.text-link': NavigationTextLink;
+      'privacy-policy.section': PrivacyPolicySection;
       'sales-landing.bullet': SalesLandingBullet;
       'sales-landing.features-section': SalesLandingFeaturesSection;
       'sales-landing.form-section': SalesLandingFormSection;
@@ -1061,6 +1093,7 @@ declare module '@strapi/strapi' {
       'sections.stats-grid': SectionsStatsGrid;
       'sections.timeline-event': SectionsTimelineEvent;
       'sections.two-column-content': SectionsTwoColumnContent;
+      'sections.value-card': SectionsValueCard;
       'sections.video-content-block': SectionsVideoContentBlock;
       'shared.coach': SharedCoach;
       'shared.faq': SharedFaq;

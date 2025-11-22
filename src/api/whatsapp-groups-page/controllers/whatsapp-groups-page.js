@@ -8,3 +8,4 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::whatsapp-groups-page.whatsapp-groups-page');
 
+

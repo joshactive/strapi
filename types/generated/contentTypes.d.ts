@@ -1479,6 +1479,53 @@ export interface ApiJamieMurrayPageJamieMurrayPage
   };
 }
 
+export interface ApiJoinTheTeamPageJoinTheTeamPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'join_the_team_page';
+  info: {
+    description: 'Join the team page with values, about us, and application form';
+    displayName: 'Join The Team Page';
+    pluralName: 'join-the-team-pages';
+    singularName: 'join-the-team-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'sections.faq-section', false>;
+    formSection: Schema.Attribute.Component<
+      'sales-landing.form-section',
+      false
+    >;
+    learnAboutUs: Schema.Attribute.Component<'sections.discount-cta', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::join-the-team-page.join-the-team-page'
+    > &
+      Schema.Attribute.Private;
+    ourValues: Schema.Attribute.Component<'sections.value-card', true>;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Component<'sections.quote-section', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    twoColumnContent: Schema.Attribute.Component<
+      'sections.two-column-content',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    valuesEyebrow: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'WHY JOIN US'>;
+    valuesHeading: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Our Values'>;
+  };
+}
+
 export interface ApiJuniorCampPageJuniorCampPage
   extends Struct.SingleTypeSchema {
   collectionName: 'junior_camp_pages';
@@ -2283,6 +2330,43 @@ export interface ApiPreOrdersPagePreOrdersPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPagePrivacyPolicyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policy_pages';
+  info: {
+    description: 'Content for the Privacy Policy page with dynamic sections and optional forms';
+    displayName: 'Privacy Policy Page';
+    pluralName: 'privacy-policy-pages';
+    singularName: 'privacy-policy-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    introText: Schema.Attribute.RichText;
+    lastUpdated: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy-page.privacy-policy-page'
+    > &
+      Schema.Attribute.Private;
+    pageTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Privacy Policy'>;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'privacy-policy.section', true>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3594,6 +3678,43 @@ export interface ApiVenuesPageVenuesPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiVideoArchivePageVideoArchivePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'video_archive_pages';
+  info: {
+    description: 'Content for the /videos page including hero section and SEO metadata';
+    displayName: 'Video Archive Page';
+    pluralName: 'video-archive-pages';
+    singularName: 'video-archive-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String & Schema.Attribute.DefaultTo<'VIDEOS'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Videos'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::video-archive-page.video-archive-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
   collectionName: 'videos';
   info: {
@@ -4360,6 +4481,7 @@ declare module '@strapi/strapi' {
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
       'api::jamie-murray-page.jamie-murray-page': ApiJamieMurrayPageJamieMurrayPage;
+      'api::join-the-team-page.join-the-team-page': ApiJoinTheTeamPageJoinTheTeamPage;
       'api::junior-camp-page.junior-camp-page': ApiJuniorCampPageJuniorCampPage;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;
       'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
@@ -4372,6 +4494,7 @@ declare module '@strapi/strapi' {
       'api::play-and-watch.play-and-watch': ApiPlayAndWatchPlayAndWatch;
       'api::pre-order.pre-order': ApiPreOrderPreOrder;
       'api::pre-orders-page.pre-orders-page': ApiPreOrdersPagePreOrdersPage;
+      'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::product-page.product-page': ApiProductPageProductPage;
       'api::product.product': ApiProductProduct;
       'api::redirect.redirect': ApiRedirectRedirect;
@@ -4392,6 +4515,7 @@ declare module '@strapi/strapi' {
       'api::terms-page.terms-page': ApiTermsPageTermsPage;
       'api::travel-guides-page.travel-guides-page': ApiTravelGuidesPageTravelGuidesPage;
       'api::venues-page.venues-page': ApiVenuesPageVenuesPage;
+      'api::video-archive-page.video-archive-page': ApiVideoArchivePageVideoArchivePage;
       'api::video.video': ApiVideoVideo;
       'api::welcomepacks-page.welcomepacks-page': ApiWelcomepacksPageWelcomepacksPage;
       'api::whatsapp-groups-page.whatsapp-groups-page': ApiWhatsappGroupsPageWhatsappGroupsPage;

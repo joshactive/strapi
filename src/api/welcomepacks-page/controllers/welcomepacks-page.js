@@ -8,3 +8,4 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::welcomepacks-page.welcomepacks-page');
 
+
