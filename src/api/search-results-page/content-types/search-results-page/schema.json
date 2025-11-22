@@ -15,7 +15,7 @@
     "pageHero": {
       "type": "component",
       "repeatable": false,
-      "component": "page.page-hero",
+      "component": "sections.page-hero",
       "required": true
     },
     "seo": {
