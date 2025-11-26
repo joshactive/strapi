@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlogCategoryItem extends Struct.ComponentSchema {
+  collectionName: 'components_blog_category_items';
+  info: {
+    description: 'Blog category display item';
+    displayName: 'Category Item';
+  };
+  attributes: {
+    categorySlug: Schema.Attribute.Enumeration<
+      [
+        'tennis-coaching',
+        'grand-slam-tennis',
+        'padel-tennis',
+        'ski-holidays',
+        'tennis-camps',
+        'tennis-clinics',
+        'tennis-courts',
+        'tennis-fitness',
+        'tennis-holidays',
+        'tennis-injuries',
+        'tennis-rackets',
+        'travel-tips',
+        'uncategorized',
+      ]
+    > &
+      Schema.Attribute.Required;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ContentAccordionItem extends Struct.ComponentSchema {
   collectionName: 'components_content_accordion_items';
   info: {
@@ -1042,6 +1075,7 @@ export interface SharedUsefulResource extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blog.category-item': BlogCategoryItem;
       'content.accordion-item': ContentAccordionItem;
       'content.content-item': ContentContentItem;
       'content.notice-item': ContentNoticeItem;

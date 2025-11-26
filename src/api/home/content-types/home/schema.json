@@ -11,6 +11,16 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "headerImageMultiple": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "main_heading": {
       "type": "string"
     },
@@ -25,27 +35,40 @@
     "headerImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "testimonialImage1": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "testimonialImage2": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "testimonialImage3": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "testimonialImage4": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "aboutKicker": {
       "type": "string"
@@ -74,17 +97,23 @@
     "aboutImage1": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "aboutImage2": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "jamieMurrayImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "jamieMurrayTitle": {
       "type": "string"
@@ -104,7 +133,9 @@
     "partner1Logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "partner2Name": {
       "type": "string"
@@ -112,7 +143,9 @@
     "partner2Logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "partner3Name": {
       "type": "string"
@@ -120,7 +153,9 @@
     "partner3Logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "partner4Name": {
       "type": "string"
@@ -128,7 +163,9 @@
     "partner4Logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "partner5Name": {
       "type": "string"
@@ -136,7 +173,9 @@
     "partner5Logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "whatDoWeOfferTitle": {
       "type": "string"
@@ -186,7 +225,9 @@
     "racketSpecialistBgImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "thrivingCommunityTitle": {
       "type": "string"
@@ -224,17 +265,23 @@
     "thrivingCommunityBgImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "thrivingCommunityImage1": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "thrivingCommunityImage2": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "storiesTitle": {
       "type": "string"
@@ -260,7 +307,9 @@
     "story1Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story2Name": {
       "type": "string"
@@ -280,7 +329,9 @@
     "story2Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story3Name": {
       "type": "string"
@@ -300,7 +351,9 @@
     "story3Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story4Name": {
       "type": "string"
@@ -320,7 +373,9 @@
     "story4Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story5Name": {
       "type": "string"
@@ -340,7 +395,9 @@
     "story5Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story6Name": {
       "type": "string"
@@ -360,7 +417,9 @@
     "story6Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "story7Name": {
       "type": "string"
@@ -380,12 +439,16 @@
     "story7Avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "storiesGoogleIcon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "accordionTitle": {
       "type": "string"

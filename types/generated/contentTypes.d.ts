@@ -613,6 +613,39 @@ export interface ApiBasicStaticPageBasicStaticPage
   };
 }
 
+export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
+  collectionName: 'blog_page';
+  info: {
+    description: 'Blog index page content';
+    displayName: 'Blog Page';
+    pluralName: 'blog-pages';
+    singularName: 'blog-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categories: Schema.Attribute.Component<'blog.category-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-page.blog-page'
+    > &
+      Schema.Attribute.Private;
+    pageSubtitle: Schema.Attribute.Text;
+    pageTitle: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Blog'>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
@@ -1289,6 +1322,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     headerImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
+    >;
+    headerImageMultiple: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
     >;
     jamieMurrayButtonText: Schema.Attribute.String;
     jamieMurrayDescription: Schema.Attribute.Text;
@@ -2828,6 +2865,38 @@ export interface ApiSchoolTourPageSchoolTourPage
       'api::school-tour-page.school-tour-page'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSearchResultsPageSearchResultsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'search_results_page';
+  info: {
+    description: 'Checkfront booking search results page with hero and SEO';
+    displayName: 'Search Results Page';
+    pluralName: 'search-results-pages';
+    singularName: 'search-results-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::search-results-page.search-results-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false> &
+      Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -4484,6 +4553,7 @@ declare module '@strapi/strapi' {
       'api::airport-transfers-page.airport-transfers-page': ApiAirportTransfersPageAirportTransfersPage;
       'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
       'api::basic-static-page.basic-static-page': ApiBasicStaticPageBasicStaticPage;
+      'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog.blog': ApiBlogBlog;
       'api::booking-process-page.booking-process-page': ApiBookingProcessPageBookingProcessPage;
       'api::dragons-den-page.dragons-den-page': ApiDragonsDenPageDragonsDenPage;
@@ -4520,6 +4590,7 @@ declare module '@strapi/strapi' {
       'api::sales-landing-page.sales-landing-page': ApiSalesLandingPageSalesLandingPage;
       'api::school-tennis-tour.school-tennis-tour': ApiSchoolTennisTourSchoolTennisTour;
       'api::school-tour-page.school-tour-page': ApiSchoolTourPageSchoolTourPage;
+      'api::search-results-page.search-results-page': ApiSearchResultsPageSearchResultsPage;
       'api::self-rating-guide-page.self-rating-guide-page': ApiSelfRatingGuidePageSelfRatingGuidePage;
       'api::ski-holiday-page.ski-holiday-page': ApiSkiHolidayPageSkiHolidayPage;
       'api::ski-holiday.ski-holiday': ApiSkiHolidaySkiHoliday;
