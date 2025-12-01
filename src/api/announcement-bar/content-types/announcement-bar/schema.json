@@ -63,7 +63,11 @@
       "type": "string",
       "required": false,
       "default": "announcement-dismissed"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }
-

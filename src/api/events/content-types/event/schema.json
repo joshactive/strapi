@@ -113,6 +113,11 @@
     },
     "venue_plain_text": {
       "type": "string"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

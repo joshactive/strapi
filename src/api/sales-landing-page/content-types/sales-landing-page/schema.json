@@ -81,6 +81,11 @@
     "seo": {
       "type": "component",
       "component": "shared.seo"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

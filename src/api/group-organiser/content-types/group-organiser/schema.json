@@ -70,10 +70,14 @@
     },
     "masterPageSlug": {
       "type": "string"
-    }
-    ,
+    },
     "eventsquerycommaseperated": {
       "type": "string"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

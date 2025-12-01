@@ -41,7 +41,9 @@
     "productImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "priceFrom": {
       "type": "decimal"
@@ -61,6 +63,11 @@
     },
     "wpOldUrl": {
       "type": "string"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

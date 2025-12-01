@@ -33,7 +33,11 @@
     },
     "notes": {
       "type": "text"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }
-

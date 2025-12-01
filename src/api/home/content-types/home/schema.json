@@ -524,6 +524,11 @@
     },
     "accordion12Content": {
       "type": "richtext"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

@@ -49,7 +49,11 @@
     "email": {
       "type": "email",
       "required": false
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }
-

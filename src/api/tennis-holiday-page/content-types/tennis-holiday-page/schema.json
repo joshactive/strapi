@@ -41,6 +41,11 @@
     },
     "test": {
       "type": "json"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

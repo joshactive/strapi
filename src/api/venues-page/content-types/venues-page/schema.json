@@ -52,6 +52,11 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

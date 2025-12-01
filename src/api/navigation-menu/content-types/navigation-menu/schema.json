@@ -65,7 +65,11 @@
     "destinationsMegaMenuCTAUrl": {
       "type": "string",
       "default": "#all-destinations"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }
-
