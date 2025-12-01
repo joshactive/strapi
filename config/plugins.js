@@ -54,11 +54,5 @@ module.exports = ({ env }) => {
         },
       },
     },
-    'strapi-5-sitemap-plugin': {
-      enabled: true,
-      config: {
-        siteUrl: 'https://active-away-astro.pages.dev',
-      },
-    },
   };
 };

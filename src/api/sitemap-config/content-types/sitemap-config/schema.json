@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "sitemap_configs",
+  "info": {
+    "singularName": "sitemap-config",
+    "pluralName": "sitemap-configs",
+    "displayName": "Sitemap Config"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "baseUrl": {
+      "type": "string",
+      "required": true,
+      "default": "https://active-away-astro.pages.dev"
+    },
+    "includeHomepage": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
+

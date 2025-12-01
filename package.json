@@ -12,8 +12,7 @@
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "postinstall": "patch-package"
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
     "@strapi/plugin-seo": "^2.0.8",
@@ -29,7 +28,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
-    "strapi-5-sitemap-plugin": "^1.0.7",
     "strapi-v5-plugin-populate-deep": "^4.0.5",
     "styled-components": "^6.0.0"
   },
@@ -39,8 +37,5 @@
   },
   "strapi": {
     "uuid": "ae97edc3-b9a5-4000-bd34-43b102ca9a04"
-  },
-  "devDependencies": {
-    "patch-package": "^8.0.1"
   }
 }
