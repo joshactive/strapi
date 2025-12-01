@@ -13,10 +13,22 @@
   "pluginOptions": {},
   "attributes": {
     "collectionName": {
-      "type": "string",
+      "type": "enumeration",
       "required": true,
       "unique": true,
-      "default": "api::page.page"
+      "enum": [
+        "api::pickleball-holiday.pickleball-holiday",
+        "api::blog.blog",
+        "api::event.event",
+        "api::tennis-holiday.tennis-holiday",
+        "api::tennis-academy.tennis-academy",
+        "api::tennis-clinic.tennis-clinic",
+        "api::padel-tennis-holiday.padel-tennis-holiday",
+        "api::ski-holiday.ski-holiday",
+        "api::review.review",
+        "api::team.team"
+      ],
+      "default": "api::blog.blog"
     },
     "pattern": {
       "type": "string",
@@ -44,4 +56,3 @@
     }
   }
 }
-
