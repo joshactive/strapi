@@ -673,6 +673,7 @@ export interface SectionsJamieMurrayProgramme extends Struct.ComponentSchema {
     achievements: Schema.Attribute.Component<'sections.achievement-item', true>;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Learn More'>;
+    buttonURL: Schema.Attribute.String;
     description: Schema.Attribute.RichText;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
