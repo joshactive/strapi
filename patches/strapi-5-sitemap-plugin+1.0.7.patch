@@ -1,0 +1,13 @@
+diff --git a/node_modules/strapi-5-sitemap-plugin/dist/server/index.js b/node_modules/strapi-5-sitemap-plugin/dist/server/index.js
+index 780db5b..a49c290 100644
+--- a/node_modules/strapi-5-sitemap-plugin/dist/server/index.js
++++ b/node_modules/strapi-5-sitemap-plugin/dist/server/index.js
+@@ -344,7 +344,7 @@ const service = ({ strapi }) => ({
+     const sitemapEntries = await strapi.documents("plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type").findMany();
+     const customURLs = await strapi.db.query("plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type-single-url").findMany();
+     const baseURLObject = await strapi.documents("plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-option").findFirst();
+-    const baseURL = baseURLObject.baseUrl;
++    const baseURL = baseURLObject?.baseUrl || "";
+     try {
+       const collections = [];
+       const sitemap = [];
