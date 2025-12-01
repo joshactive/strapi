@@ -17,8 +17,8 @@
     },
     "buttonText": {
       "type": "string",
-      "required": false,
-      "default": "Learn More"
+      "default": "Learn More",
+      "required": false
     },
     "videoUrl": {
       "type": "string",
@@ -34,9 +34,11 @@
     },
     "achievements": {
       "type": "component",
-      "repeatable": true,
-      "component": "sections.achievement-item"
+      "component": "sections.achievement-item",
+      "repeatable": true
+    },
+    "buttonURL": {
+      "type": "string"
     }
   }
 }
-
