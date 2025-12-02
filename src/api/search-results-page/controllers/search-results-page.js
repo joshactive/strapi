@@ -11,3 +11,5 @@ module.exports = createCoreController('api::search-results-page.search-results-p
 
 
 
+
+

@@ -11,10 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "wpId": {
-      "type": "integer",
-      "unique": true
-    },
     "title": {
       "type": "string",
       "required": true
@@ -26,14 +22,8 @@
     "content": {
       "type": "richtext"
     },
-    "excerpt": {
-      "type": "text"
-    },
     "reviewName": {
       "type": "string"
-    },
-    "reviewerText": {
-      "type": "richtext"
     },
     "reviewDate": {
       "type": "date"
@@ -51,22 +41,15 @@
       "type": "boolean",
       "default": true
     },
-    "ordering": {
-      "type": "integer",
-      "default": 50
-    },
-    "seo": {
-      "type": "component",
-      "component": "shared.seo",
-      "repeatable": false
-    },
-    "wpOldUrl": {
-      "type": "string"
-    },
     "sitemap": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.sitemap"
+      "component": "shared.sitemap",
+      "repeatable": false
+    },
+    "reviewRating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5
     }
   }
 }

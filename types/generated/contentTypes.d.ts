@@ -468,6 +468,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     showInstagram: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     showWhatWeOffer: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     stats: Schema.Attribute.Component<'sections.stats-grid', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -517,6 +518,7 @@ export interface ApiAirportTransfersPageAirportTransfersPage
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showContents: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -561,6 +563,7 @@ export interface ApiAnnouncementBarAnnouncementBar
       Schema.Attribute.Private;
     message: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     textColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#FFFFFF'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -603,6 +606,7 @@ export interface ApiBasicStaticPageBasicStaticPage
       Schema.Attribute.DefaultTo<'static-page'>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -640,6 +644,7 @@ export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
     pageTitle: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Blog'>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -694,6 +699,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     seoMetaDescription: Schema.Attribute.Text;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -746,6 +752,7 @@ export interface ApiBookingProcessPageBookingProcessPage
     pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -790,6 +797,7 @@ export interface ApiDragonsDenPageDragonsDenPage
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showProductsGrid: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -829,6 +837,7 @@ export interface ApiEventsPageEventsPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -872,6 +881,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     singleOccupancyPriceEvent: Schema.Attribute.Decimal;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     uniqueValue: Schema.Attribute.String;
@@ -921,6 +931,7 @@ export interface ApiFaqCategoryFaqCategory extends Struct.CollectionTypeSchema {
     pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -956,6 +967,7 @@ export interface ApiFaqsIndexPageFaqsIndexPage extends Struct.SingleTypeSchema {
     pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1018,6 +1030,7 @@ export interface ApiFeaturedLocationFeaturedLocation
       'api::play-and-watch.play-and-watch'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     ski_holiday: Schema.Attribute.Relation<
       'oneToOne',
       'api::ski-holiday.ski-holiday'
@@ -1067,6 +1080,7 @@ export interface ApiFlightsPageFlightsPage extends Struct.SingleTypeSchema {
     pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<'flights'>;
@@ -1115,6 +1129,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showOtherOptions: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     submitButtonConditional: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
@@ -1174,6 +1189,7 @@ export interface ApiFormsPageFormsPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1212,6 +1228,7 @@ export interface ApiGroupOrganiserPageGroupOrganiserPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1258,6 +1275,7 @@ export interface ApiGroupOrganiserGroupOrganiser
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     uniqueValue: Schema.Attribute.String;
@@ -1363,6 +1381,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     racketSpecialistQuoteAuthor: Schema.Attribute.String;
     racketSpecialistTitle: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     storiesGoogleIcon: Schema.Attribute.Media<'images'>;
     storiesSubtitle: Schema.Attribute.String;
     storiesTitle: Schema.Attribute.String;
@@ -1520,6 +1539,7 @@ export interface ApiJamieMurrayPageJamieMurrayPage
     quote: Schema.Attribute.Component<'sections.quote-section', false>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showLocations: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Unique &
       Schema.Attribute.DefaultTo<'jamie-murray-tennis-programme'>;
@@ -1567,6 +1587,7 @@ export interface ApiJoinTheTeamPageJoinTheTeamPage
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.Component<'sections.quote-section', false>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     twoColumnContent: Schema.Attribute.Component<
       'sections.two-column-content',
       false
@@ -1613,6 +1634,7 @@ export interface ApiJuniorCampPageJuniorCampPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1702,6 +1724,7 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     tennisCourtRating: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
@@ -1785,6 +1808,7 @@ export interface ApiNavigationMenuNavigationMenu
       'navigation.mega-menu-item',
       true
     >;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1823,6 +1847,7 @@ export interface ApiPadelHolidayPagePadelHolidayPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1921,6 +1946,7 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
     tennisCourtRating: Schema.Attribute.Integer &
@@ -1983,6 +2009,7 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2021,6 +2048,7 @@ export interface ApiPickleballHolidayPagePickleballHolidayPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2119,6 +2147,7 @@ export interface ApiPickleballHolidayPickleballHoliday
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
     tennisCourtRating: Schema.Attribute.Integer &
@@ -2182,6 +2211,7 @@ export interface ApiPlayAndWatchPagePlayAndWatchPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2274,6 +2304,7 @@ export interface ApiPlayAndWatchPlayAndWatch
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
     tennisCourtRating: Schema.Attribute.Integer &
@@ -2342,6 +2373,7 @@ export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
     menuFiles: Schema.Attribute.Media<'files', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -2386,6 +2418,7 @@ export interface ApiPreOrdersPagePreOrdersPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2423,6 +2456,7 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.Component<'privacy-policy.section', true>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2489,6 +2523,7 @@ export interface ApiProductPageProductPage extends Struct.CollectionTypeSchema {
     quote: Schema.Attribute.Component<'sections.quote-section', false>;
     schedule: Schema.Attribute.Component<'sections.schedule-table', false>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -2535,6 +2570,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     productUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -2570,6 +2606,7 @@ export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     notes: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     sourcePath: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -2606,29 +2643,32 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     displayOnFrontEnd: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<true>;
-    excerpt: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::review.review'
     > &
       Schema.Attribute.Private;
-    ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     publishedAt: Schema.Attribute.DateTime;
     reviewApplyTo: Schema.Attribute.Text;
     reviewDate: Schema.Attribute.Date;
-    reviewerText: Schema.Attribute.RichText;
     reviewName: Schema.Attribute.String;
+    reviewRating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      >;
     reviewUniqueId: Schema.Attribute.String;
     reviewUrl: Schema.Attribute.String;
-    seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
-    wpOldUrl: Schema.Attribute.String;
   };
 }
 
@@ -2691,6 +2731,7 @@ export interface ApiSalesLandingPageSalesLandingPage
       false
     >;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -2801,6 +2842,7 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     setting: Schema.Attribute.RichText;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
     tennisCourtRating: Schema.Attribute.Integer &
@@ -2867,6 +2909,7 @@ export interface ApiSchoolTourPageSchoolTourPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2899,6 +2942,7 @@ export interface ApiSearchResultsPageSearchResultsPage
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2939,6 +2983,7 @@ export interface ApiSelfRatingGuidePageSelfRatingGuidePage
     pickleballTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     tennisContent: Schema.Attribute.RichText;
     tennisImage: Schema.Attribute.Media<'images'>;
     tennisTitle: Schema.Attribute.String;
@@ -2980,6 +3025,7 @@ export interface ApiSkiHolidayPageSkiHolidayPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3072,6 +3118,7 @@ export interface ApiSkiHolidaySkiHoliday extends Struct.CollectionTypeSchema {
     shortLocationName: Schema.Attribute.String;
     singleOccupancy: Schema.Attribute.Text;
     singleOccupancyShort: Schema.Attribute.Text;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     skiHolidayType: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
@@ -3125,6 +3172,7 @@ export interface ApiTeamTeam extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     teamMembers: Schema.Attribute.Component<'shared.team-member', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -3165,6 +3213,7 @@ export interface ApiTennisAcademyPageTennisAcademyPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3257,6 +3306,7 @@ export interface ApiTennisAcademyTennisAcademy
     seo: Schema.Attribute.Component<'shared.seo', false>;
     settingDescription: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     starRating: Schema.Attribute.String;
     tennisAvailability: Schema.Attribute.RichText;
@@ -3316,6 +3366,7 @@ export interface ApiTennisClinicPageTennisClinicPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3406,6 +3457,7 @@ export interface ApiTennisClinicTennisClinic
     seo: Schema.Attribute.Component<'shared.seo', false>;
     setting: Schema.Attribute.RichText;
     shortLocationName: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     sundayItineraryUrl: Schema.Attribute.String;
     tennisCourtRating: Schema.Attribute.Integer &
@@ -3472,6 +3524,7 @@ export interface ApiTennisHolidayPageTennisHolidayPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     test: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3597,6 +3650,7 @@ export interface ApiTennisHolidayTennisHoliday
     shortLocationName: Schema.Attribute.String;
     singleOccupancyFrom: Schema.Attribute.Decimal;
     singleOccupancyRange: Schema.Attribute.String;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     tennisCoachImage: Schema.Attribute.Media<'images'>;
     tennisCoachInfo: Schema.Attribute.RichText;
@@ -3671,6 +3725,7 @@ export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     schoolToursTerms: Schema.Attribute.RichText;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID &
       Schema.Attribute.DefaultTo<'booking-terms-conditions'>;
     touristTaxTerms: Schema.Attribute.RichText;
@@ -3715,6 +3770,7 @@ export interface ApiTravelGuidesPageTravelGuidesPage
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showContents: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3759,6 +3815,7 @@ export interface ApiVenuesPageVenuesPage extends Struct.SingleTypeSchema {
       Schema.Attribute.DefaultTo<'All Venues - Active Away'>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3796,6 +3853,7 @@ export interface ApiVideoArchivePageVideoArchivePage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3826,6 +3884,7 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -3871,6 +3930,7 @@ export interface ApiWelcomepacksPageWelcomepacksPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3911,6 +3971,7 @@ export interface ApiWhatsappGroupsPageWhatsappGroupsPage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -4151,128 +4212,6 @@ export interface PluginReviewWorkflowsWorkflowStage
       'manyToOne',
       'plugin::review-workflows.workflow'
     >;
-  };
-}
-
-export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginContentType
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'strapi_5_sitemap_plugin_content_types';
-  info: {
-    displayName: 'strapi-5-sitemap-plugin-content-type';
-    pluralName: 'strapi-5-sitemap-plugin-content-types';
-    singularName: 'strapi-5-sitemap-plugin-content-type';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    frequency: Schema.Attribute.String;
-    langcode: Schema.Attribute.String;
-    lastModified: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type'
-    > &
-      Schema.Attribute.Private;
-    pattern: Schema.Attribute.String;
-    priority: Schema.Attribute.Float;
-    publishedAt: Schema.Attribute.DateTime;
-    thumbnail: Schema.Attribute.String;
-    type: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginContentTypeSingleUrl
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'strapi_5_sitemap_plugin_content_type_single_urls';
-  info: {
-    displayName: 'strapi-5-sitemap-plugin-content-type-single-url';
-    pluralName: 'strapi-5-sitemap-plugin-content-type-single-urls';
-    singularName: 'strapi-5-sitemap-plugin-content-type-single-url';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    frequency: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type-single-url'
-    > &
-      Schema.Attribute.Private;
-    priority: Schema.Attribute.Float;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface PluginStrapi5SitemapPluginStrapi5SitemapPluginOption
-  extends Struct.SingleTypeSchema {
-  collectionName: 'strapi_5_sitemap_plugin_options';
-  info: {
-    displayName: 'strapi-5-sitemap-plugin-options';
-    pluralName: 'strapi-5-sitemap-plugin-options';
-    singularName: 'strapi-5-sitemap-plugin-option';
-  };
-  options: {
-    comment: '';
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    baseUrl: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-option'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -4613,9 +4552,6 @@ declare module '@strapi/strapi' {
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::review-workflows.workflow': PluginReviewWorkflowsWorkflow;
       'plugin::review-workflows.workflow-stage': PluginReviewWorkflowsWorkflowStage;
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type': PluginStrapi5SitemapPluginStrapi5SitemapPluginContentType;
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-content-type-single-url': PluginStrapi5SitemapPluginStrapi5SitemapPluginContentTypeSingleUrl;
-      'plugin::strapi-5-sitemap-plugin.strapi-5-sitemap-plugin-option': PluginStrapi5SitemapPluginStrapi5SitemapPluginOption;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

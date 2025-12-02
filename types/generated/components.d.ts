@@ -1042,6 +1042,33 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSitemap extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sitemaps';
+  info: {
+    description: 'Sitemap settings for this page';
+    displayName: 'Sitemap';
+    icon: 'map';
+  };
+  attributes: {
+    changeFrequency: Schema.Attribute.Enumeration<
+      ['always', 'hourly', 'daily', 'weekly', 'monthly', 'yearly', 'never']
+    > &
+      Schema.Attribute.DefaultTo<'monthly'>;
+    priority: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0.5>;
+    showInSitemap: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+  };
+}
+
 export interface SharedTeamMember extends Struct.ComponentSchema {
   collectionName: 'components_shared_team_members';
   info: {
@@ -1141,6 +1168,7 @@ declare module '@strapi/strapi' {
       'shared.room': SharedRoom;
       'shared.room-option': SharedRoomOption;
       'shared.seo': SharedSeo;
+      'shared.sitemap': SharedSitemap;
       'shared.team-member': SharedTeamMember;
       'shared.useful-resource': SharedUsefulResource;
     }
