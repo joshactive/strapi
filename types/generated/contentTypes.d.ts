@@ -2661,6 +2661,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
         },
         number
       >;
+    reviewSource: Schema.Attribute.String;
     reviewUniqueId: Schema.Attribute.String;
     reviewUrl: Schema.Attribute.String;
     sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
