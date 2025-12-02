@@ -50,6 +50,9 @@
       "type": "integer",
       "min": 1,
       "max": 5
+    },
+    "reviewSource": {
+      "type": "string"
     }
   }
 }
