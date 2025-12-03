@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "sourcePath": {
       "type": "string",
@@ -18,14 +19,14 @@
     },
     "destinationPath": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "statusCode": {
       "type": "integer",
-      "default": 302,
       "required": true,
+      "default": 302,
       "min": 301,
-      "max": 308
+      "max": 410
     },
     "enabled": {
       "type": "boolean",
@@ -36,8 +37,8 @@
     },
     "sitemap": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.sitemap"
+      "component": "shared.sitemap",
+      "repeatable": false
     }
   }
 }

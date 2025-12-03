@@ -2596,7 +2596,7 @@ export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    destinationPath: Schema.Attribute.String & Schema.Attribute.Required;
+    destinationPath: Schema.Attribute.String;
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2614,7 +2614,7 @@ export interface ApiRedirectRedirect extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 308;
+          max: 410;
           min: 301;
         },
         number
