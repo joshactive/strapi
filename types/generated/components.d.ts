@@ -913,6 +913,28 @@ export interface SharedCoach extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCustomEvent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_custom_events';
+  info: {
+    description: 'Custom event for group organiser';
+    displayName: 'Custom Event';
+    icon: 'calendar-plus';
+  };
+  attributes: {
+    bookingLink: Schema.Attribute.String;
+    buttonColour: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book Now'>;
+    dateFrom: Schema.Attribute.Date;
+    dateUntil: Schema.Attribute.Date;
+    isSoldOut: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    location: Schema.Attribute.String;
+    price: Schema.Attribute.Decimal;
+    singleOccupancyPrice: Schema.Attribute.Decimal;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedFaq extends Struct.ComponentSchema {
   collectionName: 'components_shared_faqs';
   info: {
@@ -1194,6 +1216,7 @@ declare module '@strapi/strapi' {
       'sections.value-card': SectionsValueCard;
       'sections.video-content-block': SectionsVideoContentBlock;
       'shared.coach': SharedCoach;
+      'shared.custom-event': SharedCustomEvent;
       'shared.faq': SharedFaq;
       'shared.hosted-experience': SharedHostedExperience;
       'shared.inclusion-item': SharedInclusionItem;

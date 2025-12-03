@@ -1251,6 +1251,7 @@ export interface ApiGroupOrganiserGroupOrganiser
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customEvents: Schema.Attribute.Component<'shared.custom-event', true>;
     eventsquerycommaseperated: Schema.Attribute.String;
     groupOrganiserImage: Schema.Attribute.Media<'images'>;
     groupOrganiserName: Schema.Attribute.String;

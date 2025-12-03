@@ -74,6 +74,11 @@
     "eventsquerycommaseperated": {
       "type": "string"
     },
+    "customEvents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.custom-event"
+    },
     "sitemap": {
       "type": "component",
       "repeatable": false,

@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_shared_custom_events",
+  "info": {
+    "displayName": "Custom Event",
+    "icon": "calendar-plus",
+    "description": "Custom event for group organiser"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "dateFrom": {
+      "type": "date"
+    },
+    "dateUntil": {
+      "type": "date"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "singleOccupancyPrice": {
+      "type": "decimal"
+    },
+    "bookingLink": {
+      "type": "string"
+    },
+    "isSoldOut": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "buttonColour": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}
+
