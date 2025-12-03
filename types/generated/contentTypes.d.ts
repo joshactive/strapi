@@ -1758,6 +1758,40 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
   };
 }
 
+export interface ApiKeyTakeawaysPageKeyTakeawaysPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'key_takeaways_page';
+  info: {
+    description: 'Key takeaways page with videos and PDF downloads organized by category';
+    displayName: 'Key Takeaways Page';
+    pluralName: 'key-takeaways-pages';
+    singularName: 'key-takeaways-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::key-takeaways-page.key-takeaways-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'key-takeaways.section', true>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavigationMenuNavigationMenu
   extends Struct.SingleTypeSchema {
   collectionName: 'navigation_menus';
@@ -4512,6 +4546,7 @@ declare module '@strapi/strapi' {
       'api::join-the-team-page.join-the-team-page': ApiJoinTheTeamPageJoinTheTeamPage;
       'api::junior-camp-page.junior-camp-page': ApiJuniorCampPageJuniorCampPage;
       'api::junior-tennis-camp.junior-tennis-camp': ApiJuniorTennisCampJuniorTennisCamp;
+      'api::key-takeaways-page.key-takeaways-page': ApiKeyTakeawaysPageKeyTakeawaysPage;
       'api::navigation-menu.navigation-menu': ApiNavigationMenuNavigationMenu;
       'api::padel-holiday-page.padel-holiday-page': ApiPadelHolidayPagePadelHolidayPage;
       'api::padel-tennis-holiday.padel-tennis-holiday': ApiPadelTennisHolidayPadelTennisHoliday;
