@@ -86,6 +86,40 @@ export interface ContentPricingRow extends Struct.ComponentSchema {
   };
 }
 
+export interface KeyTakeawaysItem extends Struct.ComponentSchema {
+  collectionName: 'components_key_takeaways_items';
+  info: {
+    description: 'Video or PDF download item';
+    displayName: 'Key Takeaway Item';
+    icon: 'file-video';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    pdfFile: Schema.Attribute.Media<'files'>;
+    pdfLabel: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['video', 'pdf-download']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'video'>;
+    youtubeUrl: Schema.Attribute.String;
+  };
+}
+
+export interface KeyTakeawaysSection extends Struct.ComponentSchema {
+  collectionName: 'components_key_takeaways_sections';
+  info: {
+    description: 'Section with category label, title, and items';
+    displayName: 'Key Takeaways Section';
+    icon: 'layer-group';
+  };
+  attributes: {
+    categoryLabel: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    items: Schema.Attribute.Component<'key-takeaways.item', true>;
+    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface NavigationDestinationCategory extends Struct.ComponentSchema {
   collectionName: 'components_navigation_destination_categories';
   info: {
@@ -1108,6 +1142,8 @@ declare module '@strapi/strapi' {
       'content.content-item': ContentContentItem;
       'content.notice-item': ContentNoticeItem;
       'content.pricing-row': ContentPricingRow;
+      'key-takeaways.item': KeyTakeawaysItem;
+      'key-takeaways.section': KeyTakeawaysSection;
       'navigation.destination-category': NavigationDestinationCategory;
       'navigation.destination-item': NavigationDestinationItem;
       'navigation.mega-menu-item': NavigationMegaMenuItem;

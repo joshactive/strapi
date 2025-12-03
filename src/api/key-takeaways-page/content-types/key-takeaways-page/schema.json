@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "key_takeaways_page",
+  "info": {
+    "singularName": "key-takeaways-page",
+    "pluralName": "key-takeaways-pages",
+    "displayName": "Key Takeaways Page",
+    "description": "Key takeaways page with videos and PDF downloads organized by category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero",
+      "required": true
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "key-takeaways.section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
+    }
+  }
+}
+

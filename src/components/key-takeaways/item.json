@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_key_takeaways_items",
+  "info": {
+    "displayName": "Key Takeaway Item",
+    "icon": "file-video",
+    "description": "Video or PDF download item"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "video",
+        "pdf-download"
+      ],
+      "default": "video",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "youtubeUrl": {
+      "type": "string",
+      "required": false
+    },
+    "pdfFile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "pdfLabel": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_key_takeaways_sections",
+  "info": {
+    "displayName": "Key Takeaways Section",
+    "icon": "layer-group",
+    "description": "Section with category label, title, and items"
+  },
+  "options": {},
+  "attributes": {
+    "categoryLabel": {
+      "type": "string",
+      "required": false
+    },
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": false
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "key-takeaways.item"
+    }
+  }
+}
+
