@@ -571,6 +571,45 @@ export interface ApiAnnouncementBarAnnouncementBar
   };
 }
 
+export interface ApiAvailabilityPageAvailabilityPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'availability_pages';
+  info: {
+    description: 'Content for the /availability page';
+    displayName: 'Availability Page';
+    pluralName: 'availability-pages';
+    singularName: 'availability-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroBackgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    heroKicker: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'AVAILABILITY'>;
+    heroSubtitle: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Check Availability'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::availability-page.availability-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBasicStaticPageBasicStaticPage
   extends Struct.CollectionTypeSchema {
   collectionName: 'basic_static_pages';
@@ -1126,6 +1165,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    redirectUrl: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     showOtherOptions: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
@@ -4525,6 +4565,7 @@ declare module '@strapi/strapi' {
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::airport-transfers-page.airport-transfers-page': ApiAirportTransfersPageAirportTransfersPage;
       'api::announcement-bar.announcement-bar': ApiAnnouncementBarAnnouncementBar;
+      'api::availability-page.availability-page': ApiAvailabilityPageAvailabilityPage;
       'api::basic-static-page.basic-static-page': ApiBasicStaticPageBasicStaticPage;
       'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::blog.blog': ApiBlogBlog;

@@ -116,8 +116,11 @@
     },
     "sitemap": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.sitemap"
+      "component": "shared.sitemap",
+      "repeatable": false
+    },
+    "FinalCall26": {
+      "type": "string"
     }
   }
 }

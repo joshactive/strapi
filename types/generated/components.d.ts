@@ -249,6 +249,7 @@ export interface SalesLandingFormSection extends Struct.ComponentSchema {
     formJson: Schema.Attribute.JSON;
     heading: Schema.Attribute.String;
     privacyNote: Schema.Attribute.String;
+    redirectUrl: Schema.Attribute.String;
     webhookUrl: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
