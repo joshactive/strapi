@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "availability_pages",
+  "info": {
+    "singularName": "availability-page",
+    "pluralName": "availability-pages",
+    "displayName": "Availability Page",
+    "description": "Content for the /availability page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "heroTitle": {
+      "type": "string",
+      "default": "Check Availability",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "text",
+      "required": true
+    },
+    "heroKicker": {
+      "type": "string",
+      "default": "AVAILABILITY",
+      "required": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
+    }
+  }
+}
