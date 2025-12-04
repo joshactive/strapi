@@ -14,7 +14,7 @@
   "attributes": {
     "wpId": {
       "type": "integer",
-      "required": false,
+      "required": true,
       "unique": true
     },
     "title": {
@@ -76,13 +76,13 @@
     },
     "customEvents": {
       "type": "component",
-      "component": "shared.custom-event",
-      "repeatable": true
+      "repeatable": true,
+      "component": "shared.custom-event"
     },
     "sitemap": {
       "type": "component",
-      "component": "shared.sitemap",
-      "repeatable": false
+      "repeatable": false,
+      "component": "shared.sitemap"
     }
   }
 }

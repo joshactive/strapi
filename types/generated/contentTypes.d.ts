@@ -1324,7 +1324,9 @@ export interface ApiGroupOrganiserGroupOrganiser
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    wpId: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    wpId: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     wpOldUrl: Schema.Attribute.String;
   };
 }
