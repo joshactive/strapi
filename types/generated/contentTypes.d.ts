@@ -908,6 +908,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     day_off_guide: Schema.Attribute.String;
     featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     featuredImage: Schema.Attribute.Media<'images'>;
+    FinalCall26: Schema.Attribute.String;
     gallery: Schema.Attribute.Media<'images', true>;
     isSoldOut: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     itinerary_url: Schema.Attribute.String;
