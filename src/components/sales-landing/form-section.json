@@ -26,6 +26,10 @@
     "webhookUrl": {
       "type": "string",
       "required": true
+    },
+    "redirectUrl": {
+      "type": "string",
+      "required": false
     }
   }
 }

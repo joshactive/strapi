@@ -108,6 +108,10 @@
     "submitButtonConditionalValue": {
       "type": "string"
     },
+    "redirectUrl": {
+      "type": "string",
+      "required": false
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
