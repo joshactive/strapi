@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "wpId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "title": {
       "type": "string",
       "required": true
@@ -76,13 +71,13 @@
     },
     "customEvents": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.custom-event"
+      "component": "shared.custom-event",
+      "repeatable": true
     },
     "sitemap": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.sitemap"
+      "component": "shared.sitemap",
+      "repeatable": false
     }
   }
 }
