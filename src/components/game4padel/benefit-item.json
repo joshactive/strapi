@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_game4padel_benefit_items",
+  "info": {
+    "displayName": "Game4Padel Benefit Item",
+    "icon": "check-circle",
+    "description": "Partnership benefit with icon, title, and description"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "clock",
+        "star",
+        "shield",
+        "heart",
+        "trophy",
+        "users",
+        "check",
+        "mapPin",
+        "racket",
+        "custom"
+      ],
+      "required": false
+    },
+    "customIconSvg": {
+      "type": "text",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
+

@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "game4padel_venues",
+  "info": {
+    "singularName": "game4padel-venue",
+    "pluralName": "game4padel-venues",
+    "displayName": "Game4Padel Venue",
+    "description": "Game4Padel partner venues across the UK"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "decimal",
+      "required": true
+    },
+    "longitude": {
+      "type": "decimal",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "websiteUrl": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true
+    },
+    "ordering": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
+

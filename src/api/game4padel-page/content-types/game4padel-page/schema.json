@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "game4padel_pages",
+  "info": {
+    "singularName": "game4padel-page",
+    "pluralName": "game4padel-pages",
+    "displayName": "Game4Padel Page",
+    "description": "Game4Padel partnership page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "displayOnFrontEnd": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "pageHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.page-hero"
+    },
+    "partnershipIntro": {
+      "type": "richtext"
+    },
+    "partnerLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "game4padel.benefit-item"
+    },
+    "venuesSectionTitle": {
+      "type": "string",
+      "default": "Find a Game4Padel Venue"
+    },
+    "venuesSectionDescription": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "sitemap": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.sitemap"
+    }
+  }
+}
+
