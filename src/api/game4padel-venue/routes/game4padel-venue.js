@@ -8,3 +8,5 @@ const { createCoreRouter } = require('@strapi/strapi').factories;
 
 module.exports = createCoreRouter('api::game4padel-venue.game4padel-venue');
 
+
+
