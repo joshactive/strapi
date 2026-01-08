@@ -121,6 +121,9 @@
     },
     "FinalCall26": {
       "type": "string"
+    },
+    "makeOffer": {
+      "type": "boolean"
     }
   }
 }

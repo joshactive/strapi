@@ -86,6 +86,34 @@ export interface ContentPricingRow extends Struct.ComponentSchema {
   };
 }
 
+export interface Game4PadelBenefitItem extends Struct.ComponentSchema {
+  collectionName: 'components_game4padel_benefit_items';
+  info: {
+    description: 'Partnership benefit with icon, title, and description';
+    displayName: 'Game4Padel Benefit Item';
+    icon: 'check-circle';
+  };
+  attributes: {
+    customIconSvg: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Enumeration<
+      [
+        'clock',
+        'star',
+        'shield',
+        'heart',
+        'trophy',
+        'users',
+        'check',
+        'mapPin',
+        'racket',
+        'custom',
+      ]
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface KeyTakeawaysItem extends Struct.ComponentSchema {
   collectionName: 'components_key_takeaways_items';
   info: {
@@ -1165,6 +1193,7 @@ declare module '@strapi/strapi' {
       'content.content-item': ContentContentItem;
       'content.notice-item': ContentNoticeItem;
       'content.pricing-row': ContentPricingRow;
+      'game4padel.benefit-item': Game4PadelBenefitItem;
       'key-takeaways.item': KeyTakeawaysItem;
       'key-takeaways.section': KeyTakeawaysSection;
       'navigation.destination-category': NavigationDestinationCategory;

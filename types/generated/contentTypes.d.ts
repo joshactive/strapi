@@ -915,6 +915,7 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::events.event'> &
       Schema.Attribute.Private;
+    makeOffer: Schema.Attribute.Boolean;
     price: Schema.Attribute.Decimal;
     product: Schema.Attribute.String;
     productLink: Schema.Attribute.String;
@@ -1234,6 +1235,88 @@ export interface ApiFormsPageFormsPage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGame4PadelPageGame4PadelPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'game4padel_pages';
+  info: {
+    description: 'Game4Padel partnership page content';
+    displayName: 'Game4Padel Page';
+    pluralName: 'game4padel-pages';
+    singularName: 'game4padel-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    benefits: Schema.Attribute.Component<'game4padel.benefit-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::game4padel-page.game4padel-page'
+    > &
+      Schema.Attribute.Private;
+    pageHero: Schema.Attribute.Component<'sections.page-hero', false>;
+    partnerLogo: Schema.Attribute.Media<'images'>;
+    partnershipIntro: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    venuesSectionDescription: Schema.Attribute.Text;
+    venuesSectionTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Find a Game4Padel Venue'>;
+  };
+}
+
+export interface ApiGame4PadelVenueGame4PadelVenue
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'game4padel_venues';
+  info: {
+    description: 'Game4Padel partner venues across the UK';
+    displayName: 'Game4Padel Venue';
+    pluralName: 'game4padel-venues';
+    singularName: 'game4padel-venue';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    city: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOnFrontEnd: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    image: Schema.Attribute.Media<'images'>;
+    latitude: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::game4padel-venue.game4padel-venue'
+    > &
+      Schema.Attribute.Private;
+    longitude: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    phoneNumber: Schema.Attribute.String;
+    postcode: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    websiteUrl: Schema.Attribute.String;
   };
 }
 
@@ -4579,6 +4662,8 @@ declare module '@strapi/strapi' {
       'api::flights-page.flights-page': ApiFlightsPageFlightsPage;
       'api::form.form': ApiFormForm;
       'api::forms-page.forms-page': ApiFormsPageFormsPage;
+      'api::game4padel-page.game4padel-page': ApiGame4PadelPageGame4PadelPage;
+      'api::game4padel-venue.game4padel-venue': ApiGame4PadelVenueGame4PadelVenue;
       'api::group-organiser-page.group-organiser-page': ApiGroupOrganiserPageGroupOrganiserPage;
       'api::group-organiser.group-organiser': ApiGroupOrganiserGroupOrganiser;
       'api::home.home': ApiHomeHome;
