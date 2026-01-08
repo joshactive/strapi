@@ -16,3 +16,10 @@ module.exports = createCoreController('api::availability-page.availability-page'
 
 
 
+
+
+
+
+
+
+
