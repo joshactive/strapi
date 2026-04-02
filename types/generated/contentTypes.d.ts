@@ -1838,6 +1838,8 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -1859,6 +1861,10 @@ export interface ApiJuniorTennisCampJuniorTennisCamp
     tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
@@ -2086,8 +2092,10 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
     ourRating: Schema.Attribute.Decimal;
     padelCourtsInfo: Schema.Attribute.RichText;
     padelCourtSurface: Schema.Attribute.String;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     padelStandard: Schema.Attribute.String;
     perfectFor: Schema.Attribute.String;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -2114,6 +2122,10 @@ export interface ApiPadelTennisHolidayPadelTennisHoliday
         number
       >;
     tennisCourts: Schema.Attribute.RichText;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
@@ -2163,9 +2175,15 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String;
     sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2285,9 +2303,11 @@ export interface ApiPickleballHolidayPickleballHoliday
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.Text;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     perfectFor: Schema.Attribute.String;
     pickleballCourtsInfo: Schema.Attribute.RichText;
     pickleballCourtSurface: Schema.Attribute.String;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     pickleballStandard: Schema.Attribute.String;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
@@ -2315,6 +2335,10 @@ export interface ApiPickleballHolidayPickleballHoliday
         number
       >;
     tennisCourts: Schema.Attribute.RichText;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;
@@ -2447,7 +2471,9 @@ export interface ApiPlayAndWatchPlayAndWatch
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.Text;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     perfectFor: Schema.Attribute.String;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -2472,6 +2498,10 @@ export interface ApiPlayAndWatchPlayAndWatch
         number
       >;
     tennisCourts: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     tennisEvent: Schema.Attribute.String;
     tennisStandard: Schema.Attribute.String;
     theEvent: Schema.Attribute.RichText;
@@ -2874,6 +2904,7 @@ export interface ApiSalesLandingPageSalesLandingPage
       'api::sales-landing-page.sales-landing-page'
     > &
       Schema.Attribute.Private;
+    offerEnded: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     pageType: Schema.Attribute.Enumeration<
       ['product-page', 'static-page', 'landing-page', 'campaign-page']
     > &
@@ -2986,6 +3017,8 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -3013,6 +3046,10 @@ export interface ApiSchoolTennisTourSchoolTennisTour
     tennisCourts: Schema.Attribute.RichText;
     tennisCourtsInfo: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
@@ -3451,6 +3488,8 @@ export interface ApiTennisAcademyTennisAcademy
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -3468,6 +3507,10 @@ export interface ApiTennisAcademyTennisAcademy
     starRating: Schema.Attribute.String;
     tennisAvailability: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     tennisFacilities: Schema.Attribute.RichText;
     theHotel: Schema.Attribute.RichText;
     theTennis: Schema.Attribute.RichText;
@@ -3605,7 +3648,9 @@ export interface ApiTennisClinicTennisClinic
     ordering: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<50>;
     otherFaqsUrl: Schema.Attribute.String;
     ourRating: Schema.Attribute.Decimal;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     perfectFor: Schema.Attribute.String;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -3627,6 +3672,10 @@ export interface ApiTennisClinicTennisClinic
       >;
     tennisCourts: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     tennisStandard: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
@@ -3792,6 +3841,8 @@ export interface ApiTennisHolidayTennisHoliday
         number
       >;
     padelCourtsInfo: Schema.Attribute.RichText;
+    padelCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
+    pickleballCourtTypes: Schema.Attribute.Component<'shared.court-type', true>;
     priceFrom: Schema.Attribute.Decimal;
     productType: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -3823,6 +3874,10 @@ export interface ApiTennisHolidayTennisHoliday
       >;
     tennisCourts: Schema.Attribute.RichText;
     tennisCourtSurface: Schema.Attribute.String;
+    tennisCourtSurfaces: Schema.Attribute.Component<
+      'shared.court-surface',
+      true
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     topTips: Schema.Attribute.RichText;
     tripImages: Schema.Attribute.Media<'images', true>;

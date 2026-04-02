@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_court_surfaces",
+  "info": {
+    "displayName": "Court Surface",
+    "description": "Court surface row with the number of courts"
+  },
+  "options": {},
+  "attributes": {
+    "numberOfCourts": {
+      "type": "integer",
+      "required": true
+    },
+    "surface": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

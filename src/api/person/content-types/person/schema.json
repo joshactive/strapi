@@ -50,6 +50,21 @@
       "type": "email",
       "required": false
     },
+    "tennisCourtSurfaces": {
+      "type": "component",
+      "component": "shared.court-surface",
+      "repeatable": true
+    },
+    "padelCourtTypes": {
+      "type": "component",
+      "component": "shared.court-type",
+      "repeatable": true
+    },
+    "pickleballCourtTypes": {
+      "type": "component",
+      "component": "shared.court-type",
+      "repeatable": true
+    },
     "sitemap": {
       "type": "component",
       "repeatable": false,

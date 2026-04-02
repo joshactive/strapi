@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_court_types",
+  "info": {
+    "displayName": "Court Type",
+    "description": "Court type row with the number of courts"
+  },
+  "options": {},
+  "attributes": {
+    "numberOfCourts": {
+      "type": "integer",
+      "required": true
+    },
+    "courtType": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

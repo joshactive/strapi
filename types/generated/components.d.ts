@@ -942,6 +942,30 @@ export interface SharedCoach extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedCourtSurface extends Struct.ComponentSchema {
+  collectionName: 'components_shared_court_surfaces';
+  info: {
+    description: 'Court surface row with the number of courts';
+    displayName: 'Court Surface';
+  };
+  attributes: {
+    numberOfCourts: Schema.Attribute.Integer & Schema.Attribute.Required;
+    surface: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedCourtType extends Struct.ComponentSchema {
+  collectionName: 'components_shared_court_types';
+  info: {
+    description: 'Court type row with the number of courts';
+    displayName: 'Court Type';
+  };
+  attributes: {
+    courtType: Schema.Attribute.String & Schema.Attribute.Required;
+    numberOfCourts: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedCustomEvent extends Struct.ComponentSchema {
   collectionName: 'components_shared_custom_events';
   info: {
@@ -1246,6 +1270,8 @@ declare module '@strapi/strapi' {
       'sections.value-card': SectionsValueCard;
       'sections.video-content-block': SectionsVideoContentBlock;
       'shared.coach': SharedCoach;
+      'shared.court-surface': SharedCourtSurface;
+      'shared.court-type': SharedCourtType;
       'shared.custom-event': SharedCustomEvent;
       'shared.faq': SharedFaq;
       'shared.hosted-experience': SharedHostedExperience;
