@@ -315,6 +315,12 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.sitemap"
+    },
+    "getInfoWebhookUrl": {
+      "type": "text"
+    },
+    "getInfoHiddenFieldValue": {
+      "type": "string"
     }
   }
 }
