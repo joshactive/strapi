@@ -54,7 +54,7 @@
     "stickyCtaEnabled": {
       "type": "boolean",
       "default": false,
-      "required": false
+      "required": true
     },
     "stickyCtaLabel": {
       "type": "string"
@@ -74,7 +74,7 @@
     "exitIntentEnabled": {
       "type": "boolean",
       "default": false,
-      "required": false
+      "required": true
     },
     "successCode": {
       "type": "string"
@@ -88,7 +88,7 @@
     "rememberSubmission": {
       "type": "boolean",
       "default": true,
-      "required": false
+      "required": true
     }
   }
 }

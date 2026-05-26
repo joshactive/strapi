@@ -48,6 +48,12 @@
     "priceFrom": {
       "type": "decimal"
     },
+    "offerLabel": {
+      "type": "string"
+    },
+    "offerText": {
+      "type": "text"
+    },
     "displayOnFrontEnd": {
       "type": "boolean",
       "default": true

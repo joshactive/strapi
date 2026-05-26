@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sales_landing_products_carousel_sections",
+  "info": {
+    "displayName": "Products Carousel Section",
+    "icon": "th-large",
+    "description": "Embeds the 'What do we offer?' product carousel on a sales landing page. The per-card Discover More button is hidden and replaced with the offer info defined on each Product."
+  },
+  "options": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["white", "grey"],
+      "default": "white"
+    },
+    "productSlugs": {
+      "type": "json"
+    },
+    "registerCtaLabel": {
+      "type": "string"
+    },
+    "registerAnchor": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sales_landing_featured_product_items",
+  "info": {
+    "displayName": "Featured Product Item",
+    "icon": "tag",
+    "description": "A single product slot inside the landing page slider, optionally surfaced with an offer"
+  },
+  "options": {},
+  "attributes": {
+    "productSlug": {
+      "type": "string",
+      "required": true
+    },
+    "offerText": {
+      "type": "string"
+    }
+  }
+}

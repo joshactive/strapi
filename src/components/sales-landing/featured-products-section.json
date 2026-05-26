@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sales_landing_featured_products_sections",
+  "info": {
+    "displayName": "Featured Products Section",
+    "icon": "th-large",
+    "description": "Carousel of featured products (venues / academies). On sales landing pages the standard CTAs are hidden and each card surfaces an optional offer linking to the registration form."
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sales-landing.featured-product-item"
+    }
+  }
+}

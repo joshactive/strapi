@@ -96,6 +96,14 @@
       "type": "component",
       "component": "sales-landing.trust-badges-section"
     },
+    "productsSection": {
+      "type": "component",
+      "component": "sales-landing.featured-products-section"
+    },
+    "productsCarouselSection": {
+      "type": "component",
+      "component": "sales-landing.products-carousel-section"
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo"
