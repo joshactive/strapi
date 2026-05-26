@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sales_landing_trust_badges",
+  "info": {
+    "displayName": "Trust Badge",
+    "icon": "shield",
+    "description": "Single trust logo entry"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "logoImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

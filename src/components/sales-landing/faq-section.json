@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sales_landing_faq_sections",
+  "info": {
+    "displayName": "FAQ Section",
+    "icon": "question-circle",
+    "description": "Accordion of frequently asked questions"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sales-landing.faq-item"
+    }
+  }
+}

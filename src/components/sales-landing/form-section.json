@@ -50,6 +50,45 @@
     },
     "whatsAppReminderSuccessMessage": {
       "type": "string"
+    },
+    "stickyCtaEnabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "stickyCtaLabel": {
+      "type": "string"
+    },
+    "stickyCtaButtonLabel": {
+      "type": "string"
+    },
+    "lowTimeButtonLabel": {
+      "type": "string"
+    },
+    "lowTimeThresholdHours": {
+      "type": "integer",
+      "default": 24,
+      "min": 1,
+      "max": 720
+    },
+    "exitIntentEnabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "successCode": {
+      "type": "string"
+    },
+    "successCodeLabel": {
+      "type": "string"
+    },
+    "successCodeNote": {
+      "type": "string"
+    },
+    "rememberSubmission": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

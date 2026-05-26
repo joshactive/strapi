@@ -88,6 +88,14 @@
       "repeatable": true,
       "component": "sales-landing.rating-highlight"
     },
+    "faqSection": {
+      "type": "component",
+      "component": "sales-landing.faq-section"
+    },
+    "trustBadgesSection": {
+      "type": "component",
+      "component": "sales-landing.trust-badges-section"
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo"

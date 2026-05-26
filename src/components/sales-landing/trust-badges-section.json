@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sales_landing_trust_badges_sections",
+  "info": {
+    "displayName": "Trust Badges Section",
+    "icon": "shield",
+    "description": "Row of trust / certification badges above the form"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "badges": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sales-landing.trust-badge"
+    }
+  }
+}
