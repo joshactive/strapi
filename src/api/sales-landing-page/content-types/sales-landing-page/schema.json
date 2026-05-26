@@ -40,6 +40,12 @@
       "type": "boolean",
       "default": false
     },
+    "countdownEndsAt": {
+      "type": "datetime"
+    },
+    "countdownLabel": {
+      "type": "string"
+    },
     "hero": {
       "type": "component",
       "component": "sales-landing.hero"

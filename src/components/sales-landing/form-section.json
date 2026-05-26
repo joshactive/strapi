@@ -30,6 +30,26 @@
     "redirectUrl": {
       "type": "string",
       "required": false
+    },
+    "enableWhatsAppReminder": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "whatsAppReminderHeading": {
+      "type": "string"
+    },
+    "whatsAppReminderDescription": {
+      "type": "richtext"
+    },
+    "whatsAppReminderButtonLabel": {
+      "type": "string"
+    },
+    "whatsAppReminderConsentText": {
+      "type": "string"
+    },
+    "whatsAppReminderSuccessMessage": {
+      "type": "string"
     }
   }
 }
