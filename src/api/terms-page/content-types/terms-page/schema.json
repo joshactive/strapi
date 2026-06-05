@@ -57,6 +57,10 @@
       "type": "richtext",
       "required": false
     },
+    "giftCardsTerms": {
+      "type": "richtext",
+      "required": false
+    },
     "touristTaxTerms": {
       "type": "richtext",
       "required": false

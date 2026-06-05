@@ -72,11 +72,18 @@ Please raise any issue immediately with the coach/desk so we can assist on the s
 
 We process personal data in order to manage bookings and deliver services, and may share data with venue staff and contracted coaches as necessary. For details, contact us at the email above.
 
-## 18. General
+## 18. Gift Cards
+
+Active Away gift cards are issued in GBP and may be redeemed against eligible Active Away bookings or payment links, subject to availability and the booking terms that apply to the relevant Service. Gift card purchases are subject to the minimum and maximum values shown at checkout.
+
+Gift cards expire 12 months from the date of issue. Any unused balance may be applied to future eligible bookings before expiry. If the value of a booking exceeds the remaining gift card balance, you must pay the difference by an accepted payment method.
+
+Gift cards are not refundable or exchangeable for cash, except where required by law. We may refuse, void, or cancel a gift card where payment has failed, where we reasonably suspect fraud or misuse, or where the gift card was issued in error. Please keep your gift card number secure; we are not responsible for unauthorised use after delivery unless caused by our negligence.
+
+## 19. General
 
 The academy may update opening hours, access rules, and equipment policies from time to time; current rules are displayed on site or at booking. If any provision of these Terms is held invalid, the remaining provisions remain in force.
 
-## 19. Governing Law
+## 20. Governing Law
 
 These Terms are governed by the laws of England and Wales and the courts of England and Wales shall have exclusive jurisdiction. Nothing in these Terms affects your statutory rights.
-

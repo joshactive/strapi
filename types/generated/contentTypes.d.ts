@@ -3920,6 +3920,7 @@ export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     creditNotesTerms: Schema.Attribute.RichText;
     generalTerms: Schema.Attribute.RichText;
+    giftCardsTerms: Schema.Attribute.RichText;
     heroBackgroundImage: Schema.Attribute.Media<'images'>;
     holidaysTerms: Schema.Attribute.RichText;
     introText: Schema.Attribute.RichText;
