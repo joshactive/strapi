@@ -921,6 +921,8 @@ export interface ApiEventsEvent extends Struct.CollectionTypeSchema {
     productLink: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    showOnBookEvents: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     singleOccupancyPriceEvent: Schema.Attribute.Decimal;
     sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;

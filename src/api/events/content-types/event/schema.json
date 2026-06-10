@@ -88,6 +88,10 @@
       "type": "boolean",
       "default": false
     },
+    "showOnBookEvents": {
+      "type": "boolean",
+      "default": false
+    },
     "seo": {
       "type": "component",
       "component": "shared.seo",
