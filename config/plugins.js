@@ -19,6 +19,8 @@ const ensureJwtSecret = (env) => {
   return generated;
 };
 
+const mb = (value) => value * 1024 * 1024;
+
 module.exports = ({ env }) => {
   const jwtSecret = ensureJwtSecret(env);
 
@@ -30,6 +32,7 @@ module.exports = ({ env }) => {
     },
     upload: {
       config: {
+        sizeLimit: env.int("UPLOAD_SIZE_LIMIT_BYTES", env.int("UPLOAD_SIZE_LIMIT", mb(250))),
         provider: "aws-s3",
         providerOptions: {
           s3Options: {

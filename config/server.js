@@ -1,5 +1,7 @@
 const crypto = require('crypto');
 
+const minutes = (value) => value * 60 * 1000;
+
 const buildAppKeys = (env) => {
   const existingKeys = env.array('APP_KEYS');
 
@@ -25,6 +27,11 @@ const buildAppKeys = (env) => {
 module.exports = ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
+  http: {
+    serverOptions: {
+      requestTimeout: env.int('STRAPI_REQUEST_TIMEOUT_MS', minutes(10)),
+    },
+  },
   app: {
     keys: buildAppKeys(env),
   },

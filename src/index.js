@@ -29,6 +29,8 @@ module.exports = {
       r2PublicUrl: env('R2_CUSTOM_DOMAIN', env('R2_PUBLIC_URL', 'https://files.activeaway.com')),
       r2RootPath: env('R2_ROOT_PATH', ''),
       r2ACL: env('R2_ACL', 'private'),
+      uploadConcurrency: Number(env('UPLOAD_PROVIDER_CONCURRENCY', 4)),
+      uploadTimeoutMs: Number(env('UPLOAD_PROVIDER_TIMEOUT_MS', 300000)),
     };
 
     const hybridProvider = createHybridUploadProvider.init(hybridConfig);

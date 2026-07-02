@@ -10,6 +10,8 @@ const toOrigin = (value) => {
   }
 };
 
+const mb = (value) => value * 1024 * 1024;
+
 module.exports = ({ env }) => {
   // Support both old R2 dev URL and custom domain during transition
   const r2CustomOrigin = toOrigin(env('R2_CUSTOM_DOMAIN', 'https://files.activeaway.com'));
@@ -71,9 +73,41 @@ module.exports = ({ env }) => {
         keepHeaderOnError: true,
       },
     },
+    {
+      name: 'strapi::compression',
+      config: {
+        br: true,
+        gzip: true,
+        deflate: true,
+        threshold: '1kb',
+      },
+    },
+    {
+      name: 'global::public-api-cache',
+      config: {
+        ttlMs: env.int('API_RESPONSE_CACHE_TTL_MS', 60 * 1000),
+        maxEntries: env.int('API_RESPONSE_CACHE_MAX_ENTRIES', 250),
+        maxBodyBytes: env.int('API_RESPONSE_CACHE_MAX_BODY_BYTES', 2 * 1024 * 1024),
+      },
+    },
     'strapi::poweredBy',
     'strapi::query',
-    'strapi::body',
+    {
+      name: 'strapi::body',
+      config: {
+        multipart: true,
+        jsonLimit: env('BODY_JSON_LIMIT', '10mb'),
+        formLimit: env('BODY_FORM_LIMIT', '10mb'),
+        textLimit: env('BODY_TEXT_LIMIT', '1mb'),
+        formidable: {
+          maxFileSize: env.int('UPLOAD_MAX_FILE_SIZE_BYTES', env.int('UPLOAD_MAX_FILE_SIZE', mb(250))),
+          maxTotalFileSize: env.int(
+            'UPLOAD_MAX_TOTAL_FILE_SIZE_BYTES',
+            env.int('UPLOAD_MAX_TOTAL_FILE_SIZE', mb(750))
+          ),
+        },
+      },
+    },
     'strapi::session',
     'strapi::favicon',
     'strapi::public',

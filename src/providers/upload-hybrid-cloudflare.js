@@ -2,6 +2,44 @@ const { S3Client, PutObjectCommand, DeleteObjectCommand } = require("@aws-sdk/cl
 const FormData = require("form-data");
 const fetch = require("node-fetch");
 
+const DEFAULT_UPLOAD_CONCURRENCY = 4;
+const DEFAULT_UPLOAD_TIMEOUT_MS = 300000;
+
+const toPositiveInt = (value, fallback) => {
+  const parsed = Number(value);
+
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+};
+
+const createLimiter = (maxConcurrent) => {
+  const limit = toPositiveInt(maxConcurrent, DEFAULT_UPLOAD_CONCURRENCY);
+  const queue = [];
+  let active = 0;
+
+  const runNext = () => {
+    if (active >= limit || queue.length === 0) {
+      return;
+    }
+
+    const { fn, resolve, reject } = queue.shift();
+    active += 1;
+
+    Promise.resolve()
+      .then(fn)
+      .then(resolve, reject)
+      .finally(() => {
+        active -= 1;
+        runNext();
+      });
+  };
+
+  return (fn) =>
+    new Promise((resolve, reject) => {
+      queue.push({ fn, resolve, reject });
+      runNext();
+    });
+};
+
 module.exports = {
   init(config) {
     // Check if configuration is complete
@@ -12,6 +50,26 @@ module.exports = {
       console.warn("⚠️  Cloudflare upload provider: No credentials configured. Upload functionality will be limited.");
       console.warn("⚠️  Please set CF_ACCOUNT_ID, CF_IMAGES_TOKEN, R2_* environment variables in Railway.");
     }
+
+    const uploadTimeoutMs = toPositiveInt(config.uploadTimeoutMs, DEFAULT_UPLOAD_TIMEOUT_MS);
+    const runLimitedUpload = createLimiter(config.uploadConcurrency);
+
+    const withUploadTimeout = async (label, operation) => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), uploadTimeoutMs);
+
+      try {
+        return await operation(controller.signal);
+      } catch (error) {
+        if (error.name === "AbortError") {
+          throw new Error(`${label} timed out after ${uploadTimeoutMs}ms`);
+        }
+
+        throw error;
+      } finally {
+        clearTimeout(timeout);
+      }
+    };
 
     // S3 client for R2 (only if configured)
     let s3Client = null;
@@ -42,6 +100,14 @@ module.exports = {
         "image/tiff",
       ];
       return imageMimeTypes.includes(file.mime);
+    };
+
+    const getFileBody = (file) => {
+      if (typeof file.stream === "function") {
+        return file.stream();
+      }
+
+      return file.stream || file.buffer;
     };
 
     const normalizeBaseUrl = (rawUrl) => {
@@ -110,85 +176,104 @@ module.exports = {
 
     return {
       async upload(file) {
-        if (isImage(file) && hasCloudflareImages) {
-          // Upload to Cloudflare Images
-          try {
-            const formData = new FormData();
-            formData.append("file", file.stream || file.buffer, {
-              filename: file.name,
-              contentType: file.mime,
-            });
+        return runLimitedUpload(async () => {
+          if (isImage(file) && hasCloudflareImages) {
+            // Upload to Cloudflare Images
+            try {
+              const formData = new FormData();
+              const fileBody = getFileBody(file);
 
-            const response = await fetch(
-              `https://api.cloudflare.com/client/v4/accounts/${config.cfAccountId}/images/v1`,
-              {
-                method: "POST",
-                headers: {
-                  Authorization: `Bearer ${config.cfImagesToken}`,
-                },
-                body: formData,
+              if (!fileBody) {
+                throw new Error("No readable file body was provided by Strapi.");
               }
-            );
 
-            const data = await response.json();
+              formData.append("file", fileBody, {
+                filename: file.name,
+                contentType: file.mime,
+              });
 
-            if (!data.success) {
-              throw new Error(`Cloudflare Images upload failed: ${JSON.stringify(data.errors)}`);
+              const response = await withUploadTimeout("Cloudflare Images upload", (signal) =>
+                fetch(
+                  `https://api.cloudflare.com/client/v4/accounts/${config.cfAccountId}/images/v1`,
+                  {
+                    method: "POST",
+                    headers: {
+                      Authorization: `Bearer ${config.cfImagesToken}`,
+                    },
+                    body: formData,
+                    signal,
+                  }
+                )
+              );
+
+              const data = await response.json();
+
+              if (!data.success) {
+                throw new Error(`Cloudflare Images upload failed: ${JSON.stringify(data.errors)}`);
+              }
+
+              // Store the image ID and variants
+              const { defaultUrl, variants, metadataVariants } = buildImageVariantUrls(
+                data.result,
+                config.cfImagesBaseUrl
+              );
+
+              file.url = defaultUrl;
+              file.cfImageId = data.result.id;
+              file.cfVariants = variants;
+              file.provider = "cloudflare-images";
+              file.provider_metadata = {
+                imageId: data.result.id,
+                variants,
+                originalVariants: data.result.variants,
+                variantMetadata: metadataVariants,
+              };
+            } catch (error) {
+              console.error("Cloudflare Images upload error:", error);
+              throw new Error(`Failed to upload image to Cloudflare Images: ${error.message}`);
             }
+          } else if (!isImage(file) && hasR2Config && s3Client) {
+            // Upload to R2 for non-image files
+            try {
+              const key = `${config.r2RootPath ? config.r2RootPath + "/" : ""}${file.hash}${file.ext}`;
+              const fileBody = getFileBody(file);
 
-            // Store the image ID and variants
-            const { defaultUrl, variants, metadataVariants } = buildImageVariantUrls(
-              data.result,
-              config.cfImagesBaseUrl
+              if (!fileBody) {
+                throw new Error("No readable file body was provided by Strapi.");
+              }
+
+              await withUploadTimeout("R2 upload", (abortSignal) =>
+                s3Client.send(
+                  new PutObjectCommand({
+                    Bucket: config.r2Bucket,
+                    Key: key,
+                    Body: fileBody,
+                    ContentType: file.mime,
+                    ACL: config.r2ACL || "private",
+                  }),
+                  { abortSignal }
+                )
+              );
+
+              file.url = `${config.r2PublicUrl}/${key}`;
+              file.provider = "cloudflare-r2";
+              file.provider_metadata = {
+                bucket: config.r2Bucket,
+                key: key,
+              };
+            } catch (error) {
+              console.error("R2 upload error:", error);
+              throw new Error(`Failed to upload file to R2: ${error.message}`);
+            }
+          } else {
+            // No valid configuration available
+            throw new Error(
+              `Upload failed: Cloudflare credentials not configured. ` +
+              `Please set CF_ACCOUNT_ID, CF_IMAGES_TOKEN, and R2_* environment variables in Railway. ` +
+              `See HYBRID_SETUP.md for instructions.`
             );
-
-            file.url = defaultUrl;
-            file.cfImageId = data.result.id;
-            file.cfVariants = variants;
-            file.provider = "cloudflare-images";
-            file.provider_metadata = {
-              imageId: data.result.id,
-              variants,
-              originalVariants: data.result.variants,
-              variantMetadata: metadataVariants,
-            };
-          } catch (error) {
-            console.error("Cloudflare Images upload error:", error);
-            throw new Error(`Failed to upload image to Cloudflare Images: ${error.message}`);
           }
-        } else if (!isImage(file) && hasR2Config && s3Client) {
-          // Upload to R2 for non-image files
-          try {
-            const key = `${config.r2RootPath ? config.r2RootPath + "/" : ""}${file.hash}${file.ext}`;
-
-            await s3Client.send(
-              new PutObjectCommand({
-                Bucket: config.r2Bucket,
-                Key: key,
-                Body: file.stream || file.buffer,
-                ContentType: file.mime,
-                ACL: config.r2ACL || "private",
-              })
-            );
-
-            file.url = `${config.r2PublicUrl}/${key}`;
-            file.provider = "cloudflare-r2";
-            file.provider_metadata = {
-              bucket: config.r2Bucket,
-              key: key,
-            };
-          } catch (error) {
-            console.error("R2 upload error:", error);
-            throw new Error(`Failed to upload file to R2: ${error.message}`);
-          }
-        } else {
-          // No valid configuration available
-          throw new Error(
-            `Upload failed: Cloudflare credentials not configured. ` +
-            `Please set CF_ACCOUNT_ID, CF_IMAGES_TOKEN, and R2_* environment variables in Railway. ` +
-            `See HYBRID_SETUP.md for instructions.`
-          );
-        }
+        });
       },
 
       async delete(file) {

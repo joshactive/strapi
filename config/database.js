@@ -10,7 +10,7 @@ module.exports = ({ env }) => ({
         debug: env.bool('DATABASE_DEBUG', false),
         pool: { 
             min: env.int('DATABASE_POOL_MIN', 0), 
-            max: env.int('DATABASE_POOL_MAX', 7) 
+            max: env.int('DATABASE_POOL_MAX', 15)
         },
         acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     }
