@@ -41,6 +41,10 @@
       "type": "boolean",
       "default": true
     },
+    "displayOnGlobalReviewGrid": {
+      "type": "boolean",
+      "default": true
+    },
     "sitemap": {
       "type": "component",
       "component": "shared.sitemap",
