@@ -56,6 +56,10 @@
     "formWebhookUrl": {
       "type": "text"
     },
+    "redirectUrl": {
+      "type": "string",
+      "required": false
+    },
     "formFields": {
       "type": "json"
     },

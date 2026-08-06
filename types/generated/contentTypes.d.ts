@@ -2561,6 +2561,7 @@ export interface ApiPreOrderPreOrder extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     menuFiles: Schema.Attribute.Media<'files', true>;
     publishedAt: Schema.Attribute.DateTime;
+    redirectUrl: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     sitemap: Schema.Attribute.Component<'shared.sitemap', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
